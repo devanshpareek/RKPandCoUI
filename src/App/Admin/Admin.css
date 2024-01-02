@@ -1,0 +1,98 @@
+/* Login.css */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+    /* height: 100vh; */
+  }
+  
+  .login-form {
+    width: 20rem;
+    padding: 1.3rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .input-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input {
+    width: calc(100% - 12px);
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+  }
+  
+  button {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.3rem;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+
+.queries-list {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    overflow-x: scroll;
+    }
+
+.query-item {
+    margin: 1rem;
+    height: 20rem;
+    width: 20rem;
+    box-shadow: 0rem 0rem 1rem 0.1rem #52b2bf;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.applications-list {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    overflow-x: scroll;
+    }
+
+.application-item {
+    margin: 1rem;
+    height: 20rem;
+    width: 20rem;
+    box-shadow: 0rem 0rem 1rem 0.1rem #52b2bf;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.queries-and-applications-wrapper {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.resolve-btn {
+    height: 1.5rem;
+    width: 4rem;
+    padding: 0.2rem;
+    font-size: 0.8rem;
+    margin-top: 1rem;
+}
