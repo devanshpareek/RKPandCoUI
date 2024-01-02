@@ -34,10 +34,10 @@ export const NavBar = () => {
     <Router>
       <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
         <Container>
-          <Navbar.Brand href="/">
+          <Navbar.Brand href="/RKPandCoUI/">
             <img src={CALOGO} alt="Logo" />
           </Navbar.Brand>
-          <Navbar.Brand href="/">
+          <Navbar.Brand href="/RKPandCoUI/">
             <h2
               style={{
                 textShadow: "2px 2px 5px darkslategrey",
@@ -66,7 +66,7 @@ export const NavBar = () => {
           >
             <Nav className="ms-auto">
               <Nav.Link
-                href={"/#home"}
+                href={"/RKPandCoUI/#home"}
                 className={
                   activeLink === "home" ? "active navbar-link" : "navbar-link"
                 }
@@ -75,7 +75,7 @@ export const NavBar = () => {
                 Who we are
               </Nav.Link>
               <Nav.Link
-                href={"/#team"}
+                href={"/RKPandCoUI/#team"}
                 className={
                   activeLink === "team" ? "active navbar-link" : "navbar-link"
                 }
@@ -85,7 +85,7 @@ export const NavBar = () => {
               </Nav.Link>
 
               <Nav.Link
-                href={"/#services"}
+                href={"/RKPandCoUI/#services"}
                 className={
                   activeLink === "services"
                     ? "active navbar-link"
@@ -97,7 +97,7 @@ export const NavBar = () => {
               </Nav.Link>
 
               <Nav.Link
-                href={"/#opportunities"}
+                href={"/RKPandCoUI/#opportunities"}
                 className={
                   activeLink === "opportunities"
                     ? "active navbar-link"
@@ -109,7 +109,7 @@ export const NavBar = () => {
               </Nav.Link>
             </Nav>
             <span className="navbar-text">
-              <HashLink to="/#query">
+              <HashLink to="/RKPandCoUI/#query">
                 <button className="vvd">
                   <span>Let’s Connect</span>
                 </button>
