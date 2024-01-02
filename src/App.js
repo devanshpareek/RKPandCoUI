@@ -23,7 +23,7 @@ function App() {
       <RouterProvider
         router={createBrowserRouter([
           {
-            path: "/",
+            path: "/RKPandCoUI",
             element: (
               <>
                 <Banner />
