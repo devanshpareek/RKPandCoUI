@@ -93,7 +93,7 @@ export const Banner = () => {
                     Management, and development of MIS.
                   </p>{" "}
                   <button>
-                    <a href="/about-us/history">Read More</a>{" "}
+                    <a href="/RKPandCoUI/about-us/history">Read More</a>{" "}
                     <ArrowRightCircle size={25} />
                   </button>
                 </div>

@@ -46,7 +46,7 @@ export const Services2 = () => {
                     textDecoration: "none",
                     color: "black",
                   }}
-                  href="/services/TaxAndRegulatory"
+                  href="/RKPandCoUI/services/TaxAndRegulatory"
                 >
                   <div className="item">
                     <img src={meter1} alt="Image" />
@@ -58,7 +58,7 @@ export const Services2 = () => {
                     textDecoration: "none",
                     color: "black",
                   }}
-                  href="/services/AuditAndAssurance"
+                  href="/RKPandCoUI/services/AuditAndAssurance"
                 >
                   <div className="item">
                     <img src={meter2} alt="Image" />
@@ -70,7 +70,7 @@ export const Services2 = () => {
                     textDecoration: "none",
                     color: "black",
                   }}
-                  href="/services/CorporateLawServices"
+                  href="/RKPandCoUI/services/CorporateLawServices"
                 >
                   <div className="item">
                     <img src={meter3} alt="Image" />
@@ -82,7 +82,7 @@ export const Services2 = () => {
                     textDecoration: "none",
                     color: "black",
                   }}
-                  href="/services/AdvisoryServices"
+                  href="/RKPandCoUI/services/AdvisoryServices"
                 >
                   <div className="item">
                     <img src={meter1} alt="Image" />
@@ -94,7 +94,7 @@ export const Services2 = () => {
                     textDecoration: "none",
                     color: "black",
                   }}
-                  href="/services/FinanceAndAccountingOutsourcingServices"
+                  href="/RKPandCoUI/services/FinanceAndAccountingOutsourcingServices"
                 >
                   <div className="item">
                     <img src={meter1} alt="Image" />
