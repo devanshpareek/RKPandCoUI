@@ -86,7 +86,7 @@ const Services = (serviceName) => {
                           textDecoration: "none",
                           color: "black",
                         }}
-                        href="/RKPandCoUI/services/TaxAndRegulatory"
+                        href="/services/TaxAndRegulatory"
                         class={`list-btn list-group-item ${
                           serviceName.serviceName === "TaxAndRegulatory"
                             ? "active"
@@ -112,7 +112,7 @@ const Services = (serviceName) => {
                           textDecoration: "none",
                           color: "black",
                         }}
-                        href="/RKPandCoUI/services/AuditAndAssurance"
+                        href="/services/AuditAndAssurance"
                         class={`list-btn list-group-item ${
                           serviceName.serviceName === "AuditAndAssurance"
                             ? "active"
@@ -138,7 +138,7 @@ const Services = (serviceName) => {
                           textDecoration: "none",
                           color: "black",
                         }}
-                        href="/RKPandCoUI/services/CorporateLawServices"
+                        href="/services/CorporateLawServices"
                         class={`list-btn list-group-item ${
                           serviceName.serviceName === "CorporateLawServices"
                             ? "active"
@@ -164,7 +164,7 @@ const Services = (serviceName) => {
                           textDecoration: "none",
                           color: "black",
                         }}
-                        href="/RKPandCoUI/services/AdvisoryServices"
+                        href="/services/AdvisoryServices"
                         class={`list-btn list-group-item ${
                           serviceName.serviceName === "AdvisoryServices"
                             ? "active"
@@ -190,7 +190,7 @@ const Services = (serviceName) => {
                           textDecoration: "none",
                           color: "black",
                         }}
-                        href="/RKPandCoUI/services/FinanceAndAccountingOutsourcingServices"
+                        href="/services/FinanceAndAccountingOutsourcingServices"
                         class={`list-btn list-group-item ${
                           serviceName.serviceName ===
                           "FinanceAndAccountingOutsourcingServices"

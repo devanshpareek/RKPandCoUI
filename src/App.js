@@ -23,7 +23,7 @@ function App() {
       <RouterProvider
         router={createBrowserRouter([
           {
-            path: "/RKPandCoUI/",
+            path: "/",
             element: (
               <>
                 <Banner />
@@ -36,47 +36,47 @@ function App() {
             ),
           },
           {
-            path: "/RKPandCoUI/about-us/history",
+            path: "/about-us/history",
             element: <Home display={"history"} />,
           },
           {
-            path: "/RKPandCoUI/about-us/vision",
+            path: "/about-us/vision",
             element: <Home display={"vision"} />,
           },
           {
-            path: "/RKPandCoUI/about-us/mission",
+            path: "/about-us/mission",
             element: <Home display={"mission"} />,
           },
           {
-            path: "/RKPandCoUI/about-us/values",
+            path: "/about-us/values",
             element: <Home display={"values"} />,
           },
           {
-            path: "/RKPandCoUI/about-us/commitments",
+            path: "/about-us/commitments",
             element: <Home display={"commitments"} />,
           },
           {
-            path: "/RKPandCoUI/about-us/practice-area",
+            path: "/about-us/practice-area",
             element: <Home display={"practice-area"} />,
           },
           {
-            path: "/RKPandCoUI/services/TaxAndRegulatory",
+            path: "/services/TaxAndRegulatory",
             element: <Services serviceName={"TaxAndRegulatory"} />,
           },
           {
-            path: "/RKPandCoUI/services/AuditAndAssurance",
+            path: "/services/AuditAndAssurance",
             element: <Services serviceName={"AuditAndAssurance"} />,
           },
           {
-            path: "/RKPandCoUI/services/CorporateLawServices",
+            path: "/services/CorporateLawServices",
             element: <Services serviceName={"CorporateLawServices"} />,
           },
           {
-            path: "/RKPandCoUI/services/AdvisoryServices",
+            path: "/services/AdvisoryServices",
             element: <Services serviceName={"AdvisoryServices"} />,
           },
           {
-            path: "/RKPandCoUI/services/FinanceAndAccountingOutsourcingServices",
+            path: "/services/FinanceAndAccountingOutsourcingServices",
             element: (
               <Services
                 serviceName={"FinanceAndAccountingOutsourcingServices"}
