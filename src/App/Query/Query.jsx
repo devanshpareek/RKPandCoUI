@@ -25,19 +25,23 @@ const Query = () => {
     });
   };
 
+ 
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    tempSub(attachment)
+
     axios
-      .post("http://localhost:8080/query", formData)
+      .post("http://localhost:8080/query", { queryData: formData })
       .then((result) => {
-        console.log(result);
         alert(
           "Query raised successfully, we will get back to you soon.Thank you!"
         );
       })
       .catch((err) => {
-        alert("Oops, something went wrong!");
+        alert("Oops, something went wrong while raising query!");
         console.log(err);
       });
   };

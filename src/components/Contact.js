@@ -31,39 +31,102 @@ export const Contact = (props) => {
     });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setButtonText("Sending...");
-    let response = axios
-      .post("http://localhost:8080/query", formDetails)
-      .then((result) => {
-        console.log(result);
-        setStatus({ succes: true, message: "Query sent successfully" });
+  const [attachment, setAttachment] = useState("");
+  const [t, st] = useState({});
+
+  async function tempSub(img) {
+    const data = new FormData();
+    data.append("file", img);
+    data.append("upload_preset", "unicorn-bridge");
+    data.append("cloud_name", "dnuc0ukxf");
+    data.append("api_key", "618922484172698");
+    await fetch("https://api.cloudinary.com/v1_1/:dnuc0ukxf/image/upload", {
+      method: "post",
+      body: data,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        const aggregatedObj = { ...formDetails, attachment: data.url };
+        st(aggregatedObj);
+        console.log(aggregatedObj, Object.keys(aggregatedObj));
+        setFormDetails(aggregatedObj);
+        axios
+          .post("http://localhost:8080/query", {
+            queryData: aggregatedObj,
+          })
+          .then((res) => {
+            console.log(res);
+          });
+        setStatus({ success: true, message: "Query sent successfully" });
 
         alert(
-          "Query raised successfully, we will get back to you soon.Thank you!"
+          "Query raised successfully, we will get back to you soon. Thank you!"
         );
       })
-      .catch((err) => {
-        setStatus({
-          succes: false,
-          message: "Something went wrong, please try again later.",
-        });
-        alert("Oops, something went wrong!");
-        console.log(err);
+      .catch((error) => {
+        alert(error);
       });
-    setButtonText("Send");
-    let result = await response;
-    console.log(result);
+  }
 
-    setFormDetails(formInitialDetails);
-    // if (result.code == 200) {
-    //   setStatus({ succes: true, message: "Message sent successfully" });
-    // } else {
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setButtonText("Sending...");
+  //   let response = axios
+  //     .post("http://localhost:8080/query", { queryData: formDetails })
+  //     .then((result) => {
+  //       console.log(result);
+  //       setStatus({ succes: true, message: "Query sent successfully" });
+
+  //       alert(
+  //         "Query raised successfully, we will get back to you soon.Thank you!"
+  //       );
+  //     })
+  //     .catch((err) => {
+  //       setStatus({
+  //         succes: false,
+  //         message: "Something went wrong, please try again later.",
+  //       });
+  //       alert("Oops, something went wrong!");
+  //       console.log(err);
+  //     });
+  //   setButtonText("Send");
+  //   let result = await response;
+  //   console.log(result);
+
+  //   setFormDetails(formInitialDetails);
+  // };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(formDetails);
+    console.log("Form submitted", attachment, t);
+    tempSub(attachment);
+    console.log(formDetails, t);
+
+    setButtonText("Sending...");
+    // try {
+    //   await axios
+    //     .post("http://localhost:8080/query", {
+    //       queryData: t,
+    //     })
+    //     .then((res) => {
+    //       console.log(res);
+    //     });
+    //   setStatus({ success: true, message: "Query sent successfully" });
+
+    //   alert(
+    //     "Query raised successfully, we will get back to you soon. Thank you!"
+    //   );
+    // } catch (error) {
+    //   console.error("Error occurred:", error);
     //   setStatus({
-    //     succes: false,
+    //     success: false,
     //     message: "Something went wrong, please try again later.",
     //   });
+    //   alert("Oops, something went wrong!");
+    // } finally {
+    //   console.log("plz come in finally");
+    //   setButtonText("Send");
+    //   setFormDetails(formInitialDetails);
     // }
   };
 
@@ -83,9 +146,13 @@ export const Contact = (props) => {
   }
 
   return (
-    <section className="contact" id="query" style={{
-      ...(props.withoutBackground && {backgroundColor:'transparent'})
-    }}>
+    <section
+      className="contact"
+      id="query"
+      style={{
+        ...(props.withoutBackground && { backgroundColor: "transparent" }),
+      }}
+    >
       <Container>
         <Row className="align-items-center">
           <Col size={12} md={6}>
@@ -182,16 +249,16 @@ export const Contact = (props) => {
                       </Col>
 
                       <Col size={12} className="px-1">
-                        {/* <input
+                        <input
                           type="text"
                           value={formDetails.querySubject}
                           placeholder="Query Subject"
                           onChange={(e) =>
                             onFormUpdate("querySubject", e.target.value)
                           }
-                        /> */}
+                        />
 
-                        <select
+                        {/* <select
                           id="querySubject"
                           name="querySubject"
                           placeholder="Query Subject"
@@ -206,7 +273,7 @@ export const Contact = (props) => {
                               color: "black",
                             }}
                           >
-                            Option 1
+                            Query Subject
                           </option>
                           <option
                             style={{
@@ -229,7 +296,7 @@ export const Contact = (props) => {
                           >
                             Option 1
                           </option>
-                        </select>
+                        </select> */}
                       </Col>
                       <Col size={12} sm={6} className="px-1">
                         <input
@@ -237,7 +304,9 @@ export const Contact = (props) => {
                           accept="image/*"
                           name="attachment"
                           // required
-                          onChange={toDataURL}
+                          onChange={(e) => {
+                            setAttachment(e.target.files[0]);
+                          }}
                         />{" "}
                       </Col>
                       <Col size={12} className="px-1">

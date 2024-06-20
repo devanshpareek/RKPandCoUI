@@ -78,22 +78,17 @@ export const Banner = () => {
                 >
                   <h1>Who we are</h1>
                   <p>
-                    R K Pareek & Co. is founded by CA Rishi Kant Pareek and CA
-                    Rachita Jain in the year 2012. It is equipped with
-                    experienced professional team of chartered accountants and
-                    having its offices at{" "}
-                    <b>Jaipur, Kota, Jodhpur and Hyderabad</b>. We have a
-                    successful track record of conducting a fully diversified{" "}
-                    <b>“One Stop Solution”</b>
-                    for all accounting, finance and compliance related needs
-                    including Statutory Audit, Compliance Audit & Assurance,
-                    Internal Audit, Indirect Taxation, International Taxation
-                    including Transfer Pricing Study, Management Consultancy and
-                    Outsourcing for Payroll, Inventory Accounting, Fixed Assets
-                    Management, and development of MIS.
+                    Founded in 2012, R K Pareek & Co. has grown to become a
+                    trusted and respected provider of comprehensive auditing,
+                    taxation, accounting, financial advisory and consultancy
+                    services. We are dedicated to guiding our clients through
+                    the complexities of the financial world with expertise,
+                    integrity, and a commitment to excellence. Our firm prides
+                    itself on delivering customized solutions that address the
+                    unique challenges and opportunities of each client.
                   </p>{" "}
                   <button>
-                    <a href="/RKPandCoUI/about-us/history">Read More</a>{" "}
+                    <a href="/about-us/history">Read More</a>{" "}
                     <ArrowRightCircle size={25} />
                   </button>
                 </div>

@@ -1,20 +1,17 @@
 import { FaDiamond } from "react-icons/fa6";
 
-export const aboutUsContent = (display,isMobileDevice) => {
+export const aboutUsContent = (display, isMobileDevice) => {
   return display === "history" ? (
     <div>
       <h2>History</h2>
       <p>
-        R K Pareek & Co. is founded by CA Rishi Kant Pareek and CA Rachita Jain
-        in the year 2012. It is equipped with experienced professional team of
-        chartered accountants and having its offices at{" "}
-        <b>Jaipur, Kota, Jodhpur and Hyderabad</b>. We have a successful track
-        record of conducting a fully diversified <b>“One Stop Solution”</b>
-        for all accounting, finance and compliance related needs including
-        Statutory Audit, Compliance Audit & Assurance, Internal Audit, Indirect
-        Taxation, International Taxation including Transfer Pricing Study,
-        Management Consultancy and Outsourcing for Payroll, Inventory
-        Accounting, Fixed Assets Management, and development of MIS.
+        Founded in 2012, R K Pareek & Co. has grown to become a trusted and
+        respected provider of comprehensive auditing, taxation, accounting,
+        financial advisory and consultancy services. We are dedicated to guiding
+        our clients through the complexities of the financial world with
+        expertise, integrity, and a commitment to excellence. Our firm prides
+        itself on delivering customized solutions that address the unique
+        challenges and opportunities of each client.
       </p>{" "}
       <p>
         Among our clients are several manufacturing, information technology,
@@ -40,6 +37,12 @@ export const aboutUsContent = (display,isMobileDevice) => {
     >
       <h2>Our Visions:</h2>
       <p>
+        <FaDiamond />
+        To be the leading provider of innovative and reliable financial
+        solutions, empowering our clients to achieve their financial aspirations
+        with confidence.
+      </p>
+      <p>
         {" "}
         <FaDiamond />
         To be a respected & trusted professional firm and recognised as a
@@ -61,6 +64,13 @@ export const aboutUsContent = (display,isMobileDevice) => {
       <h2>Our Mission:</h2>
       <p>
         <FaDiamond />
+        To offer unparalleled auditing, financial and advisory services by
+        combining deep industry knowledge, advanced technology and a
+        client-focused approach, ensuring the success and satisfaction of our
+        clients.
+      </p>
+      <p>
+        <FaDiamond />
         To consistently provide excellent quality service to clients at all
         times.
       </p>
@@ -76,9 +86,29 @@ export const aboutUsContent = (display,isMobileDevice) => {
       }}
     >
       <h2>Our Values:</h2>
-      <p>
+      {/* <p>
         <FaDiamond /> Our core values are driven by integrity, ethical
         practices, independence and mutual respect.
+      </p> */}
+      <p>
+        <FaDiamond /> <b>Integrity:</b> We adhere to the highest ethical
+        standards, ensuring honesty and transparency in all our dealings.
+      </p>
+      <p>
+        <FaDiamond /> <b>Excellence:</b> We pursue excellence in every task,
+        striving to deliver superior services and outcomes.
+      </p>
+      <p>
+        <FaDiamond /> <b>Client-Centric:</b> Our clients' needs and goals are at
+        the heart of everything we do.
+      </p>
+      <p>
+        <FaDiamond /> <b>Innovation:</b> We embrace innovation to stay ahead in
+        a rapidly changing financial landscape.
+      </p>
+      <p>
+        <FaDiamond /> <b>Collaboration:</b> We believe in the power of teamwork
+        and work collaboratively to achieve the best results for our clients.
       </p>
     </div>
   ) : display === "commitments" ? (
@@ -118,13 +148,13 @@ export const aboutUsContent = (display,isMobileDevice) => {
       >
         Practice Area
       </h2>
-      <h3
+      {/* <h3
         style={{
           marginTop: "2rem",
         }}
       >
         SERVICES AND SPECIALTIES
-      </h3>
+      </h3> */}
       <div>
         <div
           style={{

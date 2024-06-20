@@ -6,6 +6,12 @@ import "react-multi-carousel/lib/styles.css";
 import arrow1 from "../assets/img/arrow1.svg";
 import arrow2 from "../assets/img/arrow2.svg";
 import colorSharp from "../assets/img/color-sharp.png";
+import { GoLaw } from "react-icons/go";
+import corporateLawFirm from "../Images/corporateLawIcon.jpeg";
+import auditAndAssurance from "../Images/auditandassurance.jpeg";
+import advisoryService from "../Images/advisorySection.jpeg";
+import taxAndRegulatory from "../Images/taxAndRegulatory.jpeg";
+import financing from '../Images/financing.png'
 
 export const Services2 = () => {
   const responsive = {
@@ -46,10 +52,10 @@ export const Services2 = () => {
                     textDecoration: "none",
                     color: "black",
                   }}
-                  href="/RKPandCoUI/services/TaxAndRegulatory"
+                  href="/services/TaxAndRegulatory"
                 >
                   <div className="item">
-                    <img src={meter1} alt="Image" />
+                    <img src={taxAndRegulatory} alt="Image" />
                     <h5>Tax and Regulatory</h5>
                   </div>
                 </a>
@@ -58,10 +64,10 @@ export const Services2 = () => {
                     textDecoration: "none",
                     color: "black",
                   }}
-                  href="/RKPandCoUI/services/AuditAndAssurance"
+                  href="/services/AuditAndAssurance"
                 >
                   <div className="item">
-                    <img src={meter2} alt="Image" />
+                    <img src={auditAndAssurance} alt="Image" />
                     <h5>Audit And Assurance</h5>
                   </div>
                 </a>
@@ -70,10 +76,15 @@ export const Services2 = () => {
                     textDecoration: "none",
                     color: "black",
                   }}
-                  href="/RKPandCoUI/services/CorporateLawServices"
+                  href="/services/CorporateLawServices"
                 >
                   <div className="item">
-                    <img src={meter3} alt="Image" />
+                    <img src={corporateLawFirm} alt="Image" />
+                    {/* <span style={{
+                      height:'2rem', width:'2rem'
+                    }}>
+                      <GoLaw />
+                    </span> */}
                     <h5>Corporate Law Services</h5>
                   </div>
                 </a>
@@ -82,10 +93,10 @@ export const Services2 = () => {
                     textDecoration: "none",
                     color: "black",
                   }}
-                  href="/RKPandCoUI/services/AdvisoryServices"
+                  href="/services/AdvisoryServices"
                 >
                   <div className="item">
-                    <img src={meter1} alt="Image" />
+                    <img src={advisoryService} alt="Image" />
                     <h5>Advisory Services</h5>
                   </div>
                 </a>
@@ -94,10 +105,10 @@ export const Services2 = () => {
                     textDecoration: "none",
                     color: "black",
                   }}
-                  href="/RKPandCoUI/services/FinanceAndAccountingOutsourcingServices"
+                  href="/services/FinanceAndAccountingOutsourcingServices"
                 >
                   <div className="item">
-                    <img src={meter1} alt="Image" />
+                    <img src={financing} alt="Image" />
                     <h5>Finance And Accounting Outsourcing Services</h5>
                   </div>
                 </a>

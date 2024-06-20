@@ -4,13 +4,24 @@ import navIcon1 from "../assets/img/nav-icon1.svg";
 import navIcon2 from "../assets/img/nav-icon2.svg";
 import navIcon3 from "../assets/img/nav-icon3.svg";
 import logo from "../Images/ICAI-India-Logo.png";
+import Admin from "../App/Admin/Admin";
+import useLocalStorageState from "use-local-storage-state";
 
 export const Footer = (props) => {
+  const [isAdminLoggedIn, setIsAdminLoggedIn] = useLocalStorageState(
+    "isAdminLoggedIn",
+    "false"
+  );
   return (
     <footer className="footer">
       <Container>
         <Row className="align-items-center">
-          {props.showAdminDashboard && <MailchimpForm />}
+          {isAdminLoggedIn !== "true" && props.showAdminDashboard && (
+            <Admin
+              showModal={props.showModal}
+              setShowModal={props.setShowModal}
+            />
+          )}
           <Col size={12} sm={6}>
             <img src={logo} alt="Logo" />
           </Col>
@@ -83,9 +94,14 @@ export const Footer = (props) => {
                 Hyderabad
               </a>
             </div>
-            <p style={{
-              fontSize:'1rem',marginTop:'3rem'
-            }}>Copyright 2022. All Rights Reserved</p>
+            <p
+              style={{
+                fontSize: "1rem",
+                marginTop: "3rem",
+              }}
+            >
+              Copyright 2022. All Rights Reserved
+            </p>
           </Col>
         </Row>
       </Container>

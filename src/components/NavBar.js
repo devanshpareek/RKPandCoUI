@@ -7,10 +7,15 @@ import navIcon3 from "../assets/img/nav-icon3.svg";
 import { HashLink } from "react-router-hash-link";
 import { BrowserRouter as Router, useLocation } from "react-router-dom";
 import CALOGO from "../Images/ICAI-India-Logo.png";
+import useLocalStorageState from "use-local-storage-state";
 
 export const NavBar = () => {
   const [activeLink, setActiveLink] = useState("home");
   const [scrolled, setScrolled] = useState(false);
+  const [isAdminLoggedIn, setIsAdminLoggedIn] = useLocalStorageState(
+    "isAdminLoggedIn",
+    "false"
+  );
 
   useEffect(() => {
     const onScroll = () => {
@@ -34,10 +39,10 @@ export const NavBar = () => {
     <Router>
       <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
         <Container>
-          <Navbar.Brand href="/RKPandCoUI/">
+          <Navbar.Brand href="/">
             <img src={CALOGO} alt="Logo" />
           </Navbar.Brand>
-          <Navbar.Brand href="/RKPandCoUI/">
+          <Navbar.Brand href="/">
             <h2
               style={{
                 textShadow: "2px 2px 5px darkslategrey",
@@ -61,55 +66,80 @@ export const NavBar = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav">
             <span className="navbar-toggler-icon"></span>
           </Navbar.Toggle>
-          <Navbar.Collapse
-            id="basic-navbar-nav"
-          >
-            <Nav className="ms-auto">
-              <Nav.Link
-                href={"/RKPandCoUI/#home"}
-                className={
-                  activeLink === "home" ? "active navbar-link" : "navbar-link"
-                }
-                onClick={() => onUpdateActiveLink("home")}
-              >
-                Who we are
-              </Nav.Link>
-              <Nav.Link
-                href={"/RKPandCoUI/#team"}
-                className={
-                  activeLink === "team" ? "active navbar-link" : "navbar-link"
-                }
-                onClick={() => onUpdateActiveLink("team")}
-              >
-                Team
-              </Nav.Link>
+          <Navbar.Collapse id="basic-navbar-nav">
+            {isAdminLoggedIn === "true" ? (
+              <Nav className="ms-auto">
+                <Nav.Link
+                  href={"/admin"}
+                  className={
+                    activeLink === "home" ? "active navbar-link" : "navbar-link"
+                  }
+                  // onClick={() => onUpdateActiveLink("home")}
+                >
+                  Admin
+                </Nav.Link>{" "}
+                <Nav.Link
+                  href={"/admin"}
+                  className={
+                    activeLink === "home" ? "active navbar-link" : "navbar-link"
+                  }
+                  // onClick={() => onUpdateActiveLink("home")}
+                  onClick={() => {
+                    setIsAdminLoggedIn("false");
+                  }}
+                >
+                  LogOut
+                </Nav.Link>{" "}
+              </Nav>
+            ) : (
+              <Nav className="ms-auto">
+                <Nav.Link
+                  href={"/#home"}
+                  className={
+                    activeLink === "home" ? "active navbar-link" : "navbar-link"
+                  }
+                  onClick={() => onUpdateActiveLink("home")}
+                >
+                  Who we are
+                </Nav.Link>
+                <Nav.Link
+                  href={"/#team"}
+                  className={
+                    activeLink === "team" ? "active navbar-link" : "navbar-link"
+                  }
+                  onClick={() => onUpdateActiveLink("team")}
+                >
+                  Team
+                </Nav.Link>
 
-              <Nav.Link
-                href={"/RKPandCoUI/#services"}
-                className={
-                  activeLink === "services"
-                    ? "active navbar-link"
-                    : "navbar-link"
-                }
-                onClick={() => onUpdateActiveLink("services")}
-              >
-                Services
-              </Nav.Link>
+                <Nav.Link
+                  href={"/#services"}
+                  className={
+                    activeLink === "services"
+                      ? "active navbar-link"
+                      : "navbar-link"
+                  }
+                  onClick={() => onUpdateActiveLink("services")}
+                >
+                  Services
+                </Nav.Link>
 
-              <Nav.Link
-                href={"/RKPandCoUI/#opportunities"}
-                className={
-                  activeLink === "opportunities"
-                    ? "active navbar-link"
-                    : "navbar-link"
-                }
-                onClick={() => onUpdateActiveLink("opportunities")}
-              >
-                Opportunities
-              </Nav.Link>
-            </Nav>
+                <Nav.Link
+                  href={"/#opportunities"}
+                  className={
+                    activeLink === "opportunities"
+                      ? "active navbar-link"
+                      : "navbar-link"
+                  }
+                  onClick={() => onUpdateActiveLink("opportunities")}
+                >
+                  Opportunities
+                </Nav.Link>
+              </Nav>
+            )}
+
             <span className="navbar-text">
-              <HashLink to="/RKPandCoUI/#query">
+              <HashLink to="/#query">
                 <button className="vvd">
                   <span>Let’s Connect</span>
                 </button>

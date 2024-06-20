@@ -15,7 +15,7 @@ export default function MediaControlCard(props) {
   const [expanded, setExpanded] = React.useState(false);
 
   return (
-    <Card sx={{ display: "flex", margin: "1rem" }}>
+    <Card sx={{ display: "flex", flexDirection: "column", margin: "1rem" }}>
       <CardMedia
         component="img"
         sx={{ width: 151, height: 200, borderRadius: 40 }}
@@ -23,13 +23,28 @@ export default function MediaControlCard(props) {
         alt="Live from space album cover"
       />
       <Box
+        className="item-card"
         sx={{ display: "flex", flexDirection: "column", textAlign: "justify" }}
       >
         <CardContent sx={{ flex: "1 0 auto" }}>
-          <Typography component="div" variant="h5">
+          <Typography
+            style={{
+              display: "flex",
+              justifyContent: "center",
+            }}
+            component="div"
+            variant="h5"
+          >
             <b>{props.props.name}</b>
           </Typography>
-          <Typography component="div" variant="h7">
+          <Typography
+            style={{
+              display: "flex",
+              justifyContent: "center",
+            }}
+            component="div"
+            variant="h7"
+          >
             <b> {props.props.degrees}</b>
           </Typography>
           <Typography component="div">

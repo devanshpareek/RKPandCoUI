@@ -11,19 +11,22 @@ import Home from "./App/Home/Home";
 import { Services2 } from "./components/Services2";
 import Services from "./App/Services/Services";
 import { useState } from "react";
+import Admin from "./App/Admin/Admin";
 
 let regexp = /android|iphone|kindle|ipad/i;
 let details = navigator.userAgent;
 export const isMobileDevice = regexp.test(details);
 
 function App() {
+  const [showModal, setShowModal] = useState(false);
+
   return (
-    <div className="App">
+    <div className={showModal ? "App App-dull" : "App"}>
       <NavBar />
       <RouterProvider
         router={createBrowserRouter([
           {
-            path: "/RKPandCoUI/",
+            path: "/",
             element: (
               <>
                 <Banner />
@@ -31,52 +34,68 @@ function App() {
                 <Services2 />
                 <Projects />
                 <Contact />
-                <Footer showAdminDashboard={true} />
+                <Footer
+                  showAdminDashboard={true}
+                  showModal={showModal}
+                  setShowModal={setShowModal}
+                />
               </>
             ),
           },
           {
-            path: "/RKPandCoUI/about-us/history",
+            path: "/admin",
+            element: (
+              <>
+                <Admin showModal={showModal} setShowModal={setShowModal} />
+                <Footer
+                  showModal={showModal}
+                  setShowModal={setShowModal}
+                ></Footer>
+              </>
+            ),
+          },
+          {
+            path: "/about-us/history",
             element: <Home display={"history"} />,
           },
           {
-            path: "/RKPandCoUI/about-us/vision",
+            path: "/about-us/vision",
             element: <Home display={"vision"} />,
           },
           {
-            path: "/RKPandCoUI/about-us/mission",
+            path: "/about-us/mission",
             element: <Home display={"mission"} />,
           },
           {
-            path: "/RKPandCoUI/about-us/values",
+            path: "/about-us/values",
             element: <Home display={"values"} />,
           },
           {
-            path: "/RKPandCoUI/about-us/commitments",
+            path: "/about-us/commitments",
             element: <Home display={"commitments"} />,
           },
           {
-            path: "/RKPandCoUI/about-us/practice-area",
+            path: "/about-us/practice-area",
             element: <Home display={"practice-area"} />,
           },
           {
-            path: "/RKPandCoUI/services/TaxAndRegulatory",
+            path: "/services/TaxAndRegulatory",
             element: <Services serviceName={"TaxAndRegulatory"} />,
           },
           {
-            path: "/RKPandCoUI/services/AuditAndAssurance",
+            path: "/services/AuditAndAssurance",
             element: <Services serviceName={"AuditAndAssurance"} />,
           },
           {
-            path: "/RKPandCoUI/services/CorporateLawServices",
+            path: "/services/CorporateLawServices",
             element: <Services serviceName={"CorporateLawServices"} />,
           },
           {
-            path: "/RKPandCoUI/services/AdvisoryServices",
+            path: "/services/AdvisoryServices",
             element: <Services serviceName={"AdvisoryServices"} />,
           },
           {
-            path: "/RKPandCoUI/services/FinanceAndAccountingOutsourcingServices",
+            path: "/services/FinanceAndAccountingOutsourcingServices",
             element: (
               <Services
                 serviceName={"FinanceAndAccountingOutsourcingServices"}

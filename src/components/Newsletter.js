@@ -1,9 +1,14 @@
 import { useState, useEffect } from "react";
 import { Col, Row, Alert } from "react-bootstrap";
+import useLocalStorageState from "use-local-storage-state";
 
 export const Newsletter = ({ status, message, onValidated }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isAdminLoggedIn, setIsAdminLoggedIn] = useLocalStorageState(
+    "isAdminLoggedIn",
+    false
+  );
 
   useEffect(() => {
     if (status === "success") clearFields();
@@ -11,15 +16,15 @@ export const Newsletter = ({ status, message, onValidated }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    email &&
-      email.indexOf("@") > -1 &&
-      onValidated({
-        EMAIL: email,
-      });
+
+    email === "admin123@gmail.com" &&
+      password === "iamadmin" &&
+      setIsAdminLoggedIn(true);
   };
 
   const clearFields = () => {
     setEmail("");
+    setPassword("");
   };
 
   return (
@@ -57,12 +62,18 @@ export const Newsletter = ({ status, message, onValidated }) => {
               </div>
 
               <div
-                className="new-email-bx"
+                className="new-email-bx2"
                 style={{
                   marginTop: "1rem",
                 }}
               >
-                <button>Submit</button>
+                <button
+                  onClick={(e) => {
+                    handleSubmit(e);
+                  }}
+                >
+                  Submit
+                </button>
               </div>
             </form>
           </Col>

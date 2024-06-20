@@ -46,6 +46,11 @@ body {
   font-family: 'Centra', sans-serif !important;
 }
 
+.App-dull{
+  overflow: hidden !important;
+  height: 100vh;
+}
+
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 0;
@@ -307,7 +312,8 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   background: white;
   border-radius: 64px;
   text-align: center;
-  padding: 60px 50px;
+  padding-top: 60px;
+  padding-bottom: 60px;
   margin-top: -60px;
   border: 1px solid black;
 }
@@ -316,21 +322,34 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 	font-weight: 700;
 }
 .skill p {
-    color: black;
+    color: gray;
     font-size: 18px;
     letter-spacing: 0.8px;
     line-height: 1.5em;
     margin: 14px 0 75px 0;
 }
 .skill-slider {
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   position: relative;
 }
 .skill-slider .item img {
-  width: 50%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  /* width: 50%;
+  height: 50%; */
   margin: 0 auto 15px auto;
+  z-index: 1;
+  border-radius: 50%;
 }
+
+.skill-slider .item .item-card {
+  margin-top: -6rem;
+  color:lightgray;
+  padding-top: 4rem;
+  background: linear-gradient(90.21deg, black -65.91%, #4A2FBD 100.58%);
+}
+
 .background-image-left {
   top: 28%;
   position: absolute;
@@ -406,7 +425,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   width: 56%;
 }
 .project .nav.nav-pills {
-  width: 72%;
+  width: 90%;
   margin: 0 auto;
   border-radius: 50px;
   background-color: darkslategrey;
@@ -592,7 +611,7 @@ height: 100%;
   background: #FFFFFF;
   border-radius: 55px;
   color: #121212;
-  padding: 85px 125px;
+  padding: 4rem 4rem;
   margin-bottom: 80px;
   margin-top: -122px;
 }
@@ -609,7 +628,24 @@ height: 100%;
   z-index: 0;
   display: flex;
   align-items: center;
+  justify-content: center;
+  height: 3rem;
 }
+
+.new-email-bx2 {
+  background: #fff;
+  padding: 5px;
+  border-radius: 20px;
+  position: relative;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  border: none;
+}
+
+
 .new-email-bx::before {
   content: "";
   background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
@@ -640,9 +676,10 @@ height: 100%;
   border: 0;
   padding: 0 15px;
 }
-.new-email-bx button {
+.new-email-bx2 button {
   background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
-  padding: 20px 65px;
+  padding: 1.5rem 2.5rem;
+  margin: 1.5rem 2.5rem;
   color: #fff;
   font-weight: 500;
   letter-spacing: 0.5px;
@@ -651,8 +688,55 @@ height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 30%;
+  /* margin-left: 30%; */
 }
+
+.new-email-bx2::before {
+  content: "";
+  /* background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%); */
+  border-radius: 20px;
+  position: absolute;
+  z-index: -1;
+  top: -1px;
+  left: -1px;
+  bottom: -1px;
+  right: -1px;
+}
+.new-email-bx2::after {
+  content: "";
+  background: #fff;
+  border-radius: 20px;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.new-email-bx2 input {
+  width: 100%;
+  color: #121212;
+  font-weight: 500;
+  background: transparent;
+  border: 0;
+  padding: 0 15px;
+}
+.new-email-bx2 button {
+  background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+  padding: 1.5rem 2.5rem;
+  margin: 1.5rem 2.5rem;
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  border-radius: 18px;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin-left: 30%; */
+}
+
+
 .footer img {
   width: 26%;
 }
@@ -681,6 +765,16 @@ height: 100%;
   margin-bottom: 30px;
   color: white;
 }
+
+.opportunity-form form label {
+  color: #fff;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 0.8px;
+
+}
+
+
 .opportunity-form form input, .opportunity-form form textarea, .opportunity-form form select, .opportunity-form form select option {
   width: 100%;
   background: rgba(255, 255, 255, 0.1);
@@ -694,7 +788,7 @@ height: 100%;
   letter-spacing: 0.8px;
   transition: 0.3s ease-in-out;
 }
-.opportunity-form form input:focus, .opportunity-form form textarea:focus {
+.opportunity-form form input:focus, .opportunity-form form textarea:focus, .opportunity-form form label:focus {
   background: rgba(255, 255, 255, 1);
   color: #121212;
 }
@@ -703,7 +797,7 @@ height: 100%;
   font-weight: 400;
   color: #fff;
 }
-.opportunity-form form input:focus::placeholder, .opportunity-form form textarea:focus::placeholder {
+.opportunity-form form input:focus::placeholder, .opportunity-form form textarea:focus::placeholder, .opportunity-form form label:focus::placeholder {
   color: #121212;
   opacity: 0.8;
 }

@@ -2,50 +2,90 @@ import React, { useEffect, useState } from "react";
 import "./Admin.css"; // Import CSS file for styling (create this file)
 import { Link } from "react-router-dom";
 import axios from "axios";
+import useLocalStorageState from "use-local-storage-state";
+import { useNavigate } from "react-router-dom";
+import Modal from "../../Modal/Modal";
 
-const Admin = (isAdminLoggedIn) => {
+const Admin = ({ showModal, setShowModal }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [isAdminLoggedIn, setIsAdminLoggedIn] = useLocalStorageState(
+    "isAdminLoggedIn",
+    "false"
+  );
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
     // Perform login authentication here (e.g., send data to backend)
-    if (username === "iamadmin" && password === "iwanttologin") {
-      isAdminLoggedIn.setIsAdminLoggedIn(true);
-    }
+    username === "admin123@gmail.com" &&
+      password === "iamadmin" &&
+      setIsAdminLoggedIn("true");
+    navigate("/admin");
     alert("Hi admin, welcome!!");
     // Add your authentication logic here
   };
 
-  const [queries, setQueries] = useState([{}]);
+  const [queries, setQueries] = useState([]);
+
+  async function getQueries() {
+    try {
+      const response = await axios.get("http://localhost:8080/queries");
+      console.log("Response data:", response.data);
+      setQueries(response.data);
+    } catch (error) {
+      console.error("Error fetching queries:", error);
+      alert("Oops, something went wrong while fetching queries!");
+    }
+  }
+
+  useEffect(() => {
+    getQueries();
+  }, []);
+
+  const [caAspirant, setCaAspirant] = useState([{}]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/queries")
+      .get("http://localhost:8080/ca-aspirant")
       .then((result) => {
-        setQueries(result.data);
+        setCaAspirant(result.data);
       })
       .catch((err) => {
         alert("Oops, something went wrong!");
-        console.log(err);
       });
   }, []);
 
-  const [applications, setApplications] = useState([{}]);
+  const [jobSeeker, setJobSeeker] = useState([{}]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/career-applications")
+      .get("http://localhost:8080/job-seeker")
       .then((result) => {
-        setApplications(result.data);
+        setJobSeeker(result.data);
       })
       .catch((err) => {
         alert("Oops, something went wrong!");
       });
   }, []);
 
-  function handleResolve(id, isQuery) {
-    if (isQuery) {
+  const [professional, setProfessional] = useState([{}]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:8080/professional")
+      .then((result) => {
+        setProfessional(result.data);
+      })
+      .catch((err) => {
+        alert("Oops, something went wrong!");
+      });
+  }, []);
+
+  console.log(caAspirant, jobSeeker, professional);
+
+  function handleResolve(id, key) {
+    if (key === "query") {
       axios({
         method: "delete",
         url: "http://localhost:8080/query",
@@ -54,7 +94,38 @@ const Admin = (isAdminLoggedIn) => {
         },
       })
         .then((result) => {
-          setQueries(result.data);
+          console.log(result);
+          getQueries();
+        })
+        .catch((err) => {
+          alert("Oops, something went wrong!");
+          console.log(err);
+        });
+    } else if (key === "ca-aspirant") {
+      axios({
+        method: "delete",
+        url: "http://localhost:8080/ca-aspirant",
+        data: {
+          id: id,
+        },
+      })
+        .then((result) => {
+          setCaAspirant(result.data);
+        })
+        .catch((err) => {
+          alert("Oops, something went wrong!");
+          console.log(err);
+        });
+    } else if (key === "jobseeker") {
+      axios({
+        method: "delete",
+        url: "http://localhost:8080/job-seeker",
+        data: {
+          id: id,
+        },
+      })
+        .then((result) => {
+          setJobSeeker(result.data);
         })
         .catch((err) => {
           alert("Oops, something went wrong!");
@@ -63,13 +134,13 @@ const Admin = (isAdminLoggedIn) => {
     } else {
       axios({
         method: "delete",
-        url: "http://localhost:8080/career-applications",
+        url: "http://localhost:8080/professional",
         data: {
           id: id,
         },
       })
         .then((result) => {
-          setApplications(result.data);
+          setProfessional(result.data);
         })
         .catch((err) => {
           alert("Oops, something went wrong!");
@@ -82,7 +153,11 @@ const Admin = (isAdminLoggedIn) => {
     window.open(imageUrl, "_blank");
   };
 
-  return !isAdminLoggedIn.isAdminLoggedIn ? (
+  // const [showModal, setShowModal] = useState(false);
+
+  const [modalContent, setModalContent] = useState(<></>);
+
+  return isAdminLoggedIn !== "true" ? (
     <div id="admin" className="login-container">
       <form className="login-form" onSubmit={handleLogin}>
         <h2>Admin Login</h2>
@@ -112,138 +187,502 @@ const Admin = (isAdminLoggedIn) => {
       </form>
     </div>
   ) : (
-    <div className="queries-and-applications-wrapper">
-      <div>
-        <h2>Welcome Admin, hope you are having a good day!</h2>
-        <h3>Queries List</h3>
-        {queries.length === 0 && <h4>Sorry, no queries yet.</h4>}
-        <div className="queries-list">
-          {queries.map((query, index) => {
-            return (
-              <div className="query-item">
-                <div>
-                  <b>Application Number:</b>{" "}
-                  {query._id.length > 10 ? query._id?.slice(0, 10) : query._id}
-                  ...
-                </div>
-                <div>
-                  <b>Name:</b> {query.name}
-                </div>
-                <div>
-                  <b>Designation:</b> {query.designation}
-                </div>
-                <div>
-                  <b>Organization:</b> {query.organization}
-                </div>
-                <div>
-                  <b>Office Address:</b> {query.officeAddress}
-                </div>
-                <div>
-                  <b>City:</b> {query.city}
-                </div>
-                <div>
-                  <b>Email Address:</b> {query.emailAddress}
-                </div>
-                <div>
-                  <b>Telephone No.:</b> {query.telephoneNo}
-                </div>
-                <div>
-                  <b>Mobile No.:</b> {query.mobileNo}
-                </div>
-                <div>
-                  <b>Professional Updates:</b> {query.professionalUpdates}
-                </div>
-                <div>
-                  <b>Query Subject:</b> {query.querySubject}
-                </div>
-                <div>
-                  <b>Query:</b> {query.query}
-                </div>
-                <button
-                  className="resolve-btn"
-                  onClick={() => {
-                    handleResolve(query._id, true);
-                  }}
-                >
-                  Resolve
-                </button>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-      <div>
-        <h3>Applications List</h3>
-        {applications.length === 0 && <h4>Sorry, no applications yet.</h4>}
+    <>
+      {showModal && <Modal modalContent={modalContent} />}
+      <div
+        className={
+          showModal
+            ? "queries-and-applications-wrapper dull-background"
+            : "queries-and-applications-wrapper"
+        }
+      >
+        <div>
+          <h2>Welcome Admin, hope you are having a good day!</h2>
+          <h3>Queries List</h3>
+          {queries.length === 0 && <h4>Sorry, no queries yet.</h4>}
+          <div className="queries-list">
+            {queries.length > 0 &&
+              queries?.map((query, index) => {
+                return (
+                  <div className="query-item-wrapper">
+                    <div className="query-item">
+                      <div>
+                        <b>Name:</b> {query.name}
+                      </div>
+                      <div>
+                        <b>Designation:</b> {query.designation}
+                      </div>
+                      <div>
+                        <b>Organization:</b> {query.organization}
+                      </div>
+                      <div>
+                        <b>Office Address:</b> {query.officeAddress}
+                      </div>
 
-        <div className="applications-list">
-          {" "}
-          {applications.map((query, index) => {
-            return (
-              <div className="application-item">
-                <div>
-                  <b>Application Number:</b> {query._id.slice(0, 10)}...
-                </div>
-                <div>
-                  <b>First Name:</b> {query.firstName}
-                </div>
-                <div>
-                  <b>Last Name:</b> {query.lastName}
-                </div>
-                <div>
-                  <b>Email:</b> {query.email}
-                </div>
-                <div>
-                  <b>Mobile No.:</b> {query.mobileNumber}
-                </div>
-                <div>
-                  <b>Gender:</b> {query.gender}
-                </div>
-                <div>
-                  <b>Position:</b> {query.position}
-                </div>
-                <div>
-                  <b>Date Of Birth:</b> {query.dob}
-                </div>
-                <div>
-                  <b>Highest Qualification:</b> {query.highestQualification}
-                </div>
-                <div>
-                  <b>Resume: </b>
-                  <a
-                    href={query.resume}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => {
-                      openImageInNewTab(query.resume);
-                    }}
-                  >
-                    Click here
-                  </a>
-                </div>
-                <div>
-                  <b>Last Working Company:</b> {query.lastWorkedCompany}
-                </div>
-                <div>
-                  <b>Experience Years:</b> {query.experienceYears}
-                </div>
-                <div>
-                  <b>Experience Months:</b> {query.experienceMonths}
-                </div>
-                <button
-                  className="resolve-btn"
-                  onClick={() => {
-                    handleResolve(query._id, false);
-                  }}
-                >
-                  Resolve
-                </button>
-              </div>
-            );
-          })}
+                      <div>
+                        <b>Email Address:</b> {query.emailAddress}
+                      </div>
+
+                      <div>
+                        <b>Mobile No.:</b> {query.mobileNo}
+                      </div>
+
+                      <div>
+                        <b>Query Subject:</b> {query.querySubject}
+                      </div>
+
+                      <div className="button-group">
+                        <button
+                          className="resolve-btn"
+                          onClick={() => {
+                            handleResolve(query.id, "query");
+                          }}
+                        >
+                          Resolve
+                        </button>
+
+                        <button
+                          className="resolve-btn"
+                          onClick={() => {
+                            setShowModal(true);
+                            setModalContent(
+                              <div className="modal-item">
+                                <div>
+                                  <b>Name:</b> {query.name}
+                                </div>
+                                <div>
+                                  <b>Designation:</b> {query.designation}
+                                </div>
+                                <div>
+                                  <b>Organization:</b> {query.organization}
+                                </div>
+                                <div>
+                                  <b>Office Address:</b> {query.officeAddress}
+                                </div>
+                                <div>
+                                  <b>City:</b> {query.city}
+                                </div>
+                                <div>
+                                  <b>Email Address:</b> {query.emailAddress}
+                                </div>
+
+                                <div>
+                                  <b>Mobile No.:</b> {query.mobileNo}
+                                </div>
+
+                                <div>
+                                  <b>Query Subject:</b> {query.querySubject}
+                                </div>
+                                <div>
+                                  <b>Query:</b> {query.query}
+                                </div>
+                                <div>
+                                  <b>Attachment:</b>{" "}
+                                  <a
+                                    href={query.attachment}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    // onClick={() => {
+                                    //   openImageInNewTab(query.attachment);
+                                    // }}
+                                  >
+                                    Click here
+                                  </a>
+                                </div>
+                                <div className="button-group">
+                                  {" "}
+                                  <button
+                                    className="resolve-btn"
+                                    onClick={() => {
+                                      handleResolve(query.id, "query");
+                                    }}
+                                  >
+                                    Resolve
+                                  </button>
+                                  <button
+                                    className="resolve-btn"
+                                    onClick={() => {
+                                      setShowModal(false);
+                                      setModalContent(<></>);
+                                    }}
+                                  >
+                                    Close
+                                  </button>
+                                </div>
+                              </div>
+                            );
+                          }}
+                        >
+                          Detailed view
+                        </button>
+                      </div>
+                    </div>
+                    {/* <div>
+                      <Modal />
+                    </div> */}
+                  </div>
+                );
+              })}
+          </div>
+        </div>
+
+        <div>
+          <h3>CA-Aspirants</h3>
+          {caAspirant.length === 0 && <h4>Sorry, no CA-Aspirants yet.</h4>}
+
+          <div className="applications-list">
+            {caAspirant.length > 0 &&
+              caAspirant.map((query, index) => {
+                console.log(query);
+                return (
+                  <div className="application-item">
+                    <div>
+                      <b>First Name:</b> {query.name}
+                    </div>
+                    <div>
+                      <b>Email:</b> {query.email}
+                    </div>
+                    <div>
+                      <b>Mobile No.:</b> {query.telephoneNo}
+                    </div>
+                    <div>
+                      <b>Education Background:</b> {query.educationBackground}
+                    </div>
+
+                    <div>
+                      <b>Graduation:</b> {query.graduation}
+                    </div>
+                    <div>
+                      <b>Post Graduation:</b> {query.postGraduation}
+                    </div>
+                    <div className="button-group">
+                      <button
+                        className="resolve-btn"
+                        onClick={() => {
+                          handleResolve(query.id, "ca-aspirant");
+                        }}
+                      >
+                        Resolve
+                      </button>
+                      <button
+                        className="resolve-btn"
+                        onClick={() => {
+                          setShowModal(true);
+                          setModalContent(
+                            <>
+                              {" "}
+                              <div className="modal-item">
+                                <div>
+                                  <b>First Name:</b> {query.name}
+                                </div>
+                                <div>
+                                  <b>Email:</b> {query.email}
+                                </div>
+                                <div>
+                                  <b>Mobile No.:</b> {query.telephoneNo}
+                                </div>
+                                <div>
+                                  <b>Education Background:</b>{" "}
+                                  {query.educationBackground}
+                                </div>
+
+                                <div>
+                                  <b>Tenth Score:</b> {query.tenthScore}
+                                </div>
+
+                                <div>
+                                  <b>Twelth Score:</b> {query.twelthScore}
+                                </div>
+
+                                <div>
+                                  <b>CPT Score:</b> {query.cptScore}
+                                </div>
+
+                                <div>
+                                  <b>PCE Score:</b> {query.pceScore}
+                                </div>
+                                <div>
+                                  <b>Graduation:</b> {query.graduation}
+                                </div>
+                                <div>
+                                  <b>Post Graduation:</b> {query.postGraduation}
+                                </div>
+
+                                <div>
+                                  <b>About You:</b> {query.aboutYou}
+                                </div>
+                                <div>
+                                  <b>Resume: </b>
+                                  <a
+                                    href={query.attachment}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    // onClick={() => {
+                                    //   openImageInNewTab(query.attachment);
+                                    // }}
+                                  >
+                                    Click here
+                                  </a>
+                                </div>
+                                <div className="button-group">
+                                  <button
+                                    className="resolve-btn"
+                                    onClick={() => {
+                                      handleResolve(query.id, "ca-aspirant");
+                                    }}
+                                  >
+                                    Resolve
+                                  </button>
+                                  <button
+                                    className="resolve-btn"
+                                    onClick={() => {
+                                      setShowModal(false);
+                                      setModalContent(<></>);
+                                    }}
+                                  >
+                                    Close
+                                  </button>
+                                </div>
+                              </div>
+                            </>
+                          );
+                        }}
+                      >
+                        Detailed
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
+          </div>
+        </div>
+
+        <div>
+          <h3>Job-Seeker</h3>
+          {jobSeeker.length === 0 && <h4>Sorry, no Job-Seeker yet.</h4>}
+
+          <div className="applications-list">
+            {jobSeeker.length > 0 &&
+              jobSeeker.map((query, index) => {
+                console.log(query);
+                return (
+                  <div className="application-item">
+                    <div>
+                      <b>First Name:</b> {query.name}
+                    </div>
+                    <div>
+                      <b>Email:</b> {query.email}
+                    </div>
+                    <div>
+                      <b>Mobile No.:</b> {query.telephoneNo}
+                    </div>
+
+                    <div>
+                      <b>Graduation:</b> {query.graduation}
+                    </div>
+                    <div>
+                      <b>Post Graduation:</b> {query.postGraduation}
+                    </div>
+                    <div>
+                      <b>Experience:</b> {query.experience}
+                    </div>
+
+                    <div className="button-group">
+                      <button
+                        className="resolve-btn"
+                        onClick={() => {
+                          handleResolve(query.id, "jobseeker");
+                        }}
+                      >
+                        Resolve
+                      </button>
+                      <button
+                        className="resolve-btn"
+                        onClick={() => {
+                          setShowModal(true);
+                          setModalContent(
+                            <div className="modal-item">
+                              <div>
+                                <b>First Name:</b> {query.name}
+                              </div>
+                              <div>
+                                <b>Email:</b> {query.email}
+                              </div>
+                              <div>
+                                <b>Mobile No.:</b> {query.telephoneNo}
+                              </div>
+                              <div>
+                                <b>Gender:</b> {query.educationBackground}
+                              </div>
+
+                              <div>
+                                <b>PCE Score:</b> {query.pceScore}
+                              </div>
+                              <div>
+                                <b>Graduation:</b> {query.graduation}
+                              </div>
+                              <div>
+                                <b>Post Graduation:</b> {query.postGraduation}
+                              </div>
+                              <div>
+                                <b>Experience:</b> {query.experience}
+                              </div>
+                              <div>
+                                <b>About You:</b> {query.aboutYou}
+                              </div>
+                              <div>
+                                <b>Resume: </b>
+                                <a
+                                  href={query.attachment}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  // onClick={() => {
+                                  //   openImageInNewTab(query.attachment);
+                                  // }}
+                                >
+                                  Click here
+                                </a>
+                              </div>
+                              <div className="button-group">
+                                <button
+                                  className="resolve-btn"
+                                  onClick={() => {
+                                    handleResolve(query.id, "jobseeker");
+                                  }}
+                                >
+                                  Resolve
+                                </button>
+                                <button
+                                  className="resolve-btn"
+                                  onClick={() => {
+                                    setShowModal(false);
+                                    setModalContent(<></>);
+                                  }}
+                                >
+                                  Close
+                                </button>
+                              </div>
+                            </div>
+                          );
+                        }}
+                      >
+                        Detailed
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
+          </div>
+        </div>
+        <div>
+          <h3>Professional</h3>
+          {professional.length === 0 && <h4>Sorry, no Professional yet.</h4>}
+
+          <div className="applications-list">
+            {" "}
+            {professional.length > 0 &&
+              professional.map((query, index) => {
+                return (
+                  <div className="application-item">
+                    <div>
+                      <b>First Name:</b> {query.name}
+                    </div>
+                    <div>
+                      <b>Email:</b> {query.email}
+                    </div>
+                    <div>
+                      <b>Mobile No.:</b> {query.telephoneNo}
+                    </div>
+                    <div>
+                      <b>Experience:</b> {query.experience}
+                    </div>
+
+                    <div className="button-group">
+                      <button
+                        className="resolve-btn"
+                        onClick={() => {
+                          handleResolve(query.id, "professional");
+                        }}
+                      >
+                        Resolve
+                      </button>
+                      <button
+                        className="resolve-btn"
+                        onClick={() => {
+                          setShowModal(true);
+                          setModalContent(
+                            <div className="modal-item">
+                              <div>
+                                <b>First Name:</b> {query.name}
+                              </div>
+                              <div>
+                                <b>Email:</b> {query.email}
+                              </div>
+                              <div>
+                                <b>Mobile No.:</b> {query.telephoneNo}
+                              </div>
+                              
+                              <div>
+                                <b>CPT Score:</b> {query.cptScore}
+                              </div>
+                              <div>
+                                <b>PCE Score:</b> {query.pceScore}
+                              </div>
+                              <div>
+                                <b>Final Score:</b> {query.finalScore}
+                              </div>
+                              <div>
+                                <b>Experience:</b> {query.experience}
+                              </div>
+                              <div>
+                                <b>About You:</b> {query.aboutYou}
+                              </div>
+                              <div>
+                                <b>Resume: </b>
+                                <a
+                                  href={query.attachment}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  onClick={() => {
+                                    openImageInNewTab(query.attachment);
+                                  }}
+                                >
+                                  Click here
+                                </a>
+                              </div>
+                              <div className="button-group">
+                                <button
+                                  className="resolve-btn"
+                                  onClick={() => {
+                                    handleResolve(query.id, "professional");
+                                  }}
+                                >
+                                  Resolve
+                                </button>
+                                <button
+                                  className="resolve-btn"
+                                  onClick={() => {
+                                    setShowModal(false);
+                                    setModalContent(<></>);
+                                  }}
+                                >
+                                  Close
+                                </button>
+                              </div>
+                            </div>
+                          );
+                        }}
+                      >
+                        Detailed
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
