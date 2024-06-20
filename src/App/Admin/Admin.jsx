@@ -29,13 +29,14 @@ const Admin = ({ showModal, setShowModal }) => {
   const [queries, setQueries] = useState([]);
 
   async function getQueries() {
-    try {
-      const response = await axios.get("http://localhost:8080/queries");
-      console.log("Response data:", response.data);
-      setQueries(response.data);
-    } catch (error) {
-      console.error("Error fetching queries:", error);
-      alert("Oops, something went wrong while fetching queries!");
+    if (isAdminLoggedIn === "true" || isAdminLoggedIn === true) {
+      try {
+        const response = await axios.get("http://localhost:8080/queries");
+        console.log("Response data:", response.data);
+        setQueries(response.data);
+      } catch (error) {
+        alert("Oops, something went wrong while fetching queries!");
+      }
     }
   }
 
@@ -46,40 +47,46 @@ const Admin = ({ showModal, setShowModal }) => {
   const [caAspirant, setCaAspirant] = useState([{}]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8080/ca-aspirant")
-      .then((result) => {
-        setCaAspirant(result.data);
-      })
-      .catch((err) => {
-        alert("Oops, something went wrong!");
-      });
+    if (isAdminLoggedIn === "true" || isAdminLoggedIn === true) {
+      axios
+        .get("http://localhost:8080/ca-aspirant")
+        .then((result) => {
+          setCaAspirant(result.data);
+        })
+        .catch((err) => {
+          alert("Oops, something went wrong!");
+        });
+    }
   }, []);
 
   const [jobSeeker, setJobSeeker] = useState([{}]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8080/job-seeker")
-      .then((result) => {
-        setJobSeeker(result.data);
-      })
-      .catch((err) => {
-        alert("Oops, something went wrong!");
-      });
+    if (isAdminLoggedIn === "true" || isAdminLoggedIn === true) {
+      axios
+        .get("http://localhost:8080/job-seeker")
+        .then((result) => {
+          setJobSeeker(result.data);
+        })
+        .catch((err) => {
+          alert("Oops, something went wrong!");
+        });
+    }
   }, []);
 
   const [professional, setProfessional] = useState([{}]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8080/professional")
-      .then((result) => {
-        setProfessional(result.data);
-      })
-      .catch((err) => {
-        alert("Oops, something went wrong!");
-      });
+    if (isAdminLoggedIn === "true" || isAdminLoggedIn === true) {
+      axios
+        .get("http://localhost:8080/professional")
+        .then((result) => {
+          setProfessional(result.data);
+        })
+        .catch((err) => {
+          alert("Oops, something went wrong!");
+        });
+    }
   }, []);
 
   console.log(caAspirant, jobSeeker, professional);
@@ -621,7 +628,7 @@ const Admin = ({ showModal, setShowModal }) => {
                               <div>
                                 <b>Mobile No.:</b> {query.telephoneNo}
                               </div>
-                              
+
                               <div>
                                 <b>CPT Score:</b> {query.cptScore}
                               </div>
