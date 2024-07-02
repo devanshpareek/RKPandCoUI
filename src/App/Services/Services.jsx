@@ -7,6 +7,17 @@ import { specialities } from "./Specialities";
 import { isMobileDevice } from "../../App";
 import { Footer } from "../../components/Footer";
 
+const ServicesList = {
+  TaxAndRegulatory: "Tax And Regulatory",
+  AuditAndAssurance: "Audit And Assurance",
+  CorporateLawServices: "Corporate Law Services",
+  AdvisoryServices: "Advisory Services",
+  FinanceAndAccountingOutsourcingServices:
+    "Finance And Accounting Outsourcing Services",
+    AccountingAndBookkeeping:"Accounting And Bookkeeping",
+    ComplianceAndRegulatory:"Compliance And Regulatory"
+};
+
 const Services = (serviceName) => {
   const jsx = serviceDetails[serviceName.serviceName];
   const specialityList = specialities[serviceName.serviceName];
@@ -14,6 +25,15 @@ const Services = (serviceName) => {
   return (
     <>
       <section className="banner" id="home">
+        <h2
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginBottom: "2rem",
+          }}
+        >
+          {ServicesList[serviceName.serviceName]}
+        </h2>
         <Container
           style={{
             display: "flex",
@@ -136,7 +156,7 @@ const Services = (serviceName) => {
                         </li>
                       </a>
 
-                      <a
+                      {/* <a
                         style={{
                           textDecoration: "none",
                           color: "black",
@@ -159,6 +179,60 @@ const Services = (serviceName) => {
                           aria-current="true"
                         >
                           Corporate Law Services
+                        </li>
+                      </a> */}
+
+                      <a
+                        style={{
+                          textDecoration: "none",
+                          color: "black",
+                        }}
+                        href="/services/AccountingAndBookkeeping"
+                        class={`list-btn list-group-item ${
+                          serviceName.serviceName === "AccountingAndBookkeeping"
+                            ? "active"
+                            : ""
+                        }`}
+                      >
+                        {" "}
+                        <li
+                          id="list-group-item"
+                          class={`list-btn list-group-item ${
+                            serviceName.serviceName ===
+                            "AccountingAndBookkeeping"
+                              ? "active"
+                              : ""
+                          }`}
+                          aria-current="true"
+                        >
+                          Accounting And Bookkeeping
+                        </li>
+                      </a>
+
+                      <a
+                        style={{
+                          textDecoration: "none",
+                          color: "black",
+                        }}
+                        href="/services/ComplianceAndRegulatory"
+                        class={`list-btn list-group-item ${
+                          serviceName.serviceName === "ComplianceAndRegulatory"
+                            ? "active"
+                            : ""
+                        }`}
+                      >
+                        {" "}
+                        <li
+                          id="list-group-item"
+                          class={`list-btn list-group-item ${
+                            serviceName.serviceName ===
+                            "ComplianceAndRegulatory"
+                              ? "active"
+                              : ""
+                          }`}
+                          aria-current="true"
+                        >
+                          Compliance And Regulatory
                         </li>
                       </a>
 

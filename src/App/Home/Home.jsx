@@ -33,7 +33,14 @@ const Home = (props) => {
                       }),
                     }}
                   >
-                    <div>{jsx}</div>
+                    <div
+                      style={{
+                        height: "100vh",
+                        overflowY: "auto",
+                      }}
+                    >
+                      {jsx}
+                    </div>
                     <div>
                       <Row
                         style={{

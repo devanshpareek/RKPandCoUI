@@ -11,7 +11,7 @@ import corporateLawFirm from "../Images/corporateLawIcon.jpeg";
 import auditAndAssurance from "../Images/auditandassurance.jpeg";
 import advisoryService from "../Images/advisorySection.jpeg";
 import taxAndRegulatory from "../Images/taxAndRegulatory.jpeg";
-import financing from '../Images/financing.png'
+import financing from "../Images/financing.png";
 
 export const Services2 = () => {
   const responsive = {
@@ -71,7 +71,7 @@ export const Services2 = () => {
                     <h5>Audit And Assurance</h5>
                   </div>
                 </a>
-                <a
+                {/* <a
                   style={{
                     textDecoration: "none",
                     color: "black",
@@ -80,12 +80,31 @@ export const Services2 = () => {
                 >
                   <div className="item">
                     <img src={corporateLawFirm} alt="Image" />
-                    {/* <span style={{
-                      height:'2rem', width:'2rem'
-                    }}>
-                      <GoLaw />
-                    </span> */}
                     <h5>Corporate Law Services</h5>
+                  </div>
+                </a> */}
+                <a
+                  style={{
+                    textDecoration: "none",
+                    color: "black",
+                  }}
+                  href="/services/AccountingAndBookkeeping"
+                >
+                  <div className="item">
+                    <img src={advisoryService} alt="Image" />
+                    <h5>Accounting And Bookkeeping</h5>
+                  </div>
+                </a>
+                <a
+                  style={{
+                    textDecoration: "none",
+                    color: "black",
+                  }}
+                  href="/services/ComplianceAndRegulatory"
+                >
+                  <div className="item">
+                    <img src={advisoryService} alt="Image" />
+                    <h5>Compliance And Regulatory</h5>
                   </div>
                 </a>
                 <a

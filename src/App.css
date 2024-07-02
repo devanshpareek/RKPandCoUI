@@ -111,10 +111,11 @@ nav.navbar {
 }
 nav.navbar.scrolled {
   padding: 0px 0;
-  background-color: whitesmoke;
+  background-color: gray;
 }
 nav.navbar a.navbar-brand {
     /* width: 9%; */
+    color: white;
 }
 
 nav.navbar a.navbar-brand img{
@@ -126,7 +127,7 @@ nav.navbar a.navbar-brand img{
 
 nav.navbar .navbar-nav .nav-link.navbar-link {
   font-weight: 400;
-  color: black !important;
+  color: white ;
   letter-spacing: 0.8px;
   padding: 0 25px;
   font-size: 18px;
@@ -143,7 +144,7 @@ span.navbar-text {
 
 .navbar-text button {
   font-weight: 700;
-  color: black;
+  color: white ;
   border: 1px solid black;
   padding: 18px 34px;
   font-size: 18px;
@@ -236,7 +237,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 /************ Banner Css ************/
 .banner {
   margin-top: 0;
-  padding: 160px 0 100px 0;
+  padding: 0 0 100px 0;
   /* background-image: url('./Images/banner.jpg'); */
   background-position: top center;
   background-size: cover;

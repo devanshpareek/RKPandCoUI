@@ -156,7 +156,7 @@ export const aboutUsContent = (display, isMobileDevice) => {
         SERVICES AND SPECIALTIES
       </h3> */}
       <div>
-        <div
+        {/* <div
           style={{
             display: "flex",
             ...(isMobileDevice && { flexDirection: "column" }),
@@ -273,6 +273,269 @@ export const aboutUsContent = (display, isMobileDevice) => {
               <FaDiamond /> {industry}
             </p>
           ))}
+        </div> */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "2rem",
+          }}
+        >
+          <div>
+            <h3
+              style={{
+                marginTop: "2rem",
+              }}
+            >
+              Audit and Assurance
+            </h3>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.3rem",
+              }}
+            >
+              <p>
+                <FaDiamond /> <b> Statutory Audits:</b> Comprehensive audits to
+                ensure compliance with regulatory requirements.
+              </p>
+              <p>
+                <FaDiamond /> <b> Internal Audits:</b> Evaluating and improving
+                the effectiveness of internal controls and processes.
+              </p>
+              <p>
+                <FaDiamond /> <b> Compliance Audits:</b> Ensuring adherence to
+                industry standards and regulations.
+              </p>
+              <p>
+                <FaDiamond /> <b> Risk Management:</b> Identifying and
+                mitigating financial and operational risks.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <h3
+              style={{
+                marginTop: "2rem",
+              }}
+            >
+              Taxation
+            </h3>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.3rem",
+              }}
+            >
+              <p>
+                <FaDiamond /> <b> Direct Taxation:</b> Strategic tax planning,
+                compliance, and advisory services.
+              </p>
+              <p>
+                <FaDiamond /> <b> Indirect Taxation:</b> Guidance on GST, VAT,
+                and other indirect taxes.
+              </p>
+              <p>
+                <FaDiamond /> <b> International Taxation:</b> Managing
+                cross-border tax issues and compliance.
+              </p>
+              <p>
+                <FaDiamond /> <b> Tax Planning and Advisory:</b> Customized tax
+                strategies to optimize tax liabilities.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <h3
+              style={{
+                marginTop: "2rem",
+              }}
+            >
+              Accounting and Bookkeeping
+            </h3>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.3rem",
+              }}
+            >
+              <p>
+                <FaDiamond /> <b> Financial Statement Preparation:</b> Accurate
+                and timely preparation of financial statements.
+              </p>
+              <p>
+                <FaDiamond /> <b> Bookkeeping Services:</b> Efficient
+                bookkeeping to maintain accurate financial records.
+              </p>
+              <p>
+                <FaDiamond /> <b> Management Reporting:</b> Detailed reports to
+                assist in informed decision-making.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <h3
+              style={{
+                marginTop: "2rem",
+              }}
+            >
+              Advisory Services
+            </h3>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.3rem",
+              }}
+            >
+              <p>
+                <FaDiamond /> <b> Business Advisory:</b> Strategic advice to
+                enhance business performance and growth.
+              </p>
+              <p>
+                <FaDiamond /> <b> Financial Consulting:</b> Financial planning
+                and analysis to support business objectives.
+              </p>
+              <p>
+                <FaDiamond /> <b> Mergers and Acquisitions:</b> Expert guidance
+                through mergers, acquisitions, and corporate restructuring.
+              </p>
+              <p>
+                <FaDiamond /> <b> Corporate Restructuring:</b> Tailored
+                solutions for financial restructuring and turnaround management.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <h3
+              style={{
+                marginTop: "2rem",
+              }}
+            >
+              Compliance and Regulatory
+            </h3>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.3rem",
+              }}
+            >
+              <p>
+                <FaDiamond /> <b> Company Law Matters:</b> Assistance with
+                company formation, compliance, and governance.
+              </p>
+              <p>
+                <FaDiamond /> <b> Regulatory Compliance:</b> Ensuring adherence
+                to legal and regulatory requirements.
+              </p>
+              <p>
+                <FaDiamond /> <b> Secretarial Services:</b> Comprehensive
+                corporate secretarial services.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <h3
+              style={{
+                marginTop: "2rem",
+              }}
+            >
+              Specialized Services
+            </h3>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.3rem",
+              }}
+            >
+              <p>
+                <FaDiamond /> <b> Virtual CFO Service:</b> Comprehensive Virtual
+                CFO services to businesses seeking expert financial management.
+              </p>
+              <p>
+                <FaDiamond /> <b> SEZ Unit Compliance:</b> Compliance and
+                process management services to the SEZ Units.
+              </p>
+              <p>
+                <FaDiamond />{" "}
+                <b> Payroll and Human Resource Compliance Services:</b> Tailored
+                solutions for Payroll and HR compliances services.
+              </p>
+              <p>
+                <FaDiamond /> <b> Forensic Accounting:</b> Investigative
+                services to uncover fraud and financial irregularities.
+              </p>
+              <p>
+                <FaDiamond /> <b> Valuation Services:</b> Accurate business
+                valuations for various purposes.
+              </p>
+              <p>
+                <FaDiamond /> <b>Due Diligence:</b> Thorough due diligence for
+                mergers, acquisitions, and investments.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <h3
+              style={{
+                marginTop: "2rem",
+              }}
+            >
+              Industries We Serve
+            </h3>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.3rem",
+              }}
+            >
+              <p>
+                <FaDiamond /> <b> Manufacturing:</b> Specialized services for
+                the manufacturing sector, addressing unique financial and
+                operational challenges.
+              </p>
+              <p>
+                <FaDiamond /> <b> Information Technology:</b> Financial
+                solutions tailored to the fast-paced IT industry.
+              </p>
+              <p>
+                <FaDiamond /> <b> Healthcare:</b> Advisory and compliance
+                services for healthcare providers and institutions.
+              </p>
+              <p>
+                <FaDiamond /> <b> Hotel and Restaurant:</b> Financial solutions,
+                advisory and compliance services for hotel and restaurant units.
+              </p>
+              <p>
+                <FaDiamond /> <b> Real Estate:</b> Expert guidance for real
+                estate developers, investors, and managers.
+              </p>
+              <p>
+                <FaDiamond /> <b> Financial Services:</b> Comprehensive support
+                for financial institutions and services.
+              </p>
+              <p>
+                <FaDiamond /> <b> Retail and Consumer Goods:</b> Financial
+                strategies to enhance the performance of retail businesses.
+              </p>
+              <p>
+                <FaDiamond /> <b> Non-Profit Organizations:</b> Financial
+                management and compliance services for non-profits.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

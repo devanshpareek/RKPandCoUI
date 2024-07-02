@@ -3,34 +3,28 @@ export const partners = [
   {
     title: "RKP",
     name: "RISHI KANT PAREEK",
-    degrees: "B.Com, F.C.A.",
+    degrees: "FCA, CCCA, Senior Partner",
     initialContent:
-      "He is a Fellow Member of the Institute of Chartered Accountants of India since 2010 and became a Fellow Member in 2015. He possesses rich international and national experience extending to more than twelve years. ",
-    updatedContent: `He is a Fellow Member of the Institute of Chartered Accountants of India since 2010 and became a Fellow Member in 2015. He possesses rich international and national experience extending to more than twelve years. During his extensive career, he has obtained diversified experience in services to industrial, commercial, institutional, and individual clients relating to audit, business development, taxation & corporate consultancy. he has also done certificate course on concurrent audit of banks from ICAI.
-    His core expertise is in indirect taxation especially in GST, Service Tax and its assurance.
-    `,
+      "Highly accomplished Chartered Accountant with over 14 years of extensive experience in auditing, financial analysis, tax planning, project financing and advisory services. ",
+    updatedContent: `Highly accomplished Chartered Accountant with over 14 years of extensive experience in auditing, financial analysis, tax planning, project financing and advisory services. Proven track record in managing financial operations, ensuring compliance with statutory requirements, and delivering strategic financial guidance to drive business growth. Adept at working with diverse clients across various industries, providing tailored solutions to meet their financial needs.`,
     image: myPic,
   },
   {
     title: "RS",
     name: "RACHITA SOGANI",
-    degrees: "M.Com, F.C.A.",
+    degrees: "FCA, Senior Partner",
     initialContent:
-      "She is a Fellow Member of the Institute of Chartered Accountants of India since 2009 and became a Fellow Member in 2014. She has experience of more than thirteen years in dealing with complex affairs pertaining to project finance, audit, corporate affairs and taxation.",
-    updatedContent: `She is a Fellow Member of the Institute of Chartered Accountants of India since 2009 and became a Fellow Member in 2014. She has experience of more than thirteen years in dealing with complex affairs pertaining to project finance, audit, corporate affairs and taxation.
-    She has gained immense experience & specialized in finance arrangement, management advisory services and corporate affairs.
-    `,
+      "With over 15 years of professional experience as a Chartered Accountant, she is specialized in providing comprehensive accounting, taxation and audit services.",
+    updatedContent: `With over 15 years of professional experience as a Chartered Accountant, she is specialized in providing comprehensive accounting, taxation and audit services. Her expertise ensures that clients receive precise, reliable, and insightful financial information crucial for their decision-making processes and regulatory compliance.`,
     image: myPic,
   },
   {
     title: "DN",
     name: "DEEPAK NANDWANA",
-    degrees: "M.Com, F.C.A.",
+    degrees: "FCA, LLB, CFAFD, CCCA, Senior Partner",
     initialContent:
-      "He is a Fellow Member of the Institute of Chartered Accountants of India since 2012 and became a Fellow Member in 2017. He has been in practice since year 2012. He has experience of more than eleven years in the fields of assurance, statutory audits, internal audits tax and corporate advisory services.",
-    updatedContent: `He has also done certificate course on concurrent audit of banks from ICAI.
-    During his practice he has developed skill set and has specialized in Income Tax and Corporate Advisory Services. He also has vast experience in audits.
-    `,
+      " With over 13 years of professional experience as a Chartered Accountant, he is specialized in taxation, providing comprehensive tax planning, compliance, and advisory services. His deep understanding of tax laws and regulations ensures that clients achieve optimal tax positions while maintaining full compliance.",
+    updatedContent: ` With over 13 years of professional experience as a Chartered Accountant, he is specialized in taxation, providing comprehensive tax planning, compliance, and advisory services. His deep understanding of tax laws and regulations ensures that clients achieve optimal tax positions while maintaining full compliance. He also brings a wealth of expertise in system developments, process audits and management audits. His comprehensive skill set ensures that clients receive top-notch services tailored to their specific financial needs and regulatory requirements.`,
     image: myPic,
   },
   {
@@ -38,9 +32,17 @@ export const partners = [
     name: "ANKUR KUMAR SODHANI",
     degrees: "M.Com, F.C.A.",
     initialContent:
-      "He is a Fellow Member of the Institute of Chartered Accountants of India since 2012 and became a Fellow Member in 2017",
-    updatedContent: `He is a Fellow Member of the Institute of Chartered Accountants of India since 2012 and became a Fellow Member in 2017. He is an ex-banker, has experience of more than eleven years. He possesses good experience in the field corporate funding, taxation and assurance. `,
+      "With over 13 years of professional experience as a Chartered Accountant, he is specialized in the banking and financing sectors. His extensive knowledge and hands-on experience enable me to provide clients with exceptional financial guidance and strategic insights in these critical areas.",
+    updatedContent: `With over 13 years of professional experience as a Chartered Accountant, he is specialized in the banking and financing sectors. His extensive knowledge and hands-on experience enable me to provide clients with exceptional financial guidance and strategic insights in these critical areas.`,
     image: myPic,
   },
-  
+  {
+    title: "VKG",
+    name: "Vipin Kumar Garg",
+    degrees: "F.C.A.",
+    initialContent:
+      "As a seasoned Chartered Accountant with over 13 years of experience, he offers comprehensive Virtual CFO services to businesses seeking expert financial management. His role as a Virtual CFO provides strategic financial oversight, enabling businesses to make informed decisions, optimize resources, and achieve their financial goals.",
+    updatedContent: `As a seasoned Chartered Accountant with over 13 years of experience, he offers comprehensive Virtual CFO services to businesses seeking expert financial management. His role as a Virtual CFO provides strategic financial oversight, enabling businesses to make informed decisions, optimize resources, and achieve their financial goals. He is also expert in SEZ (Special Economic Zone) compliance, providing businesses with expert guidance to navigate the complexities of operating within SEZs. His extensive knowledge and hands-on experience ensure that clients maximize the benefits of SEZ incentives while maintaining full regulatory compliance.`,
+    image: myPic,
+  },
 ];

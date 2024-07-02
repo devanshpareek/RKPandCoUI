@@ -12,6 +12,8 @@ import { Services2 } from "./components/Services2";
 import Services from "./App/Services/Services";
 import { useState } from "react";
 import Admin from "./App/Admin/Admin";
+import Image4 from "../src/Images/HomePageCarouselImage/1. Image/i4.png"
+import { Container } from "react-bootstrap";
 
 let regexp = /android|iphone|kindle|ipad/i;
 let details = navigator.userAgent;
@@ -23,6 +25,17 @@ function App() {
   return (
     <div className={showModal ? "App App-dull" : "App"}>
       <NavBar />
+      <Container
+        style={{
+          backgroundImage: `url(${Image4})`,
+          height: "400px",
+          minWidth: "100%",
+          margin: "0",
+          marginBottom: "5rem",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      ></Container>
       <RouterProvider
         router={createBrowserRouter([
           {
@@ -86,9 +99,17 @@ function App() {
             path: "/services/AuditAndAssurance",
             element: <Services serviceName={"AuditAndAssurance"} />,
           },
+          // {
+          //   path: "/services/CorporateLawServices",
+          //   element: <Services serviceName={"CorporateLawServices"} />,
+          // },
           {
-            path: "/services/CorporateLawServices",
-            element: <Services serviceName={"CorporateLawServices"} />,
+            path: "/services/AccountingAndBookkeeping",
+            element: <Services serviceName={"AccountingAndBookkeeping"} />,
+          },
+          {
+            path: "/services/ComplianceAndRegulatory",
+            element: <Services serviceName={"ComplianceAndRegulatory"} />,
           },
           {
             path: "/services/AdvisoryServices",

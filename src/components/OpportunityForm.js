@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import contactImg from "../Images/query.jpg";
+import contactImg from "../Images/opportunityImg.jpg";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
 import axios from "axios";
@@ -121,21 +121,6 @@ export const OpportunityForm = (props) => {
     //   });
     // }
   };
-
-  function toDataURL(e) {
-    var reader = new FileReader();
-    reader.readAsDataURL(e.target.files[0]);
-    reader.onload = () => {
-      console.log(reader.result);
-      setFormDetails({
-        ...formDetails,
-        attachment: reader.result,
-      });
-    };
-    reader.onerror = (error) => {
-      alert("Oops, something went wrong!");
-    };
-  }
 
   return (
     <section

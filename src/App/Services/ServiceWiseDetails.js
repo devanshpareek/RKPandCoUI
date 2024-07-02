@@ -1,55 +1,24 @@
 export const serviceDetails = {
   TaxAndRegulatory: (
     <div>
-      <h2>Tax and Regulatory</h2>
+      {/* <h2>Tax and Regulatory</h2> */}
 
-      <h3>Direct Taxes</h3>
-      <p>
-        Direct taxation in India broadly refers to the Income Tax and Wealth tax
-        laws which involve personal tax, corporate tax, minimum alternate tax,
-        capital gains tax, international tax and transfer pricing.
-      </p>
+      <h3>Direct Taxation</h3>
+      <p>Strategic tax planning, compliance and advisory services.</p>
 
-      <h3>Indirect Taxes</h3>
-      <p>
-        With the introduction of Goods & Services Tax, indirect taxation in
-        India has taken a new direction. Many other indirect taxes like VAT,
-        Service Tax etc have been done away with and only one tax – GST is
-        applicable.
-      </p>
+      <h3>Indirect Taxation</h3>
+      <p>Guidance on GST, VAT and other indirect taxes.</p>
 
-      <p>
-        We offer services in each of the above-mentioned areas of tax and
-        regulatory compliance.
-      </p>
+      <h3>International Taxation</h3>
+      <p>Managing cross-border tax issues and compliance.</p>
 
-      <h3>Tax Strategy and Compliance</h3>
-      <p>
-        Our endeavour is to formulate an ideal tax strategy for our clients
-        which is compliant with the law, legitimately reduces the tax bills and
-        yet is not prone to invite litigation.
-      </p>
-
-      <h3>Tax Representation</h3>
-      <p>
-        We provide representation services to clients at all levels of tax
-        hierarchy ranging from assessment to administrative and appellate
-        stages.
-      </p>
-
-      <h3>Transfer Pricing</h3>
-      <p>
-        In India, transfer pricing is a relatively new but fast emerging field.
-        Transfer pricing is a complex subject and impacts every area of business
-        – ranging from associated party purchases, sales, financing instruments,
-        loans, investments, marketing, distribution, use of tangible and
-        intangible assets, etc.
-      </p>
+      <h3>Tax Planning and Advisory</h3>
+      <p>Customized tax strategies to optimize tax liabilities.</p>
     </div>
   ),
   AuditAndAssurance: (
     <div>
-      <h2>Audit and Assurance</h2>
+      {/* <h2>Audit and Assurance</h2> */}
 
       <p>
         Our audit and assurances service offerings are based on a complete
@@ -59,45 +28,26 @@ export const serviceDetails = {
         clients’ requirement, and key risk issues involved.
       </p>
 
-      <p>
-        Our audit and assurance solutions range from statutory audits, internal
-        audits, tax audits, transfer pricing audits, management audits,
-        concurrent audits, etc. The audit deliverables range from reporting for
-        statutory compliances to enhancing the clients’ business financial and
-        operational performance.
-      </p>
-
       <h3>Statutory Audits</h3>
       <p>
-        We conduct statutory and regulatory compliance audits for filing annual
-        or periodic financial results. Statutory audits are aimed at achieving
-        compliance with regulations, assessing the strength of controls,
-        confirmation of accounting treatments of recorded transactions,
-        independent review of reported information, and preparation of
-        accountants’ report.
+        Comprehensive audits to ensure compliance with regulatory requirements.
       </p>
 
-      <h3>Tax Audits</h3>
-      <p>
-        We annually serve our clients in the area of tax audit under various
-        provisions of the tax laws. Amongst the firms’ tax auditee clients are
-        companies of all sizes, large and medium corporations and small
-        businesses, partnership firms, non-profit organizations, and high net
-        worth individuals. The firm has a dedicated audit team which specializes
-        in conducting the audits effectively and diligently.
-      </p>
+      <h3>Compliance Audits</h3>
+      <p>Ensuring adherence to industry standards and regulations.</p>
 
       <h3>Internal Audits</h3>
       <p>
-        The internal audits are conducted with varying client requirements but
-        essentially the objective thereof is to provide assurance on controls
-        and processes.
+        Evaluating and improving the effectiveness of internal controls and
+        processes.
       </p>
+      <h3>Risk Management</h3>
+      <p>Identifying and mitigating financial and operational risks.</p>
     </div>
   ),
   CorporateLawServices: (
     <div>
-      <h2>Corporate Law Services</h2>
+      {/* <h2>Corporate Law Services</h2> */}
       <p>
         We offer corporate law and secretarial services in fields ranging from
         incorporation of corporate entities, assistance in maintaining
@@ -108,9 +58,29 @@ export const serviceDetails = {
       </p>
     </div>
   ),
+  AccountingAndBookkeeping: (
+    <div>
+      <h3>Financial Statement Preparation</h3>
+      <p>Accurate and timely preparation of financial statements.</p>
+      <h3>Bookkeeping Services</h3>
+      <p>Efficient bookkeeping to maintain accurate financial records.</p>
+      <h3>Management Reporting</h3>
+      <p>Detailed reports to assist in informed decision-making.</p>
+    </div>
+  ),
+  ComplianceAndRegulatory: (
+    <div>
+      <h3>Company Law Matters</h3>
+      <p>Assistance with company formation, compliance, and governance.</p>
+      <h3>Regulatory Compliance</h3>
+      <p>Ensuring adherence to legal and regulatory requirements.</p>
+      <h3>Secretarial Services</h3>
+      <p>Comprehensive corporate secretarial services.</p>
+    </div>
+  ),
   AdvisoryServices: (
     <div>
-      <h2>Advisory Services</h2>
+      {/* <h2>Advisory Services</h2> */}
       <p>
         We offer multi-disciplinary advisory services to clients in our main
         areas of practice i.e. taxation and regulatory, audit and assurance and
@@ -118,18 +88,25 @@ export const serviceDetails = {
         partnership and LLP laws, societies and trusts laws, exchange control
         regulations, employee benefit regulations etc.
       </p>
+      <h3>Business Advisory</h3>
+      <p>Strategic advice to enhance business performance and growth.</p>
+      <h3>Financial Consulting</h3>
+      <p>Financial planning and analysis to support business objectives.</p>
+      <h3>Mergers and Acquisitions</h3>
       <p>
-        Our advisory services deliverables are based on gaining an understanding
-        of clients’ query, thorough research on the subject, in-house threadbare
-        discussions on all possible solutions, considering myriad options,
-        application of knowledge and experience on the issues and providing an
-        informed opinion on the query.
+        Expert guidance through mergers, acquisitions, and corporate
+        restructuring.
+      </p>
+      <h3>Corporate Restructuring</h3>
+      <p>
+        Tailored solutions for financial restructuring and turnaround
+        management.
       </p>
     </div>
   ),
   FinanceAndAccountingOutsourcingServices: (
     <div>
-      <h2>Finance and Accounting Outsourcing Services</h2>
+      {/* <h2>Finance and Accounting Outsourcing Services</h2> */}
       <p>
         The finance and accounting processes of businesses are getting complex
         and challenging with more and more regulatory pronouncements and

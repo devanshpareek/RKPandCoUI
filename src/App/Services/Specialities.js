@@ -3,9 +3,12 @@ import { FaDiamond } from "react-icons/fa6";
 export const specialities = {
   TaxAndRegulatory: (
     <div>
-      <h4>Tax And Regulatory</h4>
+      <h4>Specialities</h4>
       <p>
         <FaDiamond /> Direct Taxation – Domestic
+      </p>
+      <p>
+        <FaDiamond /> Indirect Taxation – GST, Excise, Customs
       </p>
       <p>
         <FaDiamond /> International Taxation
@@ -13,14 +16,11 @@ export const specialities = {
       <p>
         <FaDiamond /> Transfer Pricing
       </p>
-      <p>
-        <FaDiamond /> Indirect Taxation – GST, Excise, Customs
-      </p>
     </div>
   ),
   AuditAndAssurance: (
     <div>
-      <h4>Audit And Assurance</h4>
+      <h4>Specialities</h4>
 
       <p>
         {" "}
@@ -58,7 +58,7 @@ export const specialities = {
   ),
   CorporateLawServices: (
     <div>
-      <h2>Corporate Law Services</h2>
+      <h4>Specialities</h4>
       <p>
         {" "}
         <FaDiamond /> Direct Taxation – Domestic
@@ -79,28 +79,62 @@ export const specialities = {
   ),
   AdvisoryServices: (
     <div>
-      <h2>Advisory Services</h2>
+      <h4>Specialities</h4>
       <p>
         {" "}
-        <FaDiamond /> Direct Taxation – Domestic
+        <FaDiamond /> Business Advisory
       </p>
       <p>
         {" "}
-        <FaDiamond /> International Taxation
+        <FaDiamond /> Financial Consulting
       </p>
       <p>
         {" "}
-        <FaDiamond /> Transfer Pricing
+        <FaDiamond /> Mergers and Acquisitions
       </p>
       <p>
         {" "}
-        <FaDiamond /> Indirect Taxation – GST, Excise, Customs
+        <FaDiamond /> Corporate Restructuring
+      </p>
+    </div>
+  ),
+  AccountingAndBookkeeping: (
+    <div>
+      <h4>Specialities</h4>
+      <p>
+        {" "}
+        <FaDiamond /> Financial Statement Preparation
+      </p>
+      <p>
+        {" "}
+        <FaDiamond /> Bookkeeping Services
+      </p>
+      <p>
+        {" "}
+        <FaDiamond /> Management Reporting
+      </p>
+    </div>
+  ),
+  ComplianceAndRegulatory: (
+    <div>
+      <h4>Specialities</h4>
+      <p>
+        {" "}
+        <FaDiamond /> Company Law Matters
+      </p>
+      <p>
+        {" "}
+        <FaDiamond /> Regulatory Compliance
+      </p>
+      <p>
+        {" "}
+        <FaDiamond /> Secretarial Services
       </p>
     </div>
   ),
   FinanceAndAccountingOutsourcingServices: (
     <div>
-      <h2>Finance and Accounting Outsourcing Services</h2>
+      <h4>Specialities</h4>
       {[
         "Funds Syndication",
         "Financial Analysis",

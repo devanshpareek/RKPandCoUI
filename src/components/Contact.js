@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import contactImg from "../Images/query.jpg";
+import contactImg from "../Images/queryImg.jpg";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
 import axios from "axios";
@@ -97,53 +97,37 @@ export const Contact = (props) => {
   // };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formDetails);
-    console.log("Form submitted", attachment, t);
-    tempSub(attachment);
-    console.log(formDetails, t);
+    // console.log(formDetails);
+    // console.log("Form submitted", attachment, t);
+    // tempSub(attachment);
+    // console.log(formDetails, t);
 
     setButtonText("Sending...");
-    // try {
-    //   await axios
-    //     .post("http://localhost:8080/query", {
-    //       queryData: t,
-    //     })
-    //     .then((res) => {
-    //       console.log(res);
-    //     });
-    //   setStatus({ success: true, message: "Query sent successfully" });
-
-    //   alert(
-    //     "Query raised successfully, we will get back to you soon. Thank you!"
-    //   );
-    // } catch (error) {
-    //   console.error("Error occurred:", error);
-    //   setStatus({
-    //     success: false,
-    //     message: "Something went wrong, please try again later.",
-    //   });
-    //   alert("Oops, something went wrong!");
-    // } finally {
-    //   console.log("plz come in finally");
-    //   setButtonText("Send");
-    //   setFormDetails(formInitialDetails);
-    // }
-  };
-
-  function toDataURL(e) {
-    var reader = new FileReader();
-    reader.readAsDataURL(e.target.files[0]);
-    reader.onload = () => {
-      console.log(reader.result);
-      setFormDetails({
-        ...formDetails,
-        attachment: reader.result,
+    try {
+      await axios
+        .post("http://localhost:8080/query", {
+          queryData: formDetails,
+        })
+        .then((res) => {
+          alert(
+            "Query raised successfully, we will get back to you soon. Thank you!"
+          );
+          setFormDetails(formInitialDetails);
+        });
+      setStatus({ success: true, message: "Query sent successfully" });
+    } catch (error) {
+      console.error("Error occurred:", error);
+      setStatus({
+        success: false,
+        message: "Something went wrong, please try again later.",
       });
-    };
-    reader.onerror = (error) => {
       alert("Oops, something went wrong!");
-    };
-  }
+    } finally {
+      console.log("plz come in finally");
+      setButtonText("Send");
+      setFormDetails(formInitialDetails);
+    }
+  };
 
   return (
     <section
@@ -155,6 +139,23 @@ export const Contact = (props) => {
     >
       <Container>
         <Row className="align-items-center">
+          <h2
+            style={{
+              textAlign: "center",
+            }}
+          >
+            Query
+          </h2>
+          <h5
+            style={{
+              textAlign: "center",
+              color: "white",
+            }}
+          >
+            We value your interest in R K Pareek & Co. and are here to assist
+            you with any question or inquiry. Please fill out the form below and
+            our team will get back to you shortly.
+          </h5>
           <Col size={12} md={6}>
             <TrackVisibility>
               {({ isVisible }) => (
@@ -164,11 +165,20 @@ export const Contact = (props) => {
                   }
                   src={contactImg}
                   alt="Contact Us"
+                  style={{
+                    height: "20rem",
+                  }}
                 />
               )}
             </TrackVisibility>
           </Col>
-          <Col size={12} md={6}>
+          <Col
+            size={12}
+            md={6}
+            style={{
+              paddingTop: "4rem",
+            }}
+          >
             <TrackVisibility>
               {({ isVisible }) => (
                 <div
@@ -176,7 +186,6 @@ export const Contact = (props) => {
                     isVisible ? "animate__animated animate__fadeIn" : ""
                   }
                 >
-                  <h2>Get In Touch</h2>
                   <form onSubmit={handleSubmit}>
                     <Row>
                       <Col size={12} sm={6} className="px-1">
@@ -240,12 +249,133 @@ export const Contact = (props) => {
                       <Col size={12} sm={6} className="px-1">
                         <input
                           type="email"
-                          value={formDetails.email}
+                          value={formDetails.emailAddress}
                           placeholder="Email"
                           onChange={(e) =>
-                            onFormUpdate("email", e.target.value)
+                            onFormUpdate("emailAddress", e.target.value)
                           }
                         />
+                      </Col>
+
+                      <Col size={12} sm={6} className="px-1">
+                        <select
+                          id="querySubject"
+                          name="querySubject"
+                          placeholder="Query Subject"
+                          value={formDetails.attachment}
+                          onChange={(e) =>
+                            onFormUpdate("attachment", e.target.value)
+                          }
+                          required
+                        >
+                          <option
+                            style={{
+                              color: "black",
+                            }}
+                          >
+                            Subject matter
+                          </option>
+                          <option
+                            style={{
+                              color: "black",
+                            }}
+                          >
+                            Advisory - Company Law & Legal Matters
+                          </option>{" "}
+                          <option
+                            style={{
+                              color: "black",
+                            }}
+                          >
+                            Advisory - Ind-AS & IFRS
+                          </option>{" "}
+                          <option
+                            style={{
+                              color: "black",
+                            }}
+                          >
+                            Advisory - International Taxation and transactions
+                          </option>
+                          <option
+                            style={{
+                              color: "black",
+                            }}
+                          >
+                            Advisory - Merges & Acquisition and Corporate
+                            Restructuring
+                          </option>
+                          <option
+                            style={{
+                              color: "black",
+                            }}
+                          >
+                            Advisory - Other Law (SEBI, MSME, FEMA, FCRA)
+                          </option>
+                          <option
+                            style={{
+                              color: "black",
+                            }}
+                          >
+                            Advisory - Startup Assistance
+                          </option>
+                          <option
+                            style={{
+                              color: "black",
+                            }}
+                          >
+                            Advisory - Valuation Services
+                          </option>
+                          <option
+                            style={{
+                              color: "black",
+                            }}
+                          >
+                            Advisory - Banking transaction and NBFC's
+                          </option>
+                          <option
+                            style={{
+                              color: "black",
+                            }}
+                          >
+                            Advisory - RIPS
+                          </option>
+                          <option
+                            style={{
+                              color: "black",
+                            }}
+                          >
+                            Assurance & Risk Advisory - IFC, Management
+                            Consultancy
+                          </option>
+                          <option
+                            style={{
+                              color: "black",
+                            }}
+                          >
+                            Auditing - Satutory, Internal, Tax etc
+                          </option>
+                          <option
+                            style={{
+                              color: "black",
+                            }}
+                          >
+                            Taxation - Direct
+                          </option>
+                          <option
+                            style={{
+                              color: "black",
+                            }}
+                          >
+                            Taxation - Indirect
+                          </option>
+                          <option
+                            style={{
+                              color: "black",
+                            }}
+                          >
+                            Others
+                          </option>
+                        </select>
                       </Col>
 
                       <Col size={12} className="px-1">
@@ -257,58 +387,8 @@ export const Contact = (props) => {
                             onFormUpdate("querySubject", e.target.value)
                           }
                         />
+                      </Col>
 
-                        {/* <select
-                          id="querySubject"
-                          name="querySubject"
-                          placeholder="Query Subject"
-                          value={formDetails.querySubject}
-                          onChange={(e) =>
-                            onFormUpdate("querySubject", e.target.value)
-                          }
-                          required
-                        >
-                          <option
-                            style={{
-                              color: "black",
-                            }}
-                          >
-                            Query Subject
-                          </option>
-                          <option
-                            style={{
-                              color: "black",
-                            }}
-                          >
-                            Option 1
-                          </option>{" "}
-                          <option
-                            style={{
-                              color: "black",
-                            }}
-                          >
-                            Option 1
-                          </option>{" "}
-                          <option
-                            style={{
-                              color: "black",
-                            }}
-                          >
-                            Option 1
-                          </option>
-                        </select> */}
-                      </Col>
-                      <Col size={12} sm={6} className="px-1">
-                        <input
-                          type="file"
-                          accept="image/*"
-                          name="attachment"
-                          // required
-                          onChange={(e) => {
-                            setAttachment(e.target.files[0]);
-                          }}
-                        />{" "}
-                      </Col>
                       <Col size={12} className="px-1">
                         <textarea
                           rows="6"

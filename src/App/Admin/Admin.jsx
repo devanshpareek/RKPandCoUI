@@ -223,19 +223,19 @@ const Admin = ({ showModal, setShowModal }) => {
                         <b>Organization:</b> {query.organization}
                       </div>
                       <div>
-                        <b>Office Address:</b> {query.officeAddress}
+                        <b>Office Address:</b> {query.officeaddress}
                       </div>
 
                       <div>
-                        <b>Email Address:</b> {query.emailAddress}
+                        <b>Email Address:</b> {query.emailaddress}
                       </div>
 
                       <div>
-                        <b>Mobile No.:</b> {query.mobileNo}
+                        <b>Mobile No.:</b> {query.telephoneno}
                       </div>
 
                       <div>
-                        <b>Query Subject:</b> {query.querySubject}
+                        <b>Query Subject:</b> {query.querysubject}
                       </div>
 
                       <div className="button-group">
@@ -264,28 +264,28 @@ const Admin = ({ showModal, setShowModal }) => {
                                   <b>Organization:</b> {query.organization}
                                 </div>
                                 <div>
-                                  <b>Office Address:</b> {query.officeAddress}
+                                  <b>Office Address:</b> {query.officeaddress}
                                 </div>
                                 <div>
                                   <b>City:</b> {query.city}
                                 </div>
                                 <div>
-                                  <b>Email Address:</b> {query.emailAddress}
+                                  <b>Email Address:</b> {query.emailaddress}
                                 </div>
 
                                 <div>
-                                  <b>Mobile No.:</b> {query.mobileNo}
+                                  <b>Mobile No.:</b> {query.telephoneno}
                                 </div>
 
                                 <div>
-                                  <b>Query Subject:</b> {query.querySubject}
+                                  <b>Query Subject:</b> {query.querysubject}
                                 </div>
                                 <div>
                                   <b>Query:</b> {query.query}
                                 </div>
                                 <div>
-                                  <b>Attachment:</b>{" "}
-                                  <a
+                                  <b>Attachment:</b>{query.attachment}
+                                  {/* <a
                                     href={query.attachment}
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -294,7 +294,7 @@ const Admin = ({ showModal, setShowModal }) => {
                                     // }}
                                   >
                                     Click here
-                                  </a>
+                                  </a> */}
                                 </div>
                                 <div className="button-group">
                                   {" "}

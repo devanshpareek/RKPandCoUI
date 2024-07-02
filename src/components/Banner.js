@@ -7,8 +7,27 @@ import TrackVisibility from "react-on-screen";
 import AllInOne from "../Images/allinone.jpeg";
 import { useLocation } from "react-router-dom";
 import { isMobileDevice } from "../App";
+import Carousel from "./Carousel/Carousel";
+import Image1 from "../Images/HomePageCarouselImage/1. Image/i1.jpg";
+import Image2 from "../Images/HomePageCarouselImage/1. Image/i2.jpg";
+import Image3 from "../Images/HomePageCarouselImage/1. Image/i3.jpg";
+import Image4 from "../Images/HomePageCarouselImage/1. Image/i4.png";
+import Image5 from "../Images/HomePageCarouselImage/1. Image/i5.jpg";
+import Image6 from "../Images/HomePageCarouselImage/1. Image/i6.jpg";
+import Image7 from "../Images/HomePageCarouselImage/1. Image/i7.jpg";
+import Image8 from "../Images/HomePageCarouselImage/1. Image/i8.jpg";
 
 export const Banner = () => {
+  const carouselImages = [
+    Image1,
+    Image2,
+    Image3,
+    Image4,
+    Image5,
+    Image6,
+    Image7,
+    Image8,
+  ];
   const search = useLocation().search;
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -58,6 +77,7 @@ export const Banner = () => {
   return (
     <section
       style={{
+        marginTop:0,
         ...(isMobileDevice &&
           document
             .getElementById("basic-navbar-nav")
@@ -66,6 +86,7 @@ export const Banner = () => {
       className="banner"
       id="home"
     >
+     
       <Container>
         <Row className="aligh-items-center">
           <Col xs={12} md={6} xl={7}>
@@ -97,17 +118,7 @@ export const Banner = () => {
           </Col>
           <Col xs={12} md={6} xl={5}>
             <TrackVisibility>
-              {({ isVisible }) => (
-                <div>
-                  <img
-                    style={{
-                      height: "24rem",
-                    }}
-                    src={AllInOne}
-                    alt="Header Img"
-                  />
-                </div>
-              )}
+              <Carousel images={carouselImages} />
             </TrackVisibility>
           </Col>
         </Row>
