@@ -58,6 +58,12 @@ const Home = (props) => {
                                     ? "animate__animated animate__fadeIn"
                                     : ""
                                 }
+                                style={{
+                                  ...(isMobileDevice && {
+                                    display: "flex",
+                                    justifyContent: "center",
+                                  }),
+                                }}
                               >
                                 <ul
                                   style={{

@@ -77,16 +77,11 @@ export const Banner = () => {
   return (
     <section
       style={{
-        marginTop:0,
-        ...(isMobileDevice &&
-          document
-            .getElementById("basic-navbar-nav")
-            ?.classList?.contains("show") && { paddingTop: "260px" }),
+        marginTop: 0,
       }}
       className="banner"
       id="home"
     >
-     
       <Container>
         <Row className="aligh-items-center">
           <Col xs={12} md={6} xl={7}>
@@ -116,7 +111,14 @@ export const Banner = () => {
               )}
             </TrackVisibility>
           </Col>
-          <Col xs={12} md={6} xl={5}>
+          <Col
+            style={{
+              marginTop: "1rem",
+            }}
+            xs={12}
+            md={6}
+            xl={5}
+          >
             <TrackVisibility>
               <Carousel images={carouselImages} />
             </TrackVisibility>

@@ -12,12 +12,13 @@ import { Services2 } from "./components/Services2";
 import Services from "./App/Services/Services";
 import { useState } from "react";
 import Admin from "./App/Admin/Admin";
-import Image4 from "../src/Images/HomePageCarouselImage/1. Image/i4.png"
+import Image4 from "../src/Images/HomePageCarouselImage/1. Image/i4.png";
 import { Container } from "react-bootstrap";
 
 let regexp = /android|iphone|kindle|ipad/i;
 let details = navigator.userAgent;
 export const isMobileDevice = regexp.test(details);
+console.log(isMobileDevice);
 
 function App() {
   const [showModal, setShowModal] = useState(false);
@@ -32,6 +33,9 @@ function App() {
           minWidth: "100%",
           margin: "0",
           marginBottom: "5rem",
+          ...(isMobileDevice && {
+            marginBottom: "1rem",
+          }),
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

@@ -117,6 +117,20 @@ nav.navbar a.navbar-brand {
     /* width: 9%; */
     color: white;
 }
+ .show {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+    .navbar-text-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      .navbar-text {
+        margin-right: 0.2rem;
+      }
+    }
+ }
 
 nav.navbar a.navbar-brand img{
   height: 3.5rem;
@@ -533,7 +547,7 @@ height: 100%;
   padding: 60px 0 200px 0;
 }
 .contact img {
-  width: 92%;
+  width: 100%;
 }
 .contact h2 {
 	font-size: 45px;
@@ -758,7 +772,7 @@ height: 100%;
   padding: 60px 0 200px 0;
 }
 .opportunity-form img {
-  width: 92%;
+  width: 100%;
 }
 .opportunity-form h2 {
 	font-size: 45px;

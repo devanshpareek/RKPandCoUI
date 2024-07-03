@@ -137,14 +137,15 @@ export const NavBar = () => {
                 </Nav.Link>
               </Nav>
             )}
-
-            <span className="navbar-text">
-              <HashLink to="/#query">
-                <button className="vvd">
-                  <span>Let’s Connect</span>
-                </button>
-              </HashLink>
-            </span>
+            <div className="navbar-text-wrapper">
+              <span className="navbar-text">
+                <HashLink to="/#query">
+                  <button className="vvd">
+                    <span>Let’s Connect</span>
+                  </button>
+                </HashLink>
+              </span>
+            </div>
           </Navbar.Collapse>
           {/* )} */}
         </Container>

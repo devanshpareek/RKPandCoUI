@@ -14,8 +14,8 @@ const ServicesList = {
   AdvisoryServices: "Advisory Services",
   FinanceAndAccountingOutsourcingServices:
     "Finance And Accounting Outsourcing Services",
-    AccountingAndBookkeeping:"Accounting And Bookkeeping",
-    ComplianceAndRegulatory:"Compliance And Regulatory"
+  AccountingAndBookkeeping: "Accounting And Bookkeeping",
+  ComplianceAndRegulatory: "Compliance And Regulatory",
 };
 
 const Services = (serviceName) => {
@@ -97,6 +97,12 @@ const Services = (serviceName) => {
                     className={
                       isVisible ? "animate__animated animate__fadeIn" : ""
                     }
+                    style={{
+                      ...(isMobileDevice && {
+                        display: "flex",
+                        justifyContent: "center",
+                      }),
+                    }}
                   >
                     <ul
                       style={{

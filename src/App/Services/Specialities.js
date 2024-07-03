@@ -3,7 +3,7 @@ import { FaDiamond } from "react-icons/fa6";
 export const specialities = {
   TaxAndRegulatory: (
     <div>
-      <h4>Specialities</h4>
+      <h3>Specialities</h3>
       <p>
         <FaDiamond /> Direct Taxation – Domestic
       </p>
@@ -20,7 +20,7 @@ export const specialities = {
   ),
   AuditAndAssurance: (
     <div>
-      <h4>Specialities</h4>
+      <h3>Specialities</h3>
 
       <p>
         {" "}
@@ -58,7 +58,7 @@ export const specialities = {
   ),
   CorporateLawServices: (
     <div>
-      <h4>Specialities</h4>
+      <h3>Specialities</h3>
       <p>
         {" "}
         <FaDiamond /> Direct Taxation – Domestic
@@ -79,7 +79,7 @@ export const specialities = {
   ),
   AdvisoryServices: (
     <div>
-      <h4>Specialities</h4>
+      <h3>Specialities</h3>
       <p>
         {" "}
         <FaDiamond /> Business Advisory
@@ -100,7 +100,7 @@ export const specialities = {
   ),
   AccountingAndBookkeeping: (
     <div>
-      <h4>Specialities</h4>
+      <h3>Specialities</h3>
       <p>
         {" "}
         <FaDiamond /> Financial Statement Preparation
@@ -117,7 +117,7 @@ export const specialities = {
   ),
   ComplianceAndRegulatory: (
     <div>
-      <h4>Specialities</h4>
+      <h3>Specialities</h3>
       <p>
         {" "}
         <FaDiamond /> Company Law Matters
@@ -134,7 +134,7 @@ export const specialities = {
   ),
   FinanceAndAccountingOutsourcingServices: (
     <div>
-      <h4>Specialities</h4>
+      <h3>Specialities</h3>
       {[
         "Funds Syndication",
         "Financial Analysis",
