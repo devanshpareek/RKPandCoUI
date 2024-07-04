@@ -188,9 +188,15 @@ const Admin = ({ showModal, setShowModal }) => {
             required
           />
         </div>
-        <button type="submit" onClick={handleLogin}>
-          Login
-        </button>
+        <div className="login-form-btn-wrapper">
+          <button
+            className="login-form-btn"
+            type="submit"
+            onClick={handleLogin}
+          >
+            Login
+          </button>
+        </div>
       </form>
     </div>
   ) : (
@@ -284,7 +290,8 @@ const Admin = ({ showModal, setShowModal }) => {
                                   <b>Query:</b> {query.query}
                                 </div>
                                 <div>
-                                  <b>Attachment:</b>{query.attachment}
+                                  <b>Attachment:</b>
+                                  {query.attachment}
                                   {/* <a
                                     href={query.attachment}
                                     target="_blank"

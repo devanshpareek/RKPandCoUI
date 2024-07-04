@@ -6,6 +6,51 @@ import navIcon3 from "../assets/img/nav-icon3.svg";
 import logo from "../Images/ICAI-India-Logo.png";
 import Admin from "../App/Admin/Admin";
 import useLocalStorageState from "use-local-storage-state";
+import styled from "styled-components";
+
+const FooterContainer = styled.footer`
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+`;
+
+const FooterWrapper = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+`;
+
+const FooterColumn = styled.div`
+  margin-bottom: 20px;
+
+  @media (min-width: 768px) {
+    flex: 1;
+    margin: 0 20px;
+  }
+`;
+
+const FooterRow = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+`;
+
+const FooterTitle = styled.h3`
+  margin-bottom: 10px;
+  font-size: 1.1em;
+`;
+
+const FooterItem = styled.p`
+  margin: 5px 0;
+  font-size: 0.9em !important;
+`;
+
+const FooterBottom = styled.div`
+  border-top: 1px solid #444;
+  padding-top: 10px;
+`;
 
 export const Footer = (props) => {
   const [isAdminLoggedIn, setIsAdminLoggedIn] = useLocalStorageState(
@@ -16,94 +61,94 @@ export const Footer = (props) => {
     <footer className="footer">
       <Container>
         <Row className="align-items-center">
-          {isAdminLoggedIn !== "true" && props.showAdminDashboard && (
-            <Admin
-              showModal={props.showModal}
-              setShowModal={props.setShowModal}
-            />
-          )}
-          <Col size={12} sm={6}>
+          <Col
+            size={12}
+            sm={5}
+            style={{
+              display: "flex",
+              gap: "1rem",
+              margin: "1rem",
+              marginTop: "3rem",
+            }}
+          >
             <img src={logo} alt="Logo" />
-          </Col>
-          <Col size={12} sm={6} className="text-center text-sm-end">
-            <h1
-              style={{
-                color: "white",
-                display: "flex",
-                justifyContent: "flex-start",
-              }}
-            >
-              Locations
-            </h1>
-            <div
-              style={{
-                display: "flex",
-
-                // flexDirection: "column",
-                justifyContent: "space-between",
-              }}
-              className="social-icon"
-            >
-              <a
+            <div>
+              <h2
                 style={{
-                  display: "flex",
-                  justifyContent: "flex-start",
-                  fontSize: "1.5rem",
-                  color: "#B8B8B8",
+                  textShadow: "2px 2px 5px darkslategrey",
+                  marginTop: "0.5rem",
+                  paddingTop: "0.5rem",
+                  color: "white",
                 }}
-                href="#"
               >
-                Jaipur
-              </a>
-              <p>|</p>
-              <a
+                R K Pareek & Co.
+              </h2>
+              <p
                 style={{
-                  display: "flex",
-                  justifyContent: "flex-start",
-                  fontSize: "1.5rem",
-                  color: "#B8B8B8",
+                  fontSize: "0.9rem",
+                  marginTop: "-0.7rem",
+                  textShadow: "2px 2px 5px darkslategrey",
+                  color: "white",
                 }}
-                href="#"
               >
-                Kota
-              </a>
-              <p>|</p>
-
-              <a
-                style={{
-                  display: "flex",
-                  justifyContent: "flex-start",
-                  fontSize: "1.5rem",
-                  color: "#B8B8B8",
-                }}
-                href="#"
-              >
-                Jodhpur
-              </a>
-              <p>|</p>
-
-              <a
-                style={{
-                  display: "flex",
-                  justifyContent: "flex-start",
-                  fontSize: "1.5rem",
-                  color: "#B8B8B8",
-                }}
-                href="#"
-              >
-                Hyderabad
-              </a>
+                Chartered Accountants
+              </p>
             </div>
-            <p
-              style={{
-                fontSize: "1rem",
-                marginTop: "3rem",
-              }}
-            >
-              Copyright 2022. All Rights Reserved
-            </p>
           </Col>
         </Row>
+        <FooterContainer>
+          <FooterWrapper>
+            <FooterRow>
+              <FooterColumn>
+                <FooterTitle>Our Offices</FooterTitle>
+                <FooterItem>Jaipur</FooterItem>
+                <FooterItem>Delhi</FooterItem>
+                <FooterItem>Hyderabad</FooterItem>
+                <FooterItem>Pune</FooterItem>
+                <FooterItem>Kota</FooterItem>
+                <FooterItem>Jodhpur</FooterItem>
+              </FooterColumn>
+              <FooterColumn>
+                <FooterTitle>Services</FooterTitle>
+                <a href="/services/TaxAndRegulatory">
+                  <FooterItem>Tax And Regulatory</FooterItem>
+                </a>
+                <a href="/services/AuditAndAssurance">
+                  <FooterItem>Audit And Assurance</FooterItem>
+                </a>
+
+                <a href="/services/AccountingAndBookkeeping">
+                  <FooterItem>Accounting And Bookkeeping</FooterItem>
+                </a>
+                <a href="/services/ComplianceAndRegulatory">
+                  <FooterItem>Compliance And Regulatory</FooterItem>
+                </a>
+                <a href="/services/AdvisoryServices">
+                  <FooterItem>Advisory Services</FooterItem>
+                </a>
+                <a href="/services/FinanceAndAccountingOutsourcingServices">
+                  <FooterItem>
+                    Finance And Accounting Outsourcing Services
+                  </FooterItem>
+                </a>
+              </FooterColumn>
+              <FooterColumn>
+                <FooterTitle>Contact Us</FooterTitle>
+                <FooterItem>
+                  Main Office: Petrol Pump, R K Pareek & Co. Chartered
+                  Accountants Plot No. 3, Ground Floor, Krishna Vihar A,
+                  Opposite Heera Path, Hanuman Marg, Manyawas, Mansarovar,
+                  Jaipur, Rajasthan 302020
+                </FooterItem>
+                <FooterItem>Phone: 099297 23866</FooterItem>
+                <FooterItem>Email: info@company.com</FooterItem>
+              </FooterColumn>
+            </FooterRow>
+            <FooterBottom>
+              &copy; 2024 RK Pareek & Company | All rights reserved.
+            </FooterBottom>
+          </FooterWrapper>
+        </FooterContainer>
       </Container>
     </footer>
   );
