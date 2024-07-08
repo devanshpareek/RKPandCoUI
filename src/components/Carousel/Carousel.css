@@ -7,6 +7,15 @@
     margin: auto;
   }
   
+  .home-page-carousel{
+    height: 100vh;
+    width: 100vw;
+    max-width: 100vw;
+    background-size: cover;
+    background-position: center;
+    
+  }
+
   .carousel-image {
     position: absolute;
     top: 0;

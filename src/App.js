@@ -12,8 +12,14 @@ import { Services2 } from "./components/Services2";
 import Services from "./App/Services/Services";
 import { useState } from "react";
 import Admin from "./App/Admin/Admin";
-import Image4 from "../src/Images/HomePageCarouselImage/1. Image/i4.png";
+import Image1 from "../src/Images/HomePageCarouselImage/1. Image/CI1.jpg";
+import Image2 from "../src/Images/HomePageCarouselImage/1. Image/CI2.jpg";
+import Image3 from "../src/Images/HomePageCarouselImage/1. Image/CI3.jpg";
+import Image4 from "../src/Images/HomePageCarouselImage/1. Image/CI4.jpg";
+import Image5 from "../src/Images/HomePageCarouselImage/1. Image/CI5.jpg";
+
 import { Container } from "react-bootstrap";
+import Carousel from "./components/Carousel/Carousel";
 
 let regexp = /android|iphone|kindle|ipad/i;
 let details = navigator.userAgent;
@@ -28,18 +34,23 @@ function App() {
       <NavBar />
       <Container
         style={{
-          backgroundImage: `url(${Image4})`,
-          height: "400px",
+          height: "100vh",
+          width: "100vw",
           minWidth: "100%",
+          padding: 0,
           margin: "0",
           marginBottom: "5rem",
           ...(isMobileDevice && {
             marginBottom: "1rem",
           }),
-          backgroundSize: "cover",
-          backgroundPosition: "center",
         }}
-      ></Container>
+      >
+        <Carousel
+          images={[Image1, Image2, Image3, Image4, Image5]}
+          interval={3000}
+          isHomePage={true}
+        />
+      </Container>
       <RouterProvider
         router={createBrowserRouter([
           {

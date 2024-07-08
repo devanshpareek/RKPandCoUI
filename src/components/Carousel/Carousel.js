@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import './Carousel.css';
+import React, { useState, useEffect } from "react";
+import "./Carousel.css";
 
-const Carousel = ({ images, interval = 5000 }) => {
+const Carousel = ({ images, interval = 5000, isHomePage = false }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -13,11 +13,11 @@ const Carousel = ({ images, interval = 5000 }) => {
   }, [images.length, interval]);
 
   return (
-    <div className="carousel">
+    <div className={isHomePage ? "carousel home-page-carousel" : "carousel"}>
       {images.map((image, index) => (
         <div
           key={index}
-          className={`carousel-image ${index === currentIndex ? 'active' : ''}`}
+          className={`carousel-image ${index === currentIndex ? "active" : ""}`}
           style={{ backgroundImage: `url(${image})` }}
         ></div>
       ))}
