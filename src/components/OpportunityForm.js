@@ -73,6 +73,7 @@ export const OpportunityForm = (props) => {
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log("came here", data);
         setFormDetails({ ...formDetails, attachment: data.url });
       })
       .catch((error) => {
@@ -85,6 +86,8 @@ export const OpportunityForm = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await tempSub(attachment);
+
+    console.log(attachment, formDetails);
 
     setButtonText("Sending...");
     let response = axios

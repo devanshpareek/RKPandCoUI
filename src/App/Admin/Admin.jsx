@@ -237,11 +237,12 @@ const Admin = ({ showModal, setShowModal }) => {
                       </div>
 
                       <div>
-                        <b>Mobile No.:</b> {query.telephoneno}
+                        <b>Subject Matter: </b>
+                        {query.attachment}
                       </div>
 
                       <div>
-                        <b>Query Subject:</b> {query.querysubject}
+                        <b>Query Subject: </b> {query.querysubject}
                       </div>
 
                       <div className="button-group">
@@ -260,49 +261,39 @@ const Admin = ({ showModal, setShowModal }) => {
                             setShowModal(true);
                             setModalContent(
                               <div className="modal-item">
-                                <div>
+                                <div className="modal-item-line">
                                   <b>Name:</b> {query.name}
                                 </div>
-                                <div>
+                                <div className="modal-item-line">
                                   <b>Designation:</b> {query.designation}
                                 </div>
-                                <div>
+                                <div className="modal-item-line">
                                   <b>Organization:</b> {query.organization}
                                 </div>
-                                <div>
+                                <div className="modal-item-line">
                                   <b>Office Address:</b> {query.officeaddress}
                                 </div>
-                                <div>
+                                <div className="modal-item-line">
                                   <b>City:</b> {query.city}
                                 </div>
-                                <div>
+                                <div className="modal-item-line">
                                   <b>Email Address:</b> {query.emailaddress}
                                 </div>
 
-                                <div>
+                                <div className="modal-item-line">
                                   <b>Mobile No.:</b> {query.telephoneno}
                                 </div>
-
-                                <div>
+                                <div className="modal-item-line">
+                                  <b>Subject Matter:</b>
+                                  {query.attachment}
+                                </div>
+                                <div className="modal-item-line">
                                   <b>Query Subject:</b> {query.querysubject}
                                 </div>
-                                <div>
+                                <div className="modal-item-line modal-item-line--heighted">
                                   <b>Query:</b> {query.query}
                                 </div>
-                                <div>
-                                  <b>Attachment:</b>
-                                  {query.attachment}
-                                  {/* <a
-                                    href={query.attachment}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    // onClick={() => {
-                                    //   openImageInNewTab(query.attachment);
-                                    // }}
-                                  >
-                                    Click here
-                                  </a> */}
-                                </div>
+
                                 <div className="button-group">
                                   {" "}
                                   <button
@@ -327,7 +318,7 @@ const Admin = ({ showModal, setShowModal }) => {
                             );
                           }}
                         >
-                          Detailed view
+                          Detailed
                         </button>
                       </div>
                     </div>
@@ -357,17 +348,17 @@ const Admin = ({ showModal, setShowModal }) => {
                       <b>Email:</b> {query.email}
                     </div>
                     <div>
-                      <b>Mobile No.:</b> {query.telephoneNo}
+                      <b>Mobile No.:</b> {query.telephone_no}
                     </div>
                     <div>
-                      <b>Education Background:</b> {query.educationBackground}
+                      <b>Education Background:</b> {query.education_background}
                     </div>
 
                     <div>
                       <b>Graduation:</b> {query.graduation}
                     </div>
                     <div>
-                      <b>Post Graduation:</b> {query.postGraduation}
+                      <b>Post Graduation:</b> {query.post_graduation}
                     </div>
                     <div className="button-group">
                       <button
@@ -386,46 +377,52 @@ const Admin = ({ showModal, setShowModal }) => {
                             <>
                               {" "}
                               <div className="modal-item">
-                                <div>
+                                <div className="modal-item-line">
                                   <b>First Name:</b> {query.name}
                                 </div>
-                                <div>
+                                <div className="modal-item-line">
                                   <b>Email:</b> {query.email}
                                 </div>
-                                <div>
-                                  <b>Mobile No.:</b> {query.telephoneNo}
+                                <div className="modal-item-line">
+                                  <b>Mobile No.:</b> {query.telephone_no}
                                 </div>
-                                <div>
+                                <div className="modal-item-line">
                                   <b>Education Background:</b>{" "}
-                                  {query.educationBackground}
+                                  {query.education_background}
                                 </div>
 
-                                <div>
-                                  <b>Tenth Score:</b> {query.tenthScore}
+                                <div className="modal-item-line">
+                                  <b>Tenth Score:</b> {query.tenth_score}
                                 </div>
 
-                                <div>
-                                  <b>Twelth Score:</b> {query.twelthScore}
+                                <div className="modal-item-line">
+                                  <b>Twelth Score:</b> {query.twelth_score}
                                 </div>
 
-                                <div>
-                                  <b>CPT Score:</b> {query.cptScore}
+                                <div className="modal-item-line">
+                                  <b>CPT Score:</b> {query.cpt_score}
                                 </div>
 
-                                <div>
-                                  <b>PCE Score:</b> {query.pceScore}
+                                <div className="modal-item-line">
+                                  <b>PCE Score:</b> {query.pce_score}
                                 </div>
-                                <div>
+                                <div className="modal-item-line">
                                   <b>Graduation:</b> {query.graduation}
                                 </div>
-                                <div>
-                                  <b>Post Graduation:</b> {query.postGraduation}
+                                <div className="modal-item-line">
+                                  <b>Post Graduation:</b>{" "}
+                                  {query.post_graduation}
                                 </div>
 
-                                <div>
-                                  <b>About You:</b> {query.aboutYou}
+                                <div className="modal-item-line ">
+                                  <div>
+                                    <b>About You:</b>
+                                  </div>
+                                  <div className="modal-item-line--heighted">
+                                    {query.about_you}
+                                  </div>
                                 </div>
-                                <div>
+                                <div className="modal-item-line">
                                   <b>Resume: </b>
                                   <a
                                     href={query.attachment}
@@ -488,14 +485,14 @@ const Admin = ({ showModal, setShowModal }) => {
                       <b>Email:</b> {query.email}
                     </div>
                     <div>
-                      <b>Mobile No.:</b> {query.telephoneNo}
+                      <b>Mobile No.:</b> {query.telephone_no}
                     </div>
 
                     <div>
                       <b>Graduation:</b> {query.graduation}
                     </div>
                     <div>
-                      <b>Post Graduation:</b> {query.postGraduation}
+                      <b>Post Graduation:</b> {query.post_graduation}
                     </div>
                     <div>
                       <b>Experience:</b> {query.experience}
@@ -516,35 +513,35 @@ const Admin = ({ showModal, setShowModal }) => {
                           setShowModal(true);
                           setModalContent(
                             <div className="modal-item">
-                              <div>
+                              <div className="modal-item-line">
                                 <b>First Name:</b> {query.name}
                               </div>
-                              <div>
+                              <div className="modal-item-line">
                                 <b>Email:</b> {query.email}
                               </div>
-                              <div>
-                                <b>Mobile No.:</b> {query.telephoneNo}
+                              <div className="modal-item-line">
+                                <b>Mobile No.:</b> {query.telephone_no}
                               </div>
-                              <div>
-                                <b>Gender:</b> {query.educationBackground}
+                              <div className="modal-item-line">
+                                <b>Gender:</b> {query.education_background}
                               </div>
 
-                              <div>
-                                <b>PCE Score:</b> {query.pceScore}
+                              <div className="modal-item-line">
+                                <b>PCE Score:</b> {query.pce_score}
                               </div>
-                              <div>
+                              <div className="modal-item-line">
                                 <b>Graduation:</b> {query.graduation}
                               </div>
-                              <div>
-                                <b>Post Graduation:</b> {query.postGraduation}
+                              <div className="modal-item-line">
+                                <b>Post Graduation:</b> {query.post_graduation}
                               </div>
-                              <div>
+                              <div className="modal-item-line">
                                 <b>Experience:</b> {query.experience}
                               </div>
-                              <div>
-                                <b>About You:</b> {query.aboutYou}
+                              <div className="modal-item-line modal-item-line--heighted">
+                                <b>About You:</b> {query.about_you}
                               </div>
-                              <div>
+                              <div className="modal-item-line">
                                 <b>Resume: </b>
                                 <a
                                   href={query.attachment}
@@ -605,7 +602,7 @@ const Admin = ({ showModal, setShowModal }) => {
                       <b>Email:</b> {query.email}
                     </div>
                     <div>
-                      <b>Mobile No.:</b> {query.telephoneNo}
+                      <b>Mobile No.:</b> {query.telephone_no}
                     </div>
                     <div>
                       <b>Experience:</b> {query.experience}
@@ -626,32 +623,32 @@ const Admin = ({ showModal, setShowModal }) => {
                           setShowModal(true);
                           setModalContent(
                             <div className="modal-item">
-                              <div>
+                              <div className="modal-item-line">
                                 <b>First Name:</b> {query.name}
                               </div>
-                              <div>
+                              <div className="modal-item-line">
                                 <b>Email:</b> {query.email}
                               </div>
-                              <div>
-                                <b>Mobile No.:</b> {query.telephoneNo}
+                              <div className="modal-item-line">
+                                <b>Mobile No.:</b> {query.telephone_no}
                               </div>
 
-                              <div>
-                                <b>CPT Score:</b> {query.cptScore}
+                              <div className="modal-item-line">
+                                <b>CPT Score:</b> {query.cpt_score}
                               </div>
-                              <div>
-                                <b>PCE Score:</b> {query.pceScore}
+                              <div className="modal-item-line">
+                                <b>PCE Score:</b> {query.pce_score}
                               </div>
-                              <div>
-                                <b>Final Score:</b> {query.finalScore}
+                              <div className="modal-item-line">
+                                <b>Final Score:</b> {query.final_score}
                               </div>
-                              <div>
+                              <div className="modal-item-line">
                                 <b>Experience:</b> {query.experience}
                               </div>
-                              <div>
-                                <b>About You:</b> {query.aboutYou}
+                              <div className="modal-item-line modal-item-line--heighted">
+                                <b>About You:</b> {query.about_you}
                               </div>
-                              <div>
+                              <div className="modal-item-line">
                                 <b>Resume: </b>
                                 <a
                                   href={query.attachment}
