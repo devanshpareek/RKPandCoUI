@@ -61,6 +61,9 @@ const Services = (serviceName) => {
           <Row
             style={{
               borderLeft: "1px solid black",
+              ...(!serviceName.isMobileDevice && {
+                borderRight: "1px solid black",
+              }),
             }}
             className="aligh-items-center"
           >
@@ -86,7 +89,10 @@ const Services = (serviceName) => {
           </Row>
           <Row
             style={{
-              borderLeft: "1px solid black",
+              ...(!serviceName.isMobileDevice && {
+                marginRight: "-3rem",
+                paddingLeft: "3rem",
+              }),
             }}
             className="aligh-items-center"
           >
@@ -106,7 +112,7 @@ const Services = (serviceName) => {
                   >
                     <ul
                       style={{
-                        width: "20rem",
+                        width: "13rem",
                       }}
                       class="list-group"
                     >
@@ -131,6 +137,9 @@ const Services = (serviceName) => {
                               : ""
                           }`}
                           aria-current="true"
+                          style={{
+                            fontSize: "12px",
+                          }}
                         >
                           Tax And Regulatory
                         </li>
@@ -157,6 +166,9 @@ const Services = (serviceName) => {
                               : ""
                           }`}
                           aria-current="true"
+                          style={{
+                            fontSize: "12px",
+                          }}
                         >
                           Audit And Assurance
                         </li>
@@ -210,6 +222,9 @@ const Services = (serviceName) => {
                               : ""
                           }`}
                           aria-current="true"
+                          style={{
+                            fontSize: "12px",
+                          }}
                         >
                           Accounting And Bookkeeping
                         </li>
@@ -237,6 +252,9 @@ const Services = (serviceName) => {
                               : ""
                           }`}
                           aria-current="true"
+                          style={{
+                            fontSize: "12px",
+                          }}
                         >
                           Compliance And Regulatory
                         </li>
@@ -263,6 +281,9 @@ const Services = (serviceName) => {
                               : ""
                           }`}
                           aria-current="true"
+                          style={{
+                            fontSize: "12px",
+                          }}
                         >
                           Advisory Services
                         </li>
@@ -291,6 +312,9 @@ const Services = (serviceName) => {
                               : ""
                           }`}
                           aria-current="true"
+                          style={{
+                            fontSize: "12px",
+                          }}
                         >
                           Finance And Accounting Outsourcing Services
                         </li>

@@ -12,84 +12,23 @@ export const aboutUsContent = (display, isMobileDevice) => {
         expertise, integrity, and a commitment to excellence. Our firm prides
         itself on delivering customized solutions that address the unique
         challenges and opportunities of each client.
-      </p>{" "}
-      <p>
-        Among our clients are several manufacturing, information technology,
-        fantasy sports, foods, entertainment, power generation & distribution
-        companies, banks and government organizations. R K Pareek & Co. is
-        committed to engagement, team continuity and client satisfaction. We
-        concentrate our entire efforts to the task of understanding and
-        improving our client’s efficiencies and effectiveness.
       </p>
-      <p>
-        Our firm’s objective is to provide quality services while maintaining
-        close personal ties to our clients and their executive staff. We are
-        concerned with the financial wellbeing of our clients, and believe that
-        good financial health is the best way to advance the general public's
-        interest in a sound economy.
-      </p>
-    </div>
-  ) : display === "vision" ? (
-    <div
-      style={{
-        marginTop: "2rem",
-      }}
-    >
-      <h2>Our Visions:</h2>
+      <h2>Vision & Mission:</h2>
       <p>
         <FaDiamond />
-        To be the leading provider of innovative and reliable financial
-        solutions, empowering our clients to achieve their financial aspirations
-        with confidence.
+        <b>Vision: </b> To be the leading provider of innovative and reliable
+        financial solutions, empowering our clients to achieve their financial
+        aspirations with confidence.
       </p>
       <p>
         {" "}
         <FaDiamond />
-        To be a respected & trusted professional firm and recognised as a
-        leading service provider in core areas.
-      </p>
-      <p>
-        {" "}
-        <FaDiamond />
-        To be a reputed & reliable partner for other professional service
-        providers.
-      </p>
-    </div>
-  ) : display === "mission" ? (
-    <div
-      style={{
-        marginTop: "2rem",
-      }}
-    >
-      <h2>Our Mission:</h2>
-      <p>
-        <FaDiamond />
-        To offer unparalleled auditing, financial and advisory services by
-        combining deep industry knowledge, advanced technology and a
+        <b>Mission: </b> To offer unparalleled auditing, financial and advisory
+        services by combining deep industry knowledge, advanced technology and a
         client-focused approach, ensuring the success and satisfaction of our
         clients.
       </p>
-      <p>
-        <FaDiamond />
-        To consistently provide excellent quality service to clients at all
-        times.
-      </p>
-      <p>
-        <FaDiamond /> To leverage the credentials and experience of all internal
-        stakeholders and be a partner in external stakeholders growth.
-      </p>
-    </div>
-  ) : display === "values" ? (
-    <div
-      style={{
-        marginTop: "2rem",
-      }}
-    >
       <h2>Our Values:</h2>
-      {/* <p>
-        <FaDiamond /> Our core values are driven by integrity, ethical
-        practices, independence and mutual respect.
-      </p> */}
       <p>
         <FaDiamond /> <b>Integrity:</b> We adhere to the highest ethical
         standards, ensuring honesty and transparency in all our dealings.
@@ -111,6 +50,12 @@ export const aboutUsContent = (display, isMobileDevice) => {
         and work collaboratively to achieve the best results for our clients.
       </p>
     </div>
+  ) : display === "values" ? (
+    <div
+      style={{
+        marginTop: "2rem",
+      }}
+    ></div>
   ) : display === "commitments" ? (
     <div
       style={{

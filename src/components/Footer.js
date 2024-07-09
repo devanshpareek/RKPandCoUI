@@ -58,7 +58,7 @@ export const Footer = (props) => {
     "false"
   );
   return (
-    <footer className="footer">
+    <footer className="footer" id="footer">
       <Container>
         <Row className="align-items-center">
           <Col
@@ -102,11 +102,11 @@ export const Footer = (props) => {
               <FooterColumn>
                 <FooterTitle>Our Offices</FooterTitle>
                 <FooterItem>Jaipur</FooterItem>
-                <FooterItem>Delhi</FooterItem>
-                <FooterItem>Hyderabad</FooterItem>
-                <FooterItem>Pune</FooterItem>
-                <FooterItem>Kota</FooterItem>
                 <FooterItem>Jodhpur</FooterItem>
+                <FooterItem>Kota</FooterItem>
+                <FooterItem>Pune</FooterItem>
+                <FooterItem>Hyderabad</FooterItem>
+                <FooterItem>Delhi</FooterItem>
               </FooterColumn>
               <FooterColumn>
                 <FooterTitle>Services</FooterTitle>
@@ -135,13 +135,12 @@ export const Footer = (props) => {
               <FooterColumn>
                 <FooterTitle>Contact Us</FooterTitle>
                 <FooterItem>
-                  Main Office: Petrol Pump, R K Pareek & Co. Chartered
-                  Accountants Plot No. 3, Ground Floor, Krishna Vihar A,
-                  Opposite Heera Path, Hanuman Marg, Manyawas, Mansarovar,
-                  Jaipur, Rajasthan 302020
+                  Main Office: 3, Ground Floor, Krishna Vihar – A, Mangyawas,
+                  New Sanganer Road, Mansarovar, Jaipur, Rajasthan, India -
+                  302020
                 </FooterItem>
-                <FooterItem>Phone: 099297 23866</FooterItem>
-                <FooterItem>Email: info@company.com</FooterItem>
+                <FooterItem>Phone: 9929833830, 9887805220</FooterItem>
+                <FooterItem>Email: info@rkpareek.com</FooterItem>
               </FooterColumn>
             </FooterRow>
             <FooterBottom>

@@ -78,6 +78,7 @@ export const Banner = () => {
     <section
       style={{
         marginTop: 0,
+        paddingTop: "5rem",
       }}
       className="banner"
       id="home"

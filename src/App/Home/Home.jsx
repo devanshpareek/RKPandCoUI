@@ -44,8 +44,12 @@ const Home = (props) => {
                     <div>
                       <Row
                         style={{
-                          borderLeft: "1px solid black",
                           height: "100%",
+                          ...(!props.isMobileDevice && {
+                            borderLeft: "1px solid black",
+                            marginRight: "-3rem",
+                            paddingLeft: "2rem",
+                          }),
                         }}
                         className="aligh-items-center"
                       >
@@ -67,7 +71,7 @@ const Home = (props) => {
                               >
                                 <ul
                                   style={{
-                                    width: "20rem",
+                                    width: "14rem",
                                   }}
                                   class="list-group"
                                 >
@@ -93,75 +97,6 @@ const Home = (props) => {
                                       aria-current="true"
                                     >
                                       History
-                                    </li>
-                                  </a>
-
-                                  <a
-                                    style={{
-                                      textDecoration: "none",
-                                      color: "black",
-                                    }}
-                                    href="/about-us/vision"
-                                    onClick={() => {
-                                      setActive("vision");
-                                    }}
-                                    class={`list-btn list-group-item ${
-                                      active === "vision" ? "active" : ""
-                                    }`}
-                                  >
-                                    <li
-                                      id="list-group-item"
-                                      class={`list-btn list-group-item ${
-                                        active === "vision" ? "active" : ""
-                                      }`}
-                                    >
-                                      Our Vision
-                                    </li>
-                                  </a>
-
-                                  <a
-                                    style={{
-                                      textDecoration: "none",
-                                      color: "black",
-                                    }}
-                                    href="/about-us/mission"
-                                    onClick={() => {
-                                      setActive("mission");
-                                    }}
-                                    class={`list-btn list-group-item ${
-                                      active === "mission" ? "active" : ""
-                                    }`}
-                                  >
-                                    <li
-                                      id="list-group-item"
-                                      class={`list-btn list-group-item ${
-                                        active === "mission" ? "active" : ""
-                                      }`}
-                                    >
-                                      Our Mission
-                                    </li>
-                                  </a>
-
-                                  <a
-                                    style={{
-                                      textDecoration: "none",
-                                      color: "black",
-                                    }}
-                                    href="/about-us/values"
-                                    onClick={() => {
-                                      setActive("values");
-                                    }}
-                                    class={`list-btn list-group-item ${
-                                      active === "values" ? "active" : ""
-                                    }`}
-                                  >
-                                    <li
-                                      id="list-group-item"
-                                      class={`list-btn list-group-item ${
-                                        active === "values" ? "active" : ""
-                                      }`}
-                                    >
-                                      Our Values
                                     </li>
                                   </a>
 

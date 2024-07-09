@@ -58,10 +58,10 @@ function App() {
             element: (
               <>
                 <Banner />
-                <Skills />
                 <Services2 />
-                <Projects />
-                <Contact />
+                <Skills />
+                <Projects isMobileDevice={isMobileDevice} />
+                <Contact isMobileDevice={isMobileDevice} />
                 <Footer
                   showAdminDashboard={true}
                   showModal={showModal}
@@ -84,35 +84,57 @@ function App() {
           },
           {
             path: "/about-us/history",
-            element: <Home display={"history"} />,
+            element: (
+              <Home isMobileDevice={isMobileDevice} display={"history"} />
+            ),
           },
           {
             path: "/about-us/vision",
-            element: <Home display={"vision"} />,
+            element: (
+              <Home isMobileDevice={isMobileDevice} display={"vision"} />
+            ),
           },
           {
             path: "/about-us/mission",
-            element: <Home display={"mission"} />,
+            element: (
+              <Home isMobileDevice={isMobileDevice} display={"mission"} />
+            ),
           },
           {
             path: "/about-us/values",
-            element: <Home display={"values"} />,
+            element: (
+              <Home isMobileDevice={isMobileDevice} display={"values"} />
+            ),
           },
           {
             path: "/about-us/commitments",
-            element: <Home display={"commitments"} />,
+            element: (
+              <Home isMobileDevice={isMobileDevice} display={"commitments"} />
+            ),
           },
           {
             path: "/about-us/practice-area",
-            element: <Home display={"practice-area"} />,
+            element: (
+              <Home isMobileDevice={isMobileDevice} display={"practice-area"} />
+            ),
           },
           {
             path: "/services/TaxAndRegulatory",
-            element: <Services serviceName={"TaxAndRegulatory"} />,
+            element: (
+              <Services
+                isMobileDevice={isMobileDevice}
+                serviceName={"TaxAndRegulatory"}
+              />
+            ),
           },
           {
             path: "/services/AuditAndAssurance",
-            element: <Services serviceName={"AuditAndAssurance"} />,
+            element: (
+              <Services
+                isMobileDevice={isMobileDevice}
+                serviceName={"AuditAndAssurance"}
+              />
+            ),
           },
           // {
           //   path: "/services/CorporateLawServices",
@@ -120,20 +142,36 @@ function App() {
           // },
           {
             path: "/services/AccountingAndBookkeeping",
-            element: <Services serviceName={"AccountingAndBookkeeping"} />,
+            element: (
+              <Services
+                isMobileDevice={isMobileDevice}
+                serviceName={"AccountingAndBookkeeping"}
+              />
+            ),
           },
           {
             path: "/services/ComplianceAndRegulatory",
-            element: <Services serviceName={"ComplianceAndRegulatory"} />,
+            element: (
+              <Services
+                isMobileDevice={isMobileDevice}
+                serviceName={"ComplianceAndRegulatory"}
+              />
+            ),
           },
           {
             path: "/services/AdvisoryServices",
-            element: <Services serviceName={"AdvisoryServices"} />,
+            element: (
+              <Services
+                isMobileDevice={isMobileDevice}
+                serviceName={"AdvisoryServices"}
+              />
+            ),
           },
           {
             path: "/services/FinanceAndAccountingOutsourcingServices",
             element: (
               <Services
+                isMobileDevice={isMobileDevice}
                 serviceName={"FinanceAndAccountingOutsourcingServices"}
               />
             ),

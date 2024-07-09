@@ -10,7 +10,7 @@ import { Contact } from "./Contact";
 import { OpportunityForm } from "./OpportunityForm";
 import { useState } from "react";
 
-export const Projects = () => {
+export const Projects = ({ isMobileDevice }) => {
   const [selectedOpportunity, setSelectedOpportunity] = useState("ca-aspirant");
 
   return (
@@ -66,7 +66,11 @@ export const Projects = () => {
                     </Nav.Item>
                   </Nav>
 
-                  <OpportunityForm selectedOpportunity={selectedOpportunity} withoutBackground={true} />
+                  <OpportunityForm
+                    selectedOpportunity={selectedOpportunity}
+                    withoutBackground={true}
+                    isMobileDevice={isMobileDevice}
+                  />
                 </Tab.Container>
               </div>
             )}

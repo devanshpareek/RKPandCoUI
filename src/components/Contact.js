@@ -132,7 +132,7 @@ export const Contact = (props) => {
   return (
     <section
       className="contact"
-      id="query"
+      id="queries"
       style={{
         ...(props.withoutBackground && { backgroundColor: "transparent" }),
       }}
@@ -156,22 +156,30 @@ export const Contact = (props) => {
             you with any question or inquiry. Please fill out the form below and
             our team will get back to you shortly.
           </h5>
-          <Col size={12} md={6}>
-            <TrackVisibility>
-              {({ isVisible }) => (
-                <img
-                  className={
-                    isVisible ? "animate__animated animate__zoomIn" : ""
-                  }
-                  src={contactImg}
-                  alt="Contact Us"
-                  style={{
-                    height: "20rem",
-                  }}
-                />
-              )}
-            </TrackVisibility>
-          </Col>
+          {!props.isMobileDevice && (
+            <Col
+              style={{
+                marginTop: "-11rem",
+              }}
+              size={12}
+              md={6}
+            >
+              <TrackVisibility>
+                {({ isVisible }) => (
+                  <img
+                    className={
+                      isVisible ? "animate__animated animate__zoomIn" : ""
+                    }
+                    src={contactImg}
+                    alt="Contact Us"
+                    style={{
+                      height: "20rem",
+                    }}
+                  />
+                )}
+              </TrackVisibility>
+            </Col>
+          )}
           <Col
             size={12}
             md={6}

@@ -35,7 +35,11 @@ export const Services2 = () => {
   };
 
   return (
-    <section style={{ marginTop: "3rem" }} className="service" id="services">
+    <section
+      style={{ marginTop: "3rem", paddingTop: "7rem" }}
+      className="service"
+      id="services"
+    >
       <div className="container">
         <div className="row">
           <div className="col-12">

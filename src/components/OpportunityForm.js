@@ -135,19 +135,27 @@ export const OpportunityForm = (props) => {
     >
       <Container>
         <Row className="align-items-center">
-          <Col size={12} md={6}>
-            <TrackVisibility>
-              {({ isVisible }) => (
-                <img
-                  className={
-                    isVisible ? "animate__animated animate__zoomIn" : ""
-                  }
-                  src={contactImg}
-                  alt="Contact Us"
-                />
-              )}
-            </TrackVisibility>
-          </Col>
+          {!props.isMobileDevice && (
+            <Col
+              style={{
+                marginTop: "-13rem",
+              }}
+              size={12}
+              md={6}
+            >
+              <TrackVisibility>
+                {({ isVisible }) => (
+                  <img
+                    className={
+                      isVisible ? "animate__animated animate__zoomIn" : ""
+                    }
+                    src={contactImg}
+                    alt="Contact Us"
+                  />
+                )}
+              </TrackVisibility>
+            </Col>
+          )}
           <Col size={12} md={6}>
             <TrackVisibility>
               {({ isVisible }) => (

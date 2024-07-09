@@ -31,7 +31,13 @@ export const Skills = () => {
   };
 
   return (
-    <section className="skill" id="team">
+    <section
+      style={{
+        paddingTop: "5rem",
+      }}
+      className="skill"
+      id="team"
+    >
       <div className="container">
         <div className="row">
           <div className="col-12">
