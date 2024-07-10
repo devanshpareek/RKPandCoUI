@@ -111,26 +111,25 @@ export const Footer = (props) => {
               </FooterColumn>
               <FooterColumn>
                 <FooterTitle>Services</FooterTitle>
-                <a href="/services/TaxAndRegulatory">
-                  <FooterItem>Tax And Regulatory</FooterItem>
-                </a>
                 <a href="/services/AuditAndAssurance">
                   <FooterItem>Audit And Assurance</FooterItem>
+                </a>
+                <a href="/services/TaxAndRegulatory">
+                  <FooterItem>Taxation</FooterItem>
                 </a>
 
                 <a href="/services/AccountingAndBookkeeping">
                   <FooterItem>Accounting And Bookkeeping</FooterItem>
                 </a>
-                <a href="/services/ComplianceAndRegulatory">
-                  <FooterItem>Compliance And Regulatory</FooterItem>
-                </a>
                 <a href="/services/AdvisoryServices">
                   <FooterItem>Advisory Services</FooterItem>
                 </a>
+                <a href="/services/ComplianceAndRegulatory">
+                  <FooterItem>Compliance And Regulatory</FooterItem>
+                </a>
+
                 <a href="/services/SpecializedServices">
-                  <FooterItem>
-                    Finance And Accounting Outsourcing Services
-                  </FooterItem>
+                  <FooterItem>Specialized Services</FooterItem>
                 </a>
               </FooterColumn>
               <FooterColumn>
