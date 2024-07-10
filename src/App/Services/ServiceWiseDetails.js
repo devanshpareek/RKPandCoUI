@@ -20,27 +20,20 @@ export const serviceDetails = {
     <div>
       {/* <h2>Audit and Assurance</h2> */}
 
-      <p>
-        Our audit and assurances service offerings are based on a complete
-        understanding of the clients’ business specifics, industry
-        peculiarities, and the applicable laws. The audit approach is based on
-        the compliance issues, the nature and requirement for audit, the
-        clients’ requirement, and key risk issues involved.
-      </p>
-
       <h3>Statutory Audits</h3>
       <p>
         Comprehensive audits to ensure compliance with regulatory requirements.
       </p>
-
-      <h3>Compliance Audits</h3>
-      <p>Ensuring adherence to industry standards and regulations.</p>
 
       <h3>Internal Audits</h3>
       <p>
         Evaluating and improving the effectiveness of internal controls and
         processes.
       </p>
+
+      <h3>Compliance Audits</h3>
+      <p>Ensuring adherence to industry standards and regulations.</p>
+
       <h3>Risk Management</h3>
       <p>Identifying and mitigating financial and operational risks.</p>
     </div>
@@ -80,14 +73,7 @@ export const serviceDetails = {
   ),
   AdvisoryServices: (
     <div>
-      {/* <h2>Advisory Services</h2> */}
-      <p>
-        We offer multi-disciplinary advisory services to clients in our main
-        areas of practice i.e. taxation and regulatory, audit and assurance and
-        company law. Besides, the firm also offers advisory solutions on
-        partnership and LLP laws, societies and trusts laws, exchange control
-        regulations, employee benefit regulations etc.
-      </p>
+      
       <h3>Business Advisory</h3>
       <p>Strategic advice to enhance business performance and growth.</p>
       <h3>Financial Consulting</h3>
@@ -104,32 +90,16 @@ export const serviceDetails = {
       </p>
     </div>
   ),
-  FinanceAndAccountingOutsourcingServices: (
+  SpecializedServices: (
     <div>
-      {/* <h2>Finance and Accounting Outsourcing Services</h2> */}
+      <h3>Forensic Accounting</h3>
       <p>
-        The finance and accounting processes of businesses are getting complex
-        and challenging with more and more regulatory pronouncements and
-        standards coming into effect. Corporates are outsourcing various finance
-        and accounting processes with a view to streamline respective processes
-        and obtain consistency, uniformity and stronger controls.
+        Investigative services to uncover fraud and financial irregularities.
       </p>
-      <p>
-        We at R K Pareek & Co offer accounting and related processes services to
-        clients who either do not wish to create their own capabilities or are
-        looking for competitive and professional solutions to their accounting
-        and related processes. A large number of clients prefer to outsource
-        various accounting and related processes in order to save on costs and
-        the avoid taking responsibility of engaging multi level full time
-        finance and accounting professionals. Our approach to outsourced
-        assignments involves gaining a complete understanding of clients
-        requirements which forms the bedrock of assignment implementation plan,
-        designing process plan, assessing resource requirements, deploying
-        adequate resources, performing the desired functions, constant
-        monitoring by team leaders, generating client deliverables and timely
-        client reporting. All engagements are led by a Partner to ensure quality
-        assurance.
-      </p>
+      <h3>Valuation Services</h3>
+      <p>Accurate business valuations for various purposes</p>
+      <h3>Due Diligence</h3>
+      <p>Thorough due diligence for mergers, acquisitions, and investments.</p>
     </div>
   ),
 };

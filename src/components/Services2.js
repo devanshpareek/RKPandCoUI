@@ -51,18 +51,7 @@ export const Services2 = () => {
                 infinite={true}
                 className="owl-carousel owl-theme service-slider"
               >
-                <a
-                  style={{
-                    textDecoration: "none",
-                    color: "black",
-                  }}
-                  href="/services/TaxAndRegulatory"
-                >
-                  <div className="item">
-                    <img src={taxAndRegulatory} alt="Image" />
-                    <h5>Tax and Regulatory</h5>
-                  </div>
-                </a>
+               
                 <a
                   style={{
                     textDecoration: "none",
@@ -73,6 +62,18 @@ export const Services2 = () => {
                   <div className="item">
                     <img src={auditAndAssurance} alt="Image" />
                     <h5>Audit And Assurance</h5>
+                  </div>
+                </a>
+                <a
+                  style={{
+                    textDecoration: "none",
+                    color: "black",
+                  }}
+                  href="/services/TaxAndRegulatory"
+                >
+                  <div className="item">
+                    <img src={taxAndRegulatory} alt="Image" />
+                    <h5>Taxation</h5>
                   </div>
                 </a>
                 {/* <a
@@ -104,18 +105,6 @@ export const Services2 = () => {
                     textDecoration: "none",
                     color: "black",
                   }}
-                  href="/services/ComplianceAndRegulatory"
-                >
-                  <div className="item">
-                    <img src={advisoryService} alt="Image" />
-                    <h5>Compliance And Regulatory</h5>
-                  </div>
-                </a>
-                <a
-                  style={{
-                    textDecoration: "none",
-                    color: "black",
-                  }}
                   href="/services/AdvisoryServices"
                 >
                   <div className="item">
@@ -128,11 +117,24 @@ export const Services2 = () => {
                     textDecoration: "none",
                     color: "black",
                   }}
-                  href="/services/FinanceAndAccountingOutsourcingServices"
+                  href="/services/ComplianceAndRegulatory"
+                >
+                  <div className="item">
+                    <img src={advisoryService} alt="Image" />
+                    <h5>Compliance And Regulatory</h5>
+                  </div>
+                </a>
+               
+                <a
+                  style={{
+                    textDecoration: "none",
+                    color: "black",
+                  }}
+                  href="/services/SpecializedServices"
                 >
                   <div className="item">
                     <img src={financing} alt="Image" />
-                    <h5>Finance And Accounting Outsourcing Services</h5>
+                    <h5>Specialized Services</h5>
                   </div>
                 </a>
               </Carousel>

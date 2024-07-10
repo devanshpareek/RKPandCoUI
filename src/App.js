@@ -168,11 +168,11 @@ function App() {
             ),
           },
           {
-            path: "/services/FinanceAndAccountingOutsourcingServices",
+            path: "/services/SpecializedServices",
             element: (
               <Services
                 isMobileDevice={isMobileDevice}
-                serviceName={"FinanceAndAccountingOutsourcingServices"}
+                serviceName={"SpecializedServices"}
               />
             ),
           },
@@ -261,7 +261,7 @@ export default App;
 //             path: "/services/finance-and-accounting-outsourcing-services",
 //             element: (
 //               <Services
-//                 serviceName={"FinanceAndAccountingOutsourcingServices"}
+//                 serviceName={"SpecializedServices"}
 //               />
 //             ),
 //           },

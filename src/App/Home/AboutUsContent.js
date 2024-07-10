@@ -49,20 +49,7 @@ export const aboutUsContent = (display, isMobileDevice) => {
         <FaDiamond /> <b>Collaboration:</b> We believe in the power of teamwork
         and work collaboratively to achieve the best results for our clients.
       </p>
-    </div>
-  ) : display === "values" ? (
-    <div
-      style={{
-        marginTop: "2rem",
-      }}
-    ></div>
-  ) : display === "commitments" ? (
-    <div
-      style={{
-        marginTop: "2rem",
-      }}
-    >
-      <h2>Our Commitments</h2>
+      <h2>Our Commitment</h2>
       <p>
         <FaDiamond /> Proactively understand requirements & provide concrete
         resolutions distinguishing client ethos, background & restrictions.

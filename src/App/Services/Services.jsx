@@ -12,8 +12,7 @@ const ServicesList = {
   AuditAndAssurance: "Audit And Assurance",
   CorporateLawServices: "Corporate Law Services",
   AdvisoryServices: "Advisory Services",
-  FinanceAndAccountingOutsourcingServices:
-    "Finance And Accounting Outsourcing Services",
+  SpecializedServices: "Specialized Services",
   AccountingAndBookkeeping: "Accounting And Bookkeeping",
   ComplianceAndRegulatory: "Compliance And Regulatory",
 };
@@ -121,35 +120,6 @@ const Services = (serviceName) => {
                           textDecoration: "none",
                           color: "black",
                         }}
-                        href="/services/TaxAndRegulatory"
-                        class={`list-btn list-group-item ${
-                          serviceName.serviceName === "TaxAndRegulatory"
-                            ? "active"
-                            : ""
-                        }`}
-                      >
-                        {" "}
-                        <li
-                          id="list-group-item"
-                          class={`list-btn list-group-item ${
-                            serviceName.serviceName === "TaxAndRegulatory"
-                              ? "active"
-                              : ""
-                          }`}
-                          aria-current="true"
-                          style={{
-                            fontSize: "12px",
-                          }}
-                        >
-                          Tax And Regulatory
-                        </li>
-                      </a>
-
-                      <a
-                        style={{
-                          textDecoration: "none",
-                          color: "black",
-                        }}
                         href="/services/AuditAndAssurance"
                         class={`list-btn list-group-item ${
                           serviceName.serviceName === "AuditAndAssurance"
@@ -171,6 +141,35 @@ const Services = (serviceName) => {
                           }}
                         >
                           Audit And Assurance
+                        </li>
+                      </a>
+
+                      <a
+                        style={{
+                          textDecoration: "none",
+                          color: "black",
+                        }}
+                        href="/services/TaxAndRegulatory"
+                        class={`list-btn list-group-item ${
+                          serviceName.serviceName === "TaxAndRegulatory"
+                            ? "active"
+                            : ""
+                        }`}
+                      >
+                        {" "}
+                        <li
+                          id="list-group-item"
+                          class={`list-btn list-group-item ${
+                            serviceName.serviceName === "TaxAndRegulatory"
+                              ? "active"
+                              : ""
+                          }`}
+                          aria-current="true"
+                          style={{
+                            fontSize: "12px",
+                          }}
+                        >
+                          Taxation
                         </li>
                       </a>
 
@@ -235,6 +234,35 @@ const Services = (serviceName) => {
                           textDecoration: "none",
                           color: "black",
                         }}
+                        href="/services/AdvisoryServices"
+                        class={`list-btn list-group-item ${
+                          serviceName.serviceName === "AdvisoryServices"
+                            ? "active"
+                            : ""
+                        }`}
+                      >
+                        {" "}
+                        <li
+                          id="list-group-item"
+                          class={`list-btn list-group-item ${
+                            serviceName.serviceName === "AdvisoryServices"
+                              ? "active"
+                              : ""
+                          }`}
+                          aria-current="true"
+                          style={{
+                            fontSize: "12px",
+                          }}
+                        >
+                          Advisory Services
+                        </li>
+                      </a>
+
+                      <a
+                        style={{
+                          textDecoration: "none",
+                          color: "black",
+                        }}
                         href="/services/ComplianceAndRegulatory"
                         class={`list-btn list-group-item ${
                           serviceName.serviceName === "ComplianceAndRegulatory"
@@ -265,39 +293,10 @@ const Services = (serviceName) => {
                           textDecoration: "none",
                           color: "black",
                         }}
-                        href="/services/AdvisoryServices"
-                        class={`list-btn list-group-item ${
-                          serviceName.serviceName === "AdvisoryServices"
-                            ? "active"
-                            : ""
-                        }`}
-                      >
-                        {" "}
-                        <li
-                          id="list-group-item"
-                          class={`list-btn list-group-item ${
-                            serviceName.serviceName === "AdvisoryServices"
-                              ? "active"
-                              : ""
-                          }`}
-                          aria-current="true"
-                          style={{
-                            fontSize: "12px",
-                          }}
-                        >
-                          Advisory Services
-                        </li>
-                      </a>
-
-                      <a
-                        style={{
-                          textDecoration: "none",
-                          color: "black",
-                        }}
-                        href="/services/FinanceAndAccountingOutsourcingServices"
+                        href="/services/SpecializedServices"
                         class={`list-btn list-group-item ${
                           serviceName.serviceName ===
-                          "FinanceAndAccountingOutsourcingServices"
+                          "SpecializedServices"
                             ? "active"
                             : ""
                         }`}
@@ -307,7 +306,7 @@ const Services = (serviceName) => {
                           id="list-group-item"
                           class={`list-btn list-group-item ${
                             serviceName.serviceName ===
-                            "FinanceAndAccountingOutsourcingServices"
+                            "SpecializedServices"
                               ? "active"
                               : ""
                           }`}
@@ -316,7 +315,7 @@ const Services = (serviceName) => {
                             fontSize: "12px",
                           }}
                         >
-                          Finance And Accounting Outsourcing Services
+                          Specialized Services
                         </li>
                       </a>
                     </ul>

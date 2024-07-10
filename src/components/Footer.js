@@ -12,7 +12,7 @@ const FooterContainer = styled.footer`
   background-color: #333;
   color: #fff;
   padding: 20px 0;
-  text-align: center;
+  // text-align: center;
 `;
 
 const FooterWrapper = styled.div`
@@ -33,13 +33,14 @@ const FooterColumn = styled.div`
 const FooterRow = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   margin-bottom: 20px;
 `;
 
 const FooterTitle = styled.h3`
   margin-bottom: 10px;
   font-size: 1.1em;
+  display: flex;
+  justify-content: flex-start;
 `;
 
 const FooterItem = styled.p`
@@ -126,7 +127,7 @@ export const Footer = (props) => {
                 <a href="/services/AdvisoryServices">
                   <FooterItem>Advisory Services</FooterItem>
                 </a>
-                <a href="/services/FinanceAndAccountingOutsourcingServices">
+                <a href="/services/SpecializedServices">
                   <FooterItem>
                     Finance And Accounting Outsourcing Services
                   </FooterItem>

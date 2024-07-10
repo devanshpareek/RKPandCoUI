@@ -38,22 +38,6 @@ export const specialities = {
         {" "}
         <FaDiamond /> Bank Audits
       </p>
-      <p>
-        {" "}
-        <FaDiamond /> Cost Accounting Record Maintenance
-      </p>
-      <p>
-        {" "}
-        <FaDiamond /> Due Dipgence
-      </p>
-      <p>
-        {" "}
-        <FaDiamond /> Investigations
-      </p>
-      <p>
-        {" "}
-        <FaDiamond /> Certification Services
-      </p>
     </div>
   ),
   CorporateLawServices: (
@@ -132,22 +116,16 @@ export const specialities = {
       </p>
     </div>
   ),
-  FinanceAndAccountingOutsourcingServices: (
+  SpecializedServices: (
     <div>
       <h3>Specialities</h3>
-      {[
-        "Funds Syndication",
-        "Financial Analysis",
-        "Business Valuation",
-        "Succession Planning",
-        "Business Set up & Development",
-        "Wealth Management",
-        "Arbitration",
-      ].map((service, index) => (
-        <p key={index}>
-          <FaDiamond /> {service}
-        </p>
-      ))}
+      {["Forensic Accounting", "Valuation Services", "Due Diligence"].map(
+        (service, index) => (
+          <p key={index}>
+            <FaDiamond /> {service}
+          </p>
+        )
+      )}
     </div>
   ),
 };

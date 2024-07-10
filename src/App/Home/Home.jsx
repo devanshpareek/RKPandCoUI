@@ -105,28 +105,6 @@ const Home = (props) => {
                                       textDecoration: "none",
                                       color: "black",
                                     }}
-                                    href="/about-us/commitments"
-                                    onClick={() => {
-                                      setActive("commitments");
-                                    }}
-                                    class={`list-btn list-group-item ${
-                                      active === "commitments" ? "active" : ""
-                                    }`}
-                                  >
-                                    <li
-                                      id="list-group-item"
-                                      class={`list-btn list-group-item ${
-                                        active === "commitments" ? "active" : ""
-                                      }`}
-                                    >
-                                      Our Commitments
-                                    </li>
-                                  </a>
-                                  <a
-                                    style={{
-                                      textDecoration: "none",
-                                      color: "black",
-                                    }}
                                     href="/about-us/practice-area"
                                     onClick={() => {
                                       setActive("practice-area");
