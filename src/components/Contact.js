@@ -6,129 +6,6 @@ import TrackVisibility from "react-on-screen";
 import axios from "axios";
 
 export const Contact = (props) => {
-  const formInitialDetails = {
-    name: "",
-    designation: "",
-    organization: "",
-    officeAddress: "",
-    city: "",
-    emailAddress: "",
-    telephoneNo: "",
-    mobileNumber: "",
-    professionalUpdates: "No",
-    querySubject: "",
-    attachment: "",
-    query: "",
-  };
-  const [formDetails, setFormDetails] = useState(formInitialDetails);
-  const [buttonText, setButtonText] = useState("Send");
-  const [status, setStatus] = useState({});
-
-  const onFormUpdate = (category, value) => {
-    setFormDetails({
-      ...formDetails,
-      [category]: value,
-    });
-  };
-
-  const [attachment, setAttachment] = useState("");
-  const [t, st] = useState({});
-
-  async function tempSub(img) {
-    const data = new FormData();
-    data.append("file", img);
-    data.append("upload_preset", "unicorn-bridge");
-    data.append("cloud_name", "dnuc0ukxf");
-    data.append("api_key", "618922484172698");
-    await fetch("https://api.cloudinary.com/v1_1/:dnuc0ukxf/image/upload", {
-      method: "post",
-      body: data,
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        const aggregatedObj = { ...formDetails, attachment: data.url };
-        st(aggregatedObj);
-        console.log(aggregatedObj, Object.keys(aggregatedObj));
-        setFormDetails(aggregatedObj);
-        axios
-          .post("http://localhost:8080/query", {
-            queryData: aggregatedObj,
-          })
-          .then((res) => {
-            console.log(res);
-          });
-        setStatus({ success: true, message: "Query sent successfully" });
-
-        alert(
-          "Query raised successfully, we will get back to you soon. Thank you!"
-        );
-      })
-      .catch((error) => {
-        alert(error);
-      });
-  }
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   setButtonText("Sending...");
-  //   let response = axios
-  //     .post("http://localhost:8080/query", { queryData: formDetails })
-  //     .then((result) => {
-  //       console.log(result);
-  //       setStatus({ succes: true, message: "Query sent successfully" });
-
-  //       alert(
-  //         "Query raised successfully, we will get back to you soon.Thank you!"
-  //       );
-  //     })
-  //     .catch((err) => {
-  //       setStatus({
-  //         succes: false,
-  //         message: "Something went wrong, please try again later.",
-  //       });
-  //       alert("Oops, something went wrong!");
-  //       console.log(err);
-  //     });
-  //   setButtonText("Send");
-  //   let result = await response;
-  //   console.log(result);
-
-  //   setFormDetails(formInitialDetails);
-  // };
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    // console.log(formDetails);
-    // console.log("Form submitted", attachment, t);
-    // tempSub(attachment);
-    // console.log(formDetails, t);
-
-    setButtonText("Sending...");
-    try {
-      await axios
-        .post("http://localhost:8080/query", {
-          queryData: formDetails,
-        })
-        .then((res) => {
-          alert(
-            "Query raised successfully, we will get back to you soon. Thank you!"
-          );
-          setFormDetails(formInitialDetails);
-        });
-      setStatus({ success: true, message: "Query sent successfully" });
-    } catch (error) {
-      console.error("Error occurred:", error);
-      setStatus({
-        success: false,
-        message: "Something went wrong, please try again later.",
-      });
-      alert("Oops, something went wrong!");
-    } finally {
-      console.log("plz come in finally");
-      setButtonText("Send");
-      setFormDetails(formInitialDetails);
-    }
-  };
-
   return (
     <section
       className="contact"
@@ -157,13 +34,7 @@ export const Contact = (props) => {
             our team will get back to you shortly.
           </h5>
           {!props.isMobileDevice && (
-            <Col
-              style={{
-                marginTop: "-11rem",
-              }}
-              size={12}
-              md={6}
-            >
+            <Col size={12} md={6}>
               <TrackVisibility>
                 {({ isVisible }) => (
                   <img
@@ -194,86 +65,26 @@ export const Contact = (props) => {
                     isVisible ? "animate__animated animate__fadeIn" : ""
                   }
                 >
-                  <form onSubmit={handleSubmit}>
+                  <form onSubmit={() => {}}>
                     <Row>
                       <Col size={12} sm={6} className="px-1">
-                        <input
-                          type="text"
-                          value={formDetails.name}
-                          placeholder="Name"
-                          onChange={(e) => onFormUpdate("name", e.target.value)}
-                        />
+                        <input type="text" placeholder="Name" name="name" />
                       </Col>
                       <Col size={12} sm={6} className="px-1">
                         <input
                           type="tel"
-                          value={formDetails.phone}
                           placeholder="Contact No."
-                          onChange={(e) =>
-                            onFormUpdate("telephoneNo", e.target.value)
-                          }
+                          name="phone"
                         />
                       </Col>
                       <Col size={12} sm={6} className="px-1">
-                        <input
-                          type="text"
-                          value={formDetails.designation}
-                          placeholder="Designation"
-                          onChange={(e) =>
-                            onFormUpdate("designation", e.target.value)
-                          }
-                        />
+                        <input type="email" placeholder="Email" name="email" />
                       </Col>
-                      <Col size={12} sm={6} className="px-1">
-                        <input
-                          type="text"
-                          value={formDetails.organization}
-                          placeholder="Organization"
-                          onChange={(e) =>
-                            onFormUpdate("organization", e.target.value)
-                          }
-                        />
-                      </Col>
-                      <Col size={12} sm={6} className="px-1">
-                        <input
-                          type="text"
-                          value={formDetails.officeAddress}
-                          placeholder="Office Address"
-                          onChange={(e) =>
-                            onFormUpdate("officeAddress", e.target.value)
-                          }
-                        />
-                      </Col>
-
-                      <Col size={12} sm={6} className="px-1">
-                        <input
-                          type="text"
-                          value={formDetails.city}
-                          placeholder="City"
-                          onChange={(e) => onFormUpdate("city", e.target.value)}
-                        />
-                      </Col>
-
-                      <Col size={12} sm={6} className="px-1">
-                        <input
-                          type="email"
-                          value={formDetails.emailAddress}
-                          placeholder="Email"
-                          onChange={(e) =>
-                            onFormUpdate("emailAddress", e.target.value)
-                          }
-                        />
-                      </Col>
-
                       <Col size={12} sm={6} className="px-1">
                         <select
                           id="querySubject"
                           name="querySubject"
                           placeholder="Query Subject"
-                          value={formDetails.attachment}
-                          onChange={(e) =>
-                            onFormUpdate("attachment", e.target.value)
-                          }
                           required
                         >
                           <option
@@ -387,40 +198,15 @@ export const Contact = (props) => {
                       </Col>
 
                       <Col size={12} className="px-1">
-                        <input
-                          type="text"
-                          value={formDetails.querySubject}
-                          placeholder="Query Subject"
-                          onChange={(e) =>
-                            onFormUpdate("querySubject", e.target.value)
-                          }
-                        />
-                      </Col>
-
-                      <Col size={12} className="px-1">
                         <textarea
                           rows="6"
-                          value={formDetails.query}
                           placeholder="Query"
-                          onChange={(e) =>
-                            onFormUpdate("query", e.target.value)
-                          }
+                          name="query"
                         ></textarea>
                         <button type="submit">
-                          <span>{buttonText}</span>
+                          <span>Send</span>
                         </button>
                       </Col>
-                      {status.message && (
-                        <Col>
-                          <p
-                            className={
-                              status.success === false ? "danger" : "success"
-                            }
-                          >
-                            {status.message}
-                          </p>
-                        </Col>
-                      )}
                     </Row>
                   </form>
                 </div>

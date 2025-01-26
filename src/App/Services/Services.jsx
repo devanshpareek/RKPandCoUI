@@ -36,13 +36,22 @@ const Services = (serviceName) => {
         <Container
           style={{
             display: "flex",
+            justifyContent: "space-between",
+            gap: "2rem",
             ...(isMobileDevice && {
               flexDirection: "column-reverse",
+              alignItems:'center',
               gap: "2rem",
             }),
           }}
         >
-          <Row className="aligh-items-center">
+          <Row
+            className={
+              isMobileDevice
+                ? "aligh-items-center mobile-services-1"
+                : "aligh-items-center services-1"
+            }
+          >
             <Col xs={18} md={13} xl={14}>
               <TrackVisibility>
                 {({ isVisible }) => (
@@ -58,13 +67,11 @@ const Services = (serviceName) => {
             </Col>
           </Row>
           <Row
-            style={{
-              borderLeft: "1px solid black",
-              ...(!serviceName.isMobileDevice && {
-                borderRight: "1px solid black",
-              }),
-            }}
-            className="aligh-items-center"
+            className={
+              isMobileDevice
+                ? "aligh-items-center mobile-services-2"
+                : "aligh-items-center services-2"
+            }
           >
             <Col xs={22} md={16} xl={17}>
               <TrackVisibility>
@@ -74,26 +81,18 @@ const Services = (serviceName) => {
                       isVisible ? "animate__animated animate__fadeIn" : ""
                     }
                   >
-                    <div
-                      style={{
-                        width: "22rem",
-                      }}
-                    >
-                      {specialityList}
-                    </div>
+                    <div>{specialityList}</div>
                   </div>
                 )}
               </TrackVisibility>
             </Col>
           </Row>
           <Row
-            style={{
-              ...(!serviceName.isMobileDevice && {
-                marginRight: "-3rem",
-                paddingLeft: "3rem",
-              }),
-            }}
-            className="aligh-items-center"
+            className={
+              isMobileDevice
+                ? "aligh-items-center mobile-services-3"
+                : "aligh-items-center services-3"
+            }
           >
             <Col xs={22} md={16} xl={17}>
               <TrackVisibility>
@@ -109,12 +108,7 @@ const Services = (serviceName) => {
                       }),
                     }}
                   >
-                    <ul
-                      style={{
-                        width: "13rem",
-                      }}
-                      class="list-group"
-                    >
+                    <ul class="list-group">
                       <a
                         style={{
                           textDecoration: "none",
@@ -295,8 +289,7 @@ const Services = (serviceName) => {
                         }}
                         href="/services/SpecializedServices"
                         class={`list-btn list-group-item ${
-                          serviceName.serviceName ===
-                          "SpecializedServices"
+                          serviceName.serviceName === "SpecializedServices"
                             ? "active"
                             : ""
                         }`}
@@ -305,8 +298,7 @@ const Services = (serviceName) => {
                         <li
                           id="list-group-item"
                           class={`list-btn list-group-item ${
-                            serviceName.serviceName ===
-                            "SpecializedServices"
+                            serviceName.serviceName === "SpecializedServices"
                               ? "active"
                               : ""
                           }`}

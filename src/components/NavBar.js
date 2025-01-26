@@ -37,7 +37,7 @@ export const NavBar = () => {
 
   return (
     <Router>
-      <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
+      <Navbar expand="md" className={scrolled ? "scrolled" : "non-scrolled"}>
         <Container>
           <Navbar.Brand href="/">
             <img src={CALOGO} alt="Logo" />
@@ -50,7 +50,6 @@ export const NavBar = () => {
                 paddingTop: "0.5rem",
               }}
             >
-              {/* R K <u className="company-title-underline">Pareek & Co.</u> */}
               R K Pareek & Co.
             </h2>
             <p

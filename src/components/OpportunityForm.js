@@ -1,65 +1,15 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import contactImg from "../Images/opportunityImg.jpg";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
 import axios from "axios";
+import emailjs from "@emailjs/browser";
 
 export const OpportunityForm = (props) => {
-  console.log(props.selectedOpportunity);
-
-  const formInitialDetails =
-    props.selectedOpportunity === "ca-aspirant"
-      ? {
-          name: "",
-          email: "",
-          telephoneNo: "",
-          educationBackground: "",
-          tenthScore: "",
-          twelthScore: "",
-          cptScore: "",
-          pceScore: "",
-          graduation: "",
-          postGraduation: "",
-          attachment: "",
-          aboutYou: "",
-        }
-      : props.selectedOpportunity === "professional"
-      ? {
-          name: "",
-          email: "",
-          telephoneNo: "",
-          educationBackground: "",
-          cptScore: "",
-          pceScore: "",
-          finalScore: "",
-          experience: "",
-          attachment: "",
-          aboutYou: "",
-        }
-      : {
-          name: "",
-          email: "",
-          telephoneNo: "",
-          educationBackground: "",
-          pceScore: "",
-          graduation: "",
-          postGraduation: "",
-          experience: "",
-          attachment: "",
-          aboutYou: "",
-        };
-
-  const [formDetails, setFormDetails] = useState(formInitialDetails);
-  const [buttonText, setButtonText] = useState("Send");
   const [status, setStatus] = useState({});
 
-  const onFormUpdate = (category, value) => {
-    setFormDetails({
-      ...formDetails,
-      [category]: value,
-    });
-  };
+  const [resumeLink, setResumeLink] = useState();
 
   async function tempSub(img) {
     const data = new FormData();
@@ -73,8 +23,8 @@ export const OpportunityForm = (props) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("came here", data);
-        setFormDetails({ ...formDetails, attachment: data.url });
+        setResumeLink(data.url);
+        alert("Resume uploaded successfully, you can go ahead now!");
       })
       .catch((error) => {
         alert(error);
@@ -83,46 +33,23 @@ export const OpportunityForm = (props) => {
 
   const [attachment, setAttachment] = useState("");
 
-  const handleSubmit = async (e) => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
     e.preventDefault();
-    await tempSub(attachment);
 
-    console.log(attachment, formDetails);
-
-    setButtonText("Sending...");
-    let response = axios
-      .post(`http://localhost:8080/${props.selectedOpportunity}`, {
-        formData: formDetails,
+    emailjs
+      .sendForm("service_nm154ny", "template_m9zwcw1", form.current, {
+        publicKey: "43KYaLBgwBzGjGxDw",
       })
-      .then((result) => {
-        console.log(result);
-        setStatus({ succes: true, message: "Application sent successfully" });
-
-        alert(
-          "Application submitted successfully, we will get back to you soon.Thank you!"
-        );
-      })
-      .catch((err) => {
-        setStatus({
-          succes: false,
-          message: "Something went wrong, please try again later.",
-        });
-        alert("Oops, something went wrong!");
-        console.log(err);
-      });
-    setButtonText("Send");
-    let result = await response;
-    console.log(result);
-
-    setFormDetails(formInitialDetails);
-    // if (result.code == 200) {
-    //   setStatus({ succes: true, message: "Message sent successfully" });
-    // } else {
-    //   setStatus({
-    //     succes: false,
-    //     message: "Something went wrong, please try again later.",
-    //   });
-    // }
+      .then(
+        () => {
+          console.log("SUCCESS!");
+        },
+        (error) => {
+          console.log("FAILED...", error.text);
+        }
+      );
   };
 
   return (
@@ -133,6 +60,11 @@ export const OpportunityForm = (props) => {
         ...(props.withoutBackground && { backgroundColor: "transparent" }),
       }}
     >
+      <h2>Opportunities</h2>
+      <p>
+        Join our team according to your preference and experience, here are some
+        forms arranged according to our openings.
+      </p>
       <Container>
         <Row className="align-items-center">
           {!props.isMobileDevice && (
@@ -164,130 +96,128 @@ export const OpportunityForm = (props) => {
                     isVisible ? "animate__animated animate__fadeIn" : ""
                   }
                 >
-                  <h2>
+                  {/* <h2>
                     {props.selectedOpportunity === "ca-aspirant"
                       ? "CA Aspirant"
                       : props.selectedOpportunity === "professional"
                       ? "Professional"
                       : "Job Seeker"}
-                  </h2>
-                  {props.selectedOpportunity === "ca-aspirant" ? (
-                    <form onSubmit={handleSubmit}>
-                      <Row>
-                        <Col size={12} sm={6} className="px-1">
-                          <input
-                            type="text"
-                            value={formDetails.name}
-                            placeholder="Name"
-                            onChange={(e) =>
-                              onFormUpdate("name", e.target.value)
-                            }
-                          />
-                        </Col>
-                        <Col size={12} sm={6} className="px-1">
-                          <input
-                            type="email"
-                            value={formDetails.email}
-                            placeholder="Email"
-                            onChange={(e) =>
-                              onFormUpdate("email", e.target.value)
-                            }
-                          />
-                        </Col>
-                        <Col size={12} sm={6} className="px-1">
-                          <input
-                            type="tel"
-                            value={formDetails.phone}
-                            placeholder="Contact No."
-                            onChange={(e) =>
-                              onFormUpdate("telephoneNo", e.target.value)
-                            }
-                          />
-                        </Col>
-                        <Col size={12} sm={6} className="px-1">
-                          <input
-                            type="text"
-                            value={formDetails.educationBackground}
-                            placeholder="Education Background"
-                            onChange={(e) =>
-                              onFormUpdate(
-                                "educationBackground",
-                                e.target.value
-                              )
-                            }
-                          />
-                        </Col>
-                        <Col size={12} sm={6} className="px-1">
-                          <input
-                            type="text"
-                            value={formDetails.tenthScore}
-                            placeholder="10th Score"
-                            onChange={(e) =>
-                              onFormUpdate("tenthScore", e.target.value)
-                            }
-                          />
-                        </Col>
+                  </h2> */}
 
-                        <Col size={12} sm={6} className="px-1">
-                          <input
-                            type="text"
-                            value={formDetails.twelthScore}
-                            placeholder="12th Score"
-                            onChange={(e) =>
-                              onFormUpdate("twelthScore", e.target.value)
-                            }
-                          />
-                        </Col>
+                  <form ref={form} onSubmit={sendEmail}>
+                    <Row>
+                      <Col size={12} sm={6} className="px-1">
+                        <input type="text" placeholder="Name" name="name" />
+                      </Col>
+                      <Col size={12} sm={6} className="px-1">
+                        <input type="email" placeholder="Email" name="email" />
+                      </Col>
+                      <Col size={12} sm={6} className="px-1">
+                        <input
+                          type="tel"
+                          placeholder="Contact No."
+                          name="contactNo"
+                        />
+                      </Col>
+                      <Col size={12} sm={6} className="px-1">
+                        <input
+                          type="text"
+                          placeholder="Education Background"
+                          name="educationBackground"
+                        />
+                      </Col>
+                      <Col size={12} sm={6} className="px-1">
+                        <input
+                          type="text"
+                          placeholder="10th Score"
+                          name="tenthScore"
+                        />
+                      </Col>
 
-                        <Col size={12} sm={6} className="px-1">
-                          <input
-                            type="text"
-                            value={formDetails.cptScore}
-                            placeholder="CPT Score"
-                            onChange={(e) =>
-                              onFormUpdate("cptScore", e.target.value)
-                            }
-                          />
-                        </Col>
+                      <Col size={12} sm={6} className="px-1">
+                        <input
+                          type="text"
+                          placeholder="12th Score"
+                          name="twelthScore"
+                        />
+                      </Col>
 
-                        <Col size={12} sm={6} className="px-1">
-                          <input
-                            type="text"
-                            value={formDetails.pceScore}
-                            placeholder="PCE Score"
-                            onChange={(e) =>
-                              onFormUpdate("pceScore", e.target.value)
-                            }
-                          />
-                        </Col>
+                      <Col size={12} sm={6} className="px-1">
+                        <input
+                          type="text"
+                          placeholder="CPT Score"
+                          name="cptScore"
+                        />
+                      </Col>
 
-                        <Col size={12} sm={6} className="px-1">
-                          <input
-                            type="text"
-                            value={formDetails.graduation}
-                            placeholder="Graduation"
-                            onChange={(e) =>
-                              onFormUpdate("graduation", e.target.value)
-                            }
-                          />
-                        </Col>
+                      <Col size={12} sm={6} className="px-1">
+                        <input
+                          type="text"
+                          placeholder="PCE Score"
+                          name="pceScore"
+                        />
+                      </Col>
 
-                        <Col size={12} sm={6} className="px-1">
-                          <input
-                            type="text"
-                            value={formDetails.postGraduation}
-                            placeholder="Post Graduation"
-                            onChange={(e) =>
-                              onFormUpdate("postGraduation", e.target.value)
-                            }
-                          />
-                        </Col>
+                      <Col size={12} sm={6} className="px-1">
+                        <input
+                          type="text"
+                          placeholder="Graduation"
+                          name="graduation"
+                        />
+                      </Col>
 
-                        <Col size={12} sm={16} className="px-1">
+                      <Col size={12} sm={6} className="px-1">
+                        <input
+                          type="text"
+                          placeholder="Post Graduation"
+                          name="postGraduation"
+                        />
+                      </Col>
+
+                      <Col size={12} sm={16} className="px-1">
+                        <select
+                          id="jobRole"
+                          name="jobRole"
+                          placeholder="Job Role"
+                        >
+                          <option
+                            style={{
+                              color: "black",
+                            }}
+                          >
+                            Job Role
+                          </option>
+                          <option
+                            style={{
+                              color: "black",
+                            }}
+                          >
+                            Professional
+                          </option>
+                          <option
+                            style={{
+                              color: "black",
+                            }}
+                          >
+                            CA Aspirant
+                          </option>
+                        </select>
+                      </Col>
+
+                      <Col
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "space-between",
+                        }}
+                        size={12}
+                        sm={16}
+                        className="px-1"
+                      >
+                        <Col size={12} sm={9}>
                           <input
                             type="file"
                             accept="image/*"
-                            name="attachment"
                             // required
                             onChange={(e) => {
                               setAttachment(e.target.files[0]);
@@ -297,355 +227,69 @@ export const OpportunityForm = (props) => {
                             }}
                           />
                         </Col>
-                        <label
-                          className="resume-label"
+                        <button
                           style={{
-                            marginTop: "-56px",
-                            width: "fit-content",
+                            marginTop: "-7px",
+                            borderRadius: "1rem",
                           }}
-                        >
-                          Resume:
-                        </label>
-                        <Col size={12} sm={16} className="px-1">
-                          <textarea
-                            rows="6"
-                            value={formDetails.aboutYou}
-                            placeholder="About You"
-                            onChange={(e) =>
-                              onFormUpdate("aboutYou", e.target.value)
-                            }
-                          ></textarea>
-                        </Col>
-                        <Col
-                          style={{
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center",
+                          onClick={() => {
+                            alert(
+                              "We are uploading your resume, plz wait for conformation before submitting the form."
+                            );
+                            tempSub(attachment);
                           }}
-                          size={12}
-                          sm={16}
-                          className="px-1"
+                          type="button"
                         >
-                          <button type="submit">
-                            <span>{buttonText}</span>
-                          </button>
-                        </Col>
-                        {status.message && (
-                          <Col>
-                            <p
-                              className={
-                                status.success === false ? "danger" : "success"
-                              }
-                            >
-                              {status.message}
-                            </p>
-                          </Col>
-                        )}
-                      </Row>
-                    </form>
-                  ) : props.selectedOpportunity === "professional" ? (
-                    <form onSubmit={handleSubmit}>
-                      <Row>
-                        <Col size={12} sm={6} className="px-1">
-                          <input
-                            type="text"
-                            value={formDetails.name}
-                            placeholder="Name"
-                            onChange={(e) =>
-                              onFormUpdate("name", e.target.value)
-                            }
-                          />
-                        </Col>
-                        <Col size={12} sm={6} className="px-1">
-                          <input
-                            type="email"
-                            value={formDetails.email}
-                            placeholder="Email"
-                            onChange={(e) =>
-                              onFormUpdate("email", e.target.value)
-                            }
-                          />
-                        </Col>
-                        <Col size={12} sm={6} className="px-1">
-                          <input
-                            type="tel"
-                            value={formDetails.phone}
-                            placeholder="Contact No."
-                            onChange={(e) =>
-                              onFormUpdate("telephoneNo", e.target.value)
-                            }
-                          />
-                        </Col>
-                        <Col size={12} sm={6} className="px-1">
-                          <input
-                            type="text"
-                            value={formDetails.educationBackground}
-                            placeholder="Education Background"
-                            onChange={(e) =>
-                              onFormUpdate(
-                                "educationBackground",
-                                e.target.value
-                              )
-                            }
-                          />
-                        </Col>
+                          <span>Upload</span>
+                        </button>
+                      </Col>
+                      <label
+                        className="resume-label"
+                        style={{
+                          marginTop: "-56px",
+                          marginLeft: "20px",
+                          width: "fit-content",
+                          fontSize: "17px",
+                          fontWeight: "normal",
+                        }}
+                      >
+                        Resume
+                      </label>
+                      <Col
+                        style={{
+                          display: "none",
+                        }}
+                        size={12}
+                        sm={16}
+                        className="px-1"
+                      >
+                        <input name="attachment" value={resumeLink}></input>
+                      </Col>
 
-                        <Col size={12} sm={6} className="px-1">
-                          <input
-                            type="text"
-                            value={formDetails.cptScore}
-                            placeholder="CPT Score"
-                            onChange={(e) =>
-                              onFormUpdate("cptScore", e.target.value)
-                            }
-                          />
-                        </Col>
+                      <Col size={12} sm={16} className="px-1">
+                        <textarea
+                          rows="6"
+                          placeholder="About You"
+                          name="aboutYou"
+                        ></textarea>
+                      </Col>
 
-                        <Col size={12} sm={6} className="px-1">
-                          <input
-                            type="text"
-                            value={formDetails.pceScore}
-                            placeholder="PCE Score"
-                            onChange={(e) =>
-                              onFormUpdate("pceScore", e.target.value)
-                            }
-                          />
-                        </Col>
-
-                        <Col size={12} sm={6} className="px-1">
-                          <input
-                            type="text"
-                            value={formDetails.finalScore}
-                            placeholder="Final Score"
-                            onChange={(e) =>
-                              onFormUpdate("finalScore", e.target.value)
-                            }
-                          />
-                        </Col>
-
-                        <Col size={12} sm={6} className="px-1">
-                          <input
-                            type="text"
-                            value={formDetails.experience}
-                            placeholder="Working Experience"
-                            onChange={(e) =>
-                              onFormUpdate("experience", e.target.value)
-                            }
-                          />
-                        </Col>
-
-                        <Col size={12} sm={16} className="px-1">
-                          <input
-                            type="file"
-                            accept="image/*"
-                            name="attachment"
-                            // required
-                            onChange={(e) => {
-                              setAttachment(e.target.files[0]);
-                            }}
-                            style={{
-                              paddingLeft: "20%",
-                            }}
-                          />
-                        </Col>
-                        <label
-                          className="resume-label"
-                          style={{
-                            marginTop: "-56px",
-                            width: "fit-content",
-                          }}
-                        >
-                          Resume:
-                        </label>
-                        <Col size={12} sm={16} className="px-1">
-                          <textarea
-                            rows="6"
-                            value={formDetails.aboutYou}
-                            placeholder="About You"
-                            onChange={(e) =>
-                              onFormUpdate("aboutYou", e.target.value)
-                            }
-                          ></textarea>
-                        </Col>
-                        <Col
-                          style={{
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center",
-                          }}
-                          size={12}
-                          sm={16}
-                          className="px-1"
-                        >
-                          <button type="submit">
-                            <span>{buttonText}</span>
-                          </button>
-                        </Col>
-                        {status.message && (
-                          <Col>
-                            <p
-                              className={
-                                status.success === false ? "danger" : "success"
-                              }
-                            >
-                              {status.message}
-                            </p>
-                          </Col>
-                        )}
-                      </Row>
-                    </form>
-                  ) : (
-                    <form onSubmit={handleSubmit}>
-                      <Row>
-                        <Col size={12} sm={6} className="px-1">
-                          <input
-                            type="text"
-                            value={formDetails.name}
-                            placeholder="Name"
-                            onChange={(e) =>
-                              onFormUpdate("name", e.target.value)
-                            }
-                          />
-                        </Col>
-                        <Col size={12} sm={6} className="px-1">
-                          <input
-                            type="email"
-                            value={formDetails.email}
-                            placeholder="Email"
-                            onChange={(e) =>
-                              onFormUpdate("email", e.target.value)
-                            }
-                          />
-                        </Col>
-                        <Col size={12} sm={6} className="px-1">
-                          <input
-                            type="tel"
-                            value={formDetails.phone}
-                            placeholder="Contact No."
-                            onChange={(e) =>
-                              onFormUpdate("telephoneNo", e.target.value)
-                            }
-                          />
-                        </Col>
-                        <Col size={12} sm={6} className="px-1">
-                          <input
-                            type="text"
-                            value={formDetails.educationBackground}
-                            placeholder="Education Background"
-                            onChange={(e) =>
-                              onFormUpdate(
-                                "educationBackground",
-                                e.target.value
-                              )
-                            }
-                          />
-                        </Col>
-
-                        <Col size={12} sm={6} className="px-1">
-                          <input
-                            type="text"
-                            value={formDetails.pceScore}
-                            placeholder="PCE Score"
-                            onChange={(e) =>
-                              onFormUpdate("pceScore", e.target.value)
-                            }
-                          />
-                        </Col>
-
-                        <Col size={12} sm={6} className="px-1">
-                          <input
-                            type="text"
-                            value={formDetails.graduation}
-                            placeholder="Graduation"
-                            onChange={(e) =>
-                              onFormUpdate("graduation", e.target.value)
-                            }
-                          />
-                        </Col>
-
-                        <Col size={12} sm={6} className="px-1">
-                          <input
-                            type="text"
-                            value={formDetails.postGraduation}
-                            placeholder="Post Graduation"
-                            onChange={(e) =>
-                              onFormUpdate("postGraduation", e.target.value)
-                            }
-                          />
-                        </Col>
-
-                        <Col size={12} sm={6} className="px-1">
-                          <input
-                            type="text"
-                            value={formDetails.experience}
-                            placeholder="Working Experience"
-                            onChange={(e) =>
-                              onFormUpdate("experience", e.target.value)
-                            }
-                          />
-                        </Col>
-
-                        <Col size={12} sm={16} className="px-1">
-                          <input
-                            type="file"
-                            accept="image/*"
-                            name="attachment"
-                            // required
-                            onChange={(e) => {
-                              setAttachment(e.target.files[0]);
-                            }}
-                            style={{
-                              paddingLeft: "20%",
-                            }}
-                          />
-                        </Col>
-                        <label
-                          className="resume-label"
-                          style={{
-                            marginTop: "-56px",
-                            width: "fit-content",
-                          }}
-                        >
-                          Resume:
-                        </label>
-                        <Col size={12} sm={16} className="px-1">
-                          <textarea
-                            rows="6"
-                            value={formDetails.aboutYou}
-                            placeholder="About You"
-                            onChange={(e) =>
-                              onFormUpdate("aboutYou", e.target.value)
-                            }
-                          ></textarea>
-                        </Col>
-                        <Col
-                          style={{
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center",
-                          }}
-                          size={12}
-                          sm={16}
-                          className="px-1"
-                        >
-                          <button type="submit">
-                            <span>{buttonText}</span>
-                          </button>
-                        </Col>
-                        {status.message && (
-                          <Col>
-                            <p
-                              className={
-                                status.success === false ? "danger" : "success"
-                              }
-                            >
-                              {status.message}
-                            </p>
-                          </Col>
-                        )}
-                      </Row>
-                    </form>
-                  )}
+                      <Col
+                        style={{
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
+                        size={12}
+                        sm={16}
+                        className="px-1"
+                      >
+                        <button type="submit">
+                          <span>Send</span>
+                        </button>
+                      </Col>
+                    </Row>
+                  </form>
                 </div>
               )}
             </TrackVisibility>

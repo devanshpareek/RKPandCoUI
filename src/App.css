@@ -111,7 +111,12 @@ nav.navbar {
 }
 nav.navbar.scrolled {
   padding: 0px 0;
-  background-color: gray;
+  background-color: rgba(25, 31, 52, 1);
+}
+
+nav.navbar.non-scrolled {
+  padding: 0px 0;
+  background-color: rgba(25, 31, 52, 0.7);
 }
 nav.navbar a.navbar-brand {
     /* width: 9%; */
@@ -164,7 +169,7 @@ span.navbar-text {
 .navbar-text button {
   font-weight: 700;
   color: white ;
-  border: 1px solid black;
+  border: 1px solid white;
   padding: 18px 34px;
   font-size: 18px;
   margin-left: 18px;
@@ -180,14 +185,14 @@ span.navbar-text {
   width: 0%;
   height: 100%;
   position: absolute;
-  background-color:darkslategrey;
+  background-color:white;
   left: 0;
   top: 0;
   z-index: -1;
   transition: 0.3s ease-in-out;
 }
 .navbar-text button:hover {
-  color: white;
+  color: rgba(25, 31, 52, 1);
 }
 .navbar-text button:hover::before {
 	content: "";
@@ -424,7 +429,6 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 /************ Projects Css ************/
 .project {
-  padding: 80px 0;
   position: relative;
   /* background-color: white; */
   background-image:  url('./assets/img/color-sharp2.png');
@@ -448,7 +452,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   width: 90%;
   margin: 0 auto;
   border-radius: 50px;
-  background-color: darkslategrey;
+  background-color: rgba(25, 31, 52, 0.9);
   overflow: hidden;
 }
 .project .nav.nav-pills .nav-item {
@@ -606,7 +610,7 @@ height: 100%;
 }
 .contact form button::before {
   content: "";
-  background: #121212;
+  background: navy;
   width: 0;
   height: 100%;
   position: absolute;
@@ -786,6 +790,10 @@ height: 100%;
   color: white;
 }
 
+.opportunity-form p {
+  color: white !important;
+}
+
 .opportunity-form form label {
   color: #fff;
   font-weight: 500;
@@ -841,7 +849,8 @@ height: 100%;
 }
 .opportunity-form form button::before {
   content: "";
-  background: #121212;
+  background: navy;
+  color: white;
   width: 0;
   height: 100%;
   position: absolute;

@@ -23,49 +23,7 @@ export const Projects = ({ isMobileDevice }) => {
               <div
                 className={isVisible ? "animate__animated animate__fadeIn" : ""}
               >
-                <h2>Opportunities</h2>
-                <p>
-                  Join our team according to your preference and experience,
-                  here are some forms arranged according to our openings.
-                </p>
                 <Tab.Container id="projects-tabs" defaultActiveKey="first">
-                  <Nav
-                    variant="pills"
-                    className="nav-pills mb-5 justify-content-center align-items-center"
-                    id="pills-tab"
-                  >
-                    <Nav.Item>
-                      <Nav.Link
-                        eventKey="first"
-                        onClick={() => {
-                          setSelectedOpportunity("ca-aspirant");
-                        }}
-                      >
-                        CA Aspirant
-                      </Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                      <Nav.Link
-                        eventKey="second"
-                        onClick={() => {
-                          setSelectedOpportunity("professional");
-                        }}
-                      >
-                        Professional
-                      </Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                      <Nav.Link
-                        eventKey="third"
-                        onClick={() => {
-                          setSelectedOpportunity("job-seeker");
-                        }}
-                      >
-                        Job Seeker
-                      </Nav.Link>
-                    </Nav.Item>
-                  </Nav>
-
                   <OpportunityForm
                     selectedOpportunity={selectedOpportunity}
                     withoutBackground={true}

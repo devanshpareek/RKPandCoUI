@@ -103,11 +103,9 @@ export const Footer = (props) => {
               <FooterColumn>
                 <FooterTitle>Our Offices</FooterTitle>
                 <FooterItem>Jaipur</FooterItem>
-                <FooterItem>Jodhpur</FooterItem>
-                <FooterItem>Kota</FooterItem>
-                <FooterItem>Pune</FooterItem>
                 <FooterItem>Hyderabad</FooterItem>
-                <FooterItem>Delhi</FooterItem>
+                <FooterItem>Pune</FooterItem>
+                <FooterItem>Jodhpur</FooterItem>
               </FooterColumn>
               <FooterColumn>
                 <FooterTitle>Services</FooterTitle>
@@ -135,9 +133,9 @@ export const Footer = (props) => {
               <FooterColumn>
                 <FooterTitle>Contact Us</FooterTitle>
                 <FooterItem>
-                  Main Office: 3, Ground Floor, Krishna Vihar – A, Mangyawas,
-                  New Sanganer Road, Mansarovar, Jaipur, Rajasthan, India -
-                  302020
+                  Coorporate Office: 3, Ground Floor, Krishna Vihar – A,
+                  Mangyawas, New Sanganer Road, Mansarovar, Jaipur, Rajasthan,
+                  India - 302020
                 </FooterItem>
                 <FooterItem>Phone: 9929833830, 9887805220</FooterItem>
                 <FooterItem>Email: info@rkpareek.com</FooterItem>
