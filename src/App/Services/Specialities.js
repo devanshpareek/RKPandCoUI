@@ -3,24 +3,27 @@ import { FaDiamond } from "react-icons/fa6";
 export const specialities = {
   TaxAndRegulatory: (
     <div>
-      <h3>Specialities</h3>
+      <h3>Expertise</h3>
       <p>
-        <FaDiamond /> Direct Taxation – Domestic
+        <FaDiamond /> Income Tax
       </p>
       <p>
-        <FaDiamond /> Indirect Taxation – GST, Excise, Customs
+        <FaDiamond /> Goods and Service Tax
       </p>
       <p>
-        <FaDiamond /> International Taxation
+        <FaDiamond /> Customs
       </p>
       <p>
-        <FaDiamond /> Transfer Pricing
+        <FaDiamond /> International Tax
+      </p>
+      <p>
+        <FaDiamond /> Profession Tax
       </p>
     </div>
   ),
   AuditAndAssurance: (
     <div>
-      <h3>Specialities</h3>
+      <h3>Expertise</h3>
 
       <p>
         {" "}
@@ -42,7 +45,7 @@ export const specialities = {
   ),
   CorporateLawServices: (
     <div>
-      <h3>Specialities</h3>
+      <h3>Expertise</h3>
       <p>
         {" "}
         <FaDiamond /> Direct Taxation – Domestic
@@ -63,7 +66,7 @@ export const specialities = {
   ),
   AdvisoryServices: (
     <div>
-      <h3>Specialities</h3>
+      <h3>Expertise</h3>
       <p>
         {" "}
         <FaDiamond /> Business Advisory
@@ -84,7 +87,7 @@ export const specialities = {
   ),
   AccountingAndBookkeeping: (
     <div>
-      <h3>Specialities</h3>
+      <h3>Expertise</h3>
       <p>
         {" "}
         <FaDiamond /> Financial Statement Preparation
@@ -101,7 +104,7 @@ export const specialities = {
   ),
   ComplianceAndRegulatory: (
     <div>
-      <h3>Specialities</h3>
+      <h3>Expertise</h3>
       <p>
         {" "}
         <FaDiamond /> Company Law Matters
@@ -118,7 +121,7 @@ export const specialities = {
   ),
   SpecializedServices: (
     <div>
-      <h3>Specialities</h3>
+      <h3>Expertise</h3>
       {["Forensic Accounting", "Valuation Services", "Due Diligence"].map(
         (service, index) => (
           <p key={index}>

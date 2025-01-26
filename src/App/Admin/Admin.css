@@ -84,23 +84,7 @@
 
 }
 
-::-webkit-scrollbar {
-  width: 10px; /* Adjust the width */
-  height: 5px; /* Adjust the height */
-}
 
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
 
 
 
@@ -109,10 +93,7 @@
   opacity: 0.2;
 }
 
-h3 {
-  display: flex;
-  justify-content: center;
-}
+
 
 .query-item::-webkit-scrollbar {
   display: none; /* Hide scrollbar for Chrome, Safari, and Opera */

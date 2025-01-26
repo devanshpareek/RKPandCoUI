@@ -34,7 +34,7 @@
 }
 
 .modal-item::-webkit-scrollbar {
-    display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+    display: none;
 }
 
 .button-group {

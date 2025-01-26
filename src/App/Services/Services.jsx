@@ -8,7 +8,7 @@ import { isMobileDevice } from "../../App";
 import { Footer } from "../../components/Footer";
 
 const ServicesList = {
-  TaxAndRegulatory: "Tax And Regulatory",
+  TaxAndRegulatory: "Taxation",
   AuditAndAssurance: "Audit And Assurance",
   CorporateLawServices: "Corporate Law Services",
   AdvisoryServices: "Advisory Services",
@@ -40,53 +40,11 @@ const Services = (serviceName) => {
             gap: "2rem",
             ...(isMobileDevice && {
               flexDirection: "column-reverse",
-              alignItems:'center',
+              alignItems: "center",
               gap: "2rem",
             }),
           }}
         >
-          <Row
-            className={
-              isMobileDevice
-                ? "aligh-items-center mobile-services-1"
-                : "aligh-items-center services-1"
-            }
-          >
-            <Col xs={18} md={13} xl={14}>
-              <TrackVisibility>
-                {({ isVisible }) => (
-                  <div
-                    className={
-                      isVisible ? "animate__animated animate__fadeIn" : ""
-                    }
-                  >
-                    <div className="services">{jsx}</div>
-                  </div>
-                )}
-              </TrackVisibility>
-            </Col>
-          </Row>
-          <Row
-            className={
-              isMobileDevice
-                ? "aligh-items-center mobile-services-2"
-                : "aligh-items-center services-2"
-            }
-          >
-            <Col xs={22} md={16} xl={17}>
-              <TrackVisibility>
-                {({ isVisible }) => (
-                  <div
-                    className={
-                      isVisible ? "animate__animated animate__fadeIn" : ""
-                    }
-                  >
-                    <div>{specialityList}</div>
-                  </div>
-                )}
-              </TrackVisibility>
-            </Col>
-          </Row>
           <Row
             className={
               isMobileDevice
@@ -311,6 +269,48 @@ const Services = (serviceName) => {
                         </li>
                       </a>
                     </ul>
+                  </div>
+                )}
+              </TrackVisibility>
+            </Col>
+          </Row>
+          <Row
+            className={
+              isMobileDevice
+                ? "aligh-items-center mobile-services-1"
+                : "aligh-items-center services-1"
+            }
+          >
+            <Col xs={18} md={13} xl={14}>
+              <TrackVisibility>
+                {({ isVisible }) => (
+                  <div
+                    className={
+                      isVisible ? "animate__animated animate__fadeIn" : ""
+                    }
+                  >
+                    <div >{jsx}</div>
+                  </div>
+                )}
+              </TrackVisibility>
+            </Col>
+          </Row>
+          <Row
+            className={
+              isMobileDevice
+                ? "aligh-items-center mobile-services-2"
+                : "aligh-items-center services-2"
+            }
+          >
+            <Col xs={22} md={16} xl={17}>
+              <TrackVisibility>
+                {({ isVisible }) => (
+                  <div
+                    className={
+                      isVisible ? "animate__animated animate__fadeIn" : ""
+                    }
+                  >
+                    <div>{specialityList}</div>
                   </div>
                 )}
               </TrackVisibility>

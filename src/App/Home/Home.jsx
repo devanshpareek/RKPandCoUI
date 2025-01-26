@@ -11,7 +11,7 @@ const Home = (props) => {
   // const jsx = aboutUsContent[props.display];
   console.log(props.display);
 
-  const jsx = aboutUsContent(props.display, isMobileDevice);
+  const jsx = aboutUsContent();
   const [active, setActive] = useState(props.display);
   return (
     <>
@@ -27,110 +27,10 @@ const Home = (props) => {
                     }
                     style={{
                       display: "flex",
-                      ...(isMobileDevice && {
-                        flexDirection: "column-reverse",
-                        gap: "2rem",
-                      }),
+                      justifyContent: "center",
                     }}
                   >
-                    <div
-                      style={{
-                        height: "100vh",
-                        overflowY: "auto",
-                      }}
-                    >
-                      {jsx}
-                    </div>
-                    <div>
-                      <Row
-                        style={{
-                          height: "100%",
-                          ...(!props.isMobileDevice && {
-                            borderLeft: "1px solid black",
-                            marginRight: "-3rem",
-                            paddingLeft: "2rem",
-                          }),
-                        }}
-                        className="aligh-items-center"
-                      >
-                        <Col xs={22} md={16} xl={17}>
-                          <TrackVisibility>
-                            {({ isVisible }) => (
-                              <div
-                                className={
-                                  isVisible
-                                    ? "animate__animated animate__fadeIn"
-                                    : ""
-                                }
-                                style={{
-                                  ...(isMobileDevice && {
-                                    display: "flex",
-                                    justifyContent: "center",
-                                  }),
-                                }}
-                              >
-                                <ul
-                                  style={{
-                                    width: "14rem",
-                                  }}
-                                  class="list-group"
-                                >
-                                  <a
-                                    style={{
-                                      textDecoration: "none",
-                                      color: "black",
-                                    }}
-                                    href="/about-us/history"
-                                    onClick={() => {
-                                      setActive("history");
-                                    }}
-                                    class={`list-btn list-group-item ${
-                                      active === "history" ? "active" : ""
-                                    }`}
-                                  >
-                                    {" "}
-                                    <li
-                                      id="list-group-item"
-                                      class={`list-btn list-group-item ${
-                                        active === "history" ? "active" : ""
-                                      }`}
-                                      aria-current="true"
-                                    >
-                                      History
-                                    </li>
-                                  </a>
-
-                                  <a
-                                    style={{
-                                      textDecoration: "none",
-                                      color: "black",
-                                    }}
-                                    href="/about-us/practice-area"
-                                    onClick={() => {
-                                      setActive("practice-area");
-                                    }}
-                                    class={`list-btn list-group-item ${
-                                      active === "practice-area" ? "active" : ""
-                                    }`}
-                                  >
-                                    <li
-                                      id="list-group-item"
-                                      class={`list-btn list-group-item ${
-                                        active === "practice-area"
-                                          ? "active"
-                                          : ""
-                                      }`}
-                                    >
-                                      Practice Area
-                                    </li>
-                                  </a>
-                                </ul>
-                              </div>
-                            )}
-                          </TrackVisibility>
-                        </Col>
-                      </Row>
-                    </div>
+                    {jsx}
                   </div>
                 )}
               </TrackVisibility>
