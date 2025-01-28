@@ -201,6 +201,13 @@ export const OpportunityForm = (props) => {
                           >
                             CA Aspirant
                           </option>
+                          <option
+                            style={{
+                              color: "black",
+                            }}
+                          >
+                            Others
+                          </option>
                         </select>
                       </Col>
 
@@ -214,18 +221,43 @@ export const OpportunityForm = (props) => {
                         sm={16}
                         className="px-1"
                       >
-                        <Col size={12} sm={9}>
-                          <input
-                            type="file"
-                            accept="image/*"
-                            // required
-                            onChange={(e) => {
-                              setAttachment(e.target.files[0]);
-                            }}
-                            style={{
-                              paddingLeft: "20%",
-                            }}
-                          />
+                        <Col size={12} sm={8}>
+                          <div style={{ position: "relative" }}>
+                            <label
+                              htmlFor="file-upload"
+                              style={{
+                                display: "inline-block",
+                                backgroundColor: "rgba(255, 255, 255, 0.1)",
+                                color: "white",
+                                borderRadius: "1rem",
+                                cursor: "pointer",
+                                textAlign: "center",
+                                width:"100%",
+                                height:"100%",
+                                border:"1px solid rgba(255, 255, 255, 0.5)",
+                                fontSize:"18px"
+                              }}
+                            >
+                              Upload Resume
+                            </label>
+                            <input
+                              id="file-upload"
+                              type="file"
+                              accept="image/*"
+                              onChange={(e) => {
+                                setAttachment(e.target.files[0]);
+                              }}
+                              style={{
+                                position: "absolute",
+                                left: 0,
+                                top: 0,
+                                width: "100%",
+                                height: "100%",
+                                opacity: 0,
+                                cursor: "pointer",
+                              }}
+                            />
+                          </div>
                         </Col>
                         <button
                           style={{
@@ -243,18 +275,7 @@ export const OpportunityForm = (props) => {
                           <span>Upload</span>
                         </button>
                       </Col>
-                      <label
-                        className="resume-label"
-                        style={{
-                          marginTop: "-56px",
-                          marginLeft: "20px",
-                          width: "fit-content",
-                          fontSize: "17px",
-                          fontWeight: "normal",
-                        }}
-                      >
-                        Resume
-                      </label>
+                     
                       <Col
                         style={{
                           display: "none",

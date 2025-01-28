@@ -107,7 +107,7 @@ p.danger {
 /************ Navbar Css ************/
 nav.navbar {
   padding: 18px 0;
-  position: fixed;
+  position: sticky;
   width: 100%;
   top: 0;
   z-index: 9999;
@@ -126,6 +126,10 @@ nav.navbar a.navbar-brand {
     /* width: 9%; */
     color: white;
 }
+.row {
+  --bs-gutter-x: 0 !important;
+}
+
  .show {
   display: flex;
   flex-direction: column;
@@ -875,10 +879,10 @@ height: 100%;
 
 .opportunity-form form label {
   color: #fff;
-  font-weight: 500;
   font-size: 18px;
   letter-spacing: 0.8px;
-
+  padding: 18px 26px;
+  margin-bottom: 8px;
 }
 
 
@@ -940,4 +944,12 @@ height: 100%;
 }
 .opportunity-form form button:hover::before {
   width: 100%;
+}
+
+* {
+  scrollbar-color: transparent; /* Thumb and track colors */
+}
+
+::-webkit-scrollbar {
+  width: 0px !important; /* Adjust scrollbar width */
 }

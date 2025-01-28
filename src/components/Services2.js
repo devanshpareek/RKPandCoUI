@@ -41,7 +41,7 @@ export const Services2 = () => {
 
   const services = [
     {
-      title: "Autdit and Assuarance",
+      title: "Audit and Assuarance",
       img: auditAndAssurance,
       href: "/services/AuditAndAssurance",
     },
@@ -50,20 +50,15 @@ export const Services2 = () => {
       img: taxAndRegulatory,
       href: "/services/TaxAndRegulatory",
     },
-    {
-      title: "Corporate Law Services",
-      img: corporateLawFirm,
-      href: "/services/CorporateLawServices",
-    },
+    // {
+    //   title: "Corporate Law Services",
+    //   img: corporateLawFirm,
+    //   href: "/services/CorporateLawServices",
+    // },
     {
       title: "Accounting And Bookkeeping",
       img: AccountAndBookkeeping,
       href: "/services/AccountingAndBookkeeping",
-    },
-    {
-      title: "Autdit and Assuarance",
-      img: auditAndAssurance,
-      href: "/services/AuditAndAssurance",
     },
     {
       title: "Advisory Services",

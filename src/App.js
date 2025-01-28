@@ -36,7 +36,8 @@ function App() {
         style={{
           height: "100vh",
           width: "100vw",
-          minWidth: "100%",
+          minWidth: "100vw",
+          maxWidth:"100vw",
           padding: 0,
           margin: "0",
           marginBottom: "5rem",
@@ -46,7 +47,7 @@ function App() {
         }}
       >
         <Carousel
-          images={[Image1, Image2, Image3, Image4, Image5]}
+          images={[Image1]}
           interval={3000}
           isHomePage={true}
         />
