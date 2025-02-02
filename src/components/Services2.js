@@ -12,7 +12,8 @@ import auditAndAssurance from "../Images/auditandassurance.jpeg";
 import AccountAndBookkeeping from "../Images/advisorySection.jpeg";
 import AdvisoryServices from "../Images/AdvisoryServices.jpg"
 import taxAndRegulatory from "../Images/taxAndRegulatory.jpeg";
-import ComplianceAndRegulation from "../Images/ComplianceAndRegulation.jpg"
+import ComplianceAndRegulation from "../Images/ComplianceAndRegulation.jpg";
+import VirtualCfo from "../Images/VirtualCfo.jpg"
 import financing from "../Images/financing.png";
 import { Col, Container, Row } from "react-bootstrap";
 import TrackVisibility from "react-on-screen";
@@ -56,7 +57,7 @@ export const Services2 = () => {
     //   href: "/services/CorporateLawServices",
     // },
     {
-      title: "Accounting And Bookkeeping",
+      title: "Accounting And Financial Services",
       img: AccountAndBookkeeping,
       href: "/services/AccountingAndBookkeeping",
     },
@@ -64,6 +65,11 @@ export const Services2 = () => {
       title: "Advisory Services",
       img: AdvisoryServices,
       href: "/services/AdvisoryServices",
+    },
+    {
+      title:"Virtual CFO Services",
+      img:VirtualCfo,
+      href:"/services/VirtualCFOServices"
     },
     {
       title: "Compliance And Regulatory",

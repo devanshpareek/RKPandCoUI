@@ -32,32 +32,33 @@ function App() {
   return (
     <div className={showModal ? "App App-dull" : "App"}>
       <NavBar />
-      <Container
-        style={{
-          height: "100vh",
-          width: "100vw",
-          minWidth: "100vw",
-          maxWidth:"100vw",
-          padding: 0,
-          margin: "0",
-          marginBottom: "5rem",
-          ...(isMobileDevice && {
-            marginBottom: "1rem",
-          }),
-        }}
-      >
-        <Carousel
-          images={[Image1]}
-          interval={3000}
-          isHomePage={true}
-        />
-      </Container>
+
       <RouterProvider
         router={createBrowserRouter([
           {
             path: "/",
             element: (
               <>
+                <Container
+                  style={{
+                    height: "100vh",
+                    width: "100vw",
+                    minWidth: "100vw",
+                    maxWidth: "100vw",
+                    padding: 0,
+                    margin: "0",
+                    marginBottom: "5rem",
+                    ...(isMobileDevice && {
+                      marginBottom: "1rem",
+                    }),
+                  }}
+                >
+                  <Carousel
+                    images={[Image1, Image2, Image3, Image4, Image5]}
+                    interval={3000}
+                    isHomePage={true}
+                  />
+                </Container>
                 <Banner />
                 <Services2 />
                 <Skills />
@@ -67,6 +68,7 @@ function App() {
                   showAdminDashboard={true}
                   showModal={showModal}
                   setShowModal={setShowModal}
+                  isMobileDevice={isMobileDevice}
                 />
               </>
             ),
@@ -125,6 +127,15 @@ function App() {
               <Services
                 isMobileDevice={isMobileDevice}
                 serviceName={"TaxAndRegulatory"}
+              />
+            ),
+          },
+          {
+            path: "/services/VirtualCFOServices",
+            element: (
+              <Services
+                isMobileDevice={isMobileDevice}
+                serviceName={"VirtualCFOServices"}
               />
             ),
           },

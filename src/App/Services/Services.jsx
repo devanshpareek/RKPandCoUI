@@ -13,8 +13,9 @@ const ServicesList = {
   CorporateLawServices: "Corporate Law Services",
   AdvisoryServices: "Advisory Services",
   SpecializedServices: "Specialized Services",
-  AccountingAndBookkeeping: "Accounting And Bookkeeping",
+  AccountingAndBookkeeping: "Accounting And Financial Services",
   ComplianceAndRegulatory: "Compliance And Regulatory",
+  VirtualCFOServices: "Virtual CFO Services",
 };
 
 const Services = (serviceName) => {
@@ -38,6 +39,7 @@ const Services = (serviceName) => {
             display: "flex",
             justifyContent: "space-between",
             gap: "2rem",
+            padding: "3rem",
             ...(isMobileDevice && {
               flexDirection: "column-reverse",
               alignItems: "center",
@@ -177,7 +179,36 @@ const Services = (serviceName) => {
                             fontSize: "12px",
                           }}
                         >
-                          Accounting And Bookkeeping
+                          Accounting And Financial Services
+                        </li>
+                      </a>
+
+                      <a
+                        style={{
+                          textDecoration: "none",
+                          color: "black",
+                        }}
+                        href="/services/VirtualCFOServices"
+                        class={`list-btn list-group-item ${
+                          serviceName.serviceName === "VirtualCFOServices"
+                            ? "active"
+                            : ""
+                        }`}
+                      >
+                        {" "}
+                        <li
+                          id="list-group-item"
+                          class={`list-btn list-group-item ${
+                            serviceName.serviceName === "VirtualCFOServices"
+                              ? "active"
+                              : ""
+                          }`}
+                          aria-current="true"
+                          style={{
+                            fontSize: "12px",
+                          }}
+                        >
+                          Virtual CFO Services
                         </li>
                       </a>
 
@@ -289,7 +320,7 @@ const Services = (serviceName) => {
                       isVisible ? "animate__animated animate__fadeIn" : ""
                     }
                   >
-                    <div >{jsx}</div>
+                    <div>{jsx}</div>
                   </div>
                 )}
               </TrackVisibility>

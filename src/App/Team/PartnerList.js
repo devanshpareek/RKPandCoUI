@@ -28,18 +28,18 @@ export const partners = [
     image: myPic,
   },
   {
-    title: "AKS",
-    name: "ANKUR KUMAR SODHANI",
-    degrees: "M.Com, F.C.A.",
+    title: "VP",
+    name: "VAIBHAV PAREEK",
+    degrees: "CA Inter, B.Com",
     initialContent:
-      "With over 13 years of professional experience as a Chartered Accountant, he is specialized in the banking and financing sectors. His extensive knowledge and hands-on experience enable me to provide clients with exceptional financial guidance and strategic insights in these critical areas.",
-    updatedContent: `With over 13 years of professional experience as a Chartered Accountant, he is specialized in the banking and financing sectors. His extensive knowledge and hands-on experience enable me to provide clients with exceptional financial guidance and strategic insights in these critical areas.`,
+      "With over 13 years of experience, he is specialized in the financing and investment sectors. His extensive knowledge and hands-on experience enable us to provide clients with exceptional financial and investment guidance and strategic insights.",
+    updatedContent: `With over 13 years of experience, he is specialized in the financing and investment sectors. His extensive knowledge and hands-on experience enable us to provide clients with exceptional financial and investment guidance and strategic insights.`,
     image: myPic,
   },
   {
     title: "VKG",
     name: "Vipin Kumar Garg",
-    degrees: "F.C.A.",
+    degrees: "FCA",
     initialContent:
       "As a seasoned Chartered Accountant with over 13 years of experience, he offers comprehensive Virtual CFO services to businesses seeking expert financial management. His role as a Virtual CFO provides strategic financial oversight, enabling businesses to make informed decisions, optimize resources, and achieve their financial goals.",
     updatedContent: `As a seasoned Chartered Accountant with over 13 years of experience, he offers comprehensive Virtual CFO services to businesses seeking expert financial management. His role as a Virtual CFO provides strategic financial oversight, enabling businesses to make informed decisions, optimize resources, and achieve their financial goals. He is also expert in SEZ (Special Economic Zone) compliance, providing businesses with expert guidance to navigate the complexities of operating within SEZs. His extensive knowledge and hands-on experience ensure that clients maximize the benefits of SEZ incentives while maintaining full regulatory compliance.`,

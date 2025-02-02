@@ -69,19 +69,11 @@ export const specialities = {
       <h3>Expertise</h3>
       <p>
         {" "}
-        <FaDiamond /> Business Advisory
+        <FaDiamond /> Business setup and process development
       </p>
       <p>
         {" "}
-        <FaDiamond /> Financial Consulting
-      </p>
-      <p>
-        {" "}
-        <FaDiamond /> Mergers and Acquisitions
-      </p>
-      <p>
-        {" "}
-        <FaDiamond /> Corporate Restructuring
+        <FaDiamond /> Corporate mergers and acquisitions
       </p>
     </div>
   ),
@@ -90,15 +82,15 @@ export const specialities = {
       <h3>Expertise</h3>
       <p>
         {" "}
-        <FaDiamond /> Financial Statement Preparation
+        <FaDiamond /> Cloud accounting and financial reporting
       </p>
       <p>
         {" "}
-        <FaDiamond /> Bookkeeping Services
+        <FaDiamond /> Reporting dashboard
       </p>
       <p>
         {" "}
-        <FaDiamond /> Management Reporting
+        <FaDiamond /> Process and Reporting automation
       </p>
     </div>
   ),
@@ -107,28 +99,54 @@ export const specialities = {
       <h3>Expertise</h3>
       <p>
         {" "}
-        <FaDiamond /> Company Law Matters
+        <FaDiamond /> Company Formation
       </p>
       <p>
         {" "}
-        <FaDiamond /> Regulatory Compliance
+        <FaDiamond /> Stectutory Regulatory Compliance
       </p>
       <p>
         {" "}
-        <FaDiamond /> Secretarial Services
+        <FaDiamond /> ODI and FDI Compliance
+      </p>
+
+      <p>
+        {" "}
+        <FaDiamond /> SE2 Setup and reportings
+      </p>
+
+      <p>
+        {" "}
+        <FaDiamond /> Employee Benefit Compliance
       </p>
     </div>
   ),
   SpecializedServices: (
     <div>
       <h3>Expertise</h3>
-      {["Forensic Accounting", "Valuation Services", "Due Diligence"].map(
-        (service, index) => (
-          <p key={index}>
-            <FaDiamond /> {service}
-          </p>
-        )
-      )}
+      {[
+        "Accurate and well Intime valuation services",
+        "Tailor made solutions for ERP",
+      ].map((service, index) => (
+        <p key={index}>
+          <FaDiamond /> {service}
+        </p>
+      ))}
+    </div>
+  ),
+  VirtualCFOServices: (
+    <div>
+      <h3>Virtual CFO Services</h3>
+      {[
+        "Financial Planning & Strategy",
+        "Accounting & Compliance",
+        "Tax Planning & Compliance",
+        "Fundraising & Investor Relations",
+      ].map((service, index) => (
+        <p key={index}>
+          <FaDiamond /> {service}
+        </p>
+      ))}
     </div>
   ),
 };

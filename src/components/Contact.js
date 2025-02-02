@@ -6,6 +6,8 @@ import TrackVisibility from "react-on-screen";
 import axios from "axios";
 
 export const Contact = (props) => {
+  const [isOthersSelected, setIsOthersSelected] = useState(false);
+
   return (
     <section
       className="contact"
@@ -30,8 +32,8 @@ export const Contact = (props) => {
             }}
           >
             We value your interest in R K Pareek & Co. and are here to assist
-            you with any question or inquiry. Please fill out the form below and
-            our team will get back to you shortly.
+            you with any question or inquiry.<br></br> Please fill out the form
+            below and our team will get back to you shortly.
           </h5>
           {!props.isMobileDevice && (
             <Col size={12} md={6}>
@@ -86,6 +88,9 @@ export const Contact = (props) => {
                           name="querySubject"
                           placeholder="Query Subject"
                           required
+                          onChange={(event) => {
+                            setIsOthersSelected(event.target.value === "Other");
+                          }}
                         >
                           <option
                             style={{
@@ -192,10 +197,19 @@ export const Contact = (props) => {
                               color: "black",
                             }}
                           >
-                            Others
+                            Other
                           </option>
                         </select>
                       </Col>
+                      {isOthersSelected && (
+                        <Col size={12} sm={6} className="px-1">
+                          <input
+                            type="text"
+                            placeholder="Specify Subject Matter"
+                            name="othersSubjectMatter"
+                          />
+                        </Col>
+                      )}
 
                       <Col size={12} className="px-1">
                         <textarea
@@ -204,7 +218,7 @@ export const Contact = (props) => {
                           name="query"
                         ></textarea>
                         <button type="submit">
-                          <span>Send</span>
+                          <span>Submit</span>
                         </button>
                       </Col>
                     </Row>

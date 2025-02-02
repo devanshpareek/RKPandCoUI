@@ -71,6 +71,8 @@
         background-color: whitesmoke;
         width: 40vw;
         padding: 1.5rem;
+        max-height: 60vh;
+        overflow-y: scroll;
     }
 
     .services-2 {

@@ -34,6 +34,7 @@ const FooterRow = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 20px;
+  gap: 1rem;
 `;
 
 const FooterTitle = styled.h3`
@@ -58,6 +59,7 @@ export const Footer = (props) => {
     "isAdminLoggedIn",
     "false"
   );
+  console.log(props.isMobileDevice);
   return (
     <footer className="footer" id="footer">
       <Container>
@@ -72,7 +74,11 @@ export const Footer = (props) => {
               marginTop: "3rem",
             }}
           >
-            <img src={logo} alt="Logo" />
+            <img
+              className={props.isMobileDevice ? "footer-mobile-logo" : ""}
+              src={logo}
+              alt="Logo"
+            />
             <div>
               <h2
                 style={{
@@ -103,9 +109,9 @@ export const Footer = (props) => {
               <FooterColumn>
                 <FooterTitle>Our Offices</FooterTitle>
                 <FooterItem>Jaipur</FooterItem>
-                <FooterItem>Hyderabad</FooterItem>
-                <FooterItem>Pune</FooterItem>
                 <FooterItem>Jodhpur</FooterItem>
+                <FooterItem>Pune</FooterItem>
+                <FooterItem>Hyderabad</FooterItem>
               </FooterColumn>
               <FooterColumn>
                 <FooterTitle>Services</FooterTitle>
@@ -117,10 +123,13 @@ export const Footer = (props) => {
                 </a>
 
                 <a href="/services/AccountingAndBookkeeping">
-                  <FooterItem>Accounting And Bookkeeping</FooterItem>
+                  <FooterItem>Accounting And Financial Services</FooterItem>
                 </a>
                 <a href="/services/AdvisoryServices">
                   <FooterItem>Advisory Services</FooterItem>
+                </a>
+                <a href="/services/VirtualCFOServices">
+                  <FooterItem>Virtual CFO Services</FooterItem>
                 </a>
                 <a href="/services/ComplianceAndRegulatory">
                   <FooterItem>Compliance And Regulatory</FooterItem>
@@ -133,16 +142,27 @@ export const Footer = (props) => {
               <FooterColumn>
                 <FooterTitle>Contact Us</FooterTitle>
                 <FooterItem>
-                  Coorporate Office: 3, Ground Floor, Krishna Vihar – A,
-                  Mangyawas, New Sanganer Road, Mansarovar, Jaipur, Rajasthan,
-                  India - 302020
+                  Coorporate Office: Plot B1, 3rd Floor, Shiv Vatika, Opposite
+                  Saint Teresa School , Mangyawas , New Sanganer Road,
+                  Mansarovar, Jaipur Rajasthan India - 302020
                 </FooterItem>
                 <FooterItem>Phone: 9929833830, 9887805220</FooterItem>
-                <FooterItem>Email: info@rkpareek.com</FooterItem>
+                <FooterItem>
+                  Email: rkpareek.ca@gmail.com, info@rkpareek.com
+                </FooterItem>
+                <FooterItem>
+                  <iframe
+                    className="map-location"
+                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3559.460490707241!2d75.74419957543755!3d26.857106976680456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjbCsDUxJzI1LjYiTiA3NcKwNDQnNDguNCJF!5e0!3m2!1sen!2sin!4v1738484462068!5m2!1sen!2sin"
+                    allowFullScreen=""
+                    loading="lazy"
+                    title="Our Location"
+                  ></iframe>
+                </FooterItem>
               </FooterColumn>
             </FooterRow>
             <FooterBottom>
-              &copy; 2024 RK Pareek & Company | All rights reserved.
+              &copy; 2024 R K Pareek & Co. | All rights reserved.
             </FooterBottom>
           </FooterWrapper>
         </FooterContainer>

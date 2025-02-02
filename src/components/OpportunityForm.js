@@ -10,6 +10,7 @@ export const OpportunityForm = (props) => {
   const [status, setStatus] = useState({});
 
   const [resumeLink, setResumeLink] = useState();
+  const [isOthersSelected, setIsOthersSelected] = useState(false);
 
   async function tempSub(img) {
     const data = new FormData();
@@ -60,11 +61,8 @@ export const OpportunityForm = (props) => {
         ...(props.withoutBackground && { backgroundColor: "transparent" }),
       }}
     >
-      <h2>Opportunities</h2>
-      <p>
-        Join our team according to your preference and experience, here are some
-        forms arranged according to our openings.
-      </p>
+      <h2>Join our team</h2>
+      <p>Join our amazing team according to your preference and experience.</p>
       <Container>
         <Row className="align-items-center">
           {!props.isMobileDevice && (
@@ -122,6 +120,13 @@ export const OpportunityForm = (props) => {
                       <Col size={12} sm={6} className="px-1">
                         <input
                           type="text"
+                          placeholder="Father's Name"
+                          name="fatherName"
+                        />
+                      </Col>
+                      <Col size={12} sm={6} className="px-1">
+                        <input
+                          type="text"
                           placeholder="Education Background"
                           name="educationBackground"
                         />
@@ -174,11 +179,14 @@ export const OpportunityForm = (props) => {
                         />
                       </Col>
 
-                      <Col size={12} sm={16} className="px-1">
+                      <Col size={12} sm={6} className="px-1">
                         <select
                           id="jobRole"
                           name="jobRole"
                           placeholder="Job Role"
+                          onChange={(event) => {
+                            setIsOthersSelected(event.target.value === "Other");
+                          }}
                         >
                           <option
                             style={{
@@ -206,10 +214,34 @@ export const OpportunityForm = (props) => {
                               color: "black",
                             }}
                           >
-                            Others
+                            Accounts Executive
+                          </option>
+                          <option
+                            style={{
+                              color: "black",
+                            }}
+                          >
+                            Audit Assistant
+                          </option>
+                          <option
+                            style={{
+                              color: "black",
+                            }}
+                          >
+                            Other
                           </option>
                         </select>
                       </Col>
+
+                      {isOthersSelected && (
+                        <Col size={12} sm={6} className="px-1">
+                          <input
+                            type="text"
+                            placeholder="Specify Job Role"
+                            name="othersJobROle"
+                          />
+                        </Col>
+                      )}
 
                       <Col
                         style={{
@@ -232,10 +264,10 @@ export const OpportunityForm = (props) => {
                                 borderRadius: "1rem",
                                 cursor: "pointer",
                                 textAlign: "center",
-                                width:"100%",
-                                height:"100%",
-                                border:"1px solid rgba(255, 255, 255, 0.5)",
-                                fontSize:"18px"
+                                width: "100%",
+                                height: "100%",
+                                border: "1px solid rgba(255, 255, 255, 0.5)",
+                                fontSize: "18px",
                               }}
                             >
                               Upload Resume
@@ -275,7 +307,7 @@ export const OpportunityForm = (props) => {
                           <span>Upload</span>
                         </button>
                       </Col>
-                     
+
                       <Col
                         style={{
                           display: "none",
@@ -306,7 +338,7 @@ export const OpportunityForm = (props) => {
                         className="px-1"
                       >
                         <button type="submit">
-                          <span>Send</span>
+                          <span>Submit</span>
                         </button>
                       </Col>
                     </Row>

@@ -4,7 +4,7 @@ export const keyManagementProfileList = [
     title: "VKG",
     name: "VIPIN KUMAR GARG",
     degrees:
-      "M.Com, F.C.A.                                                    ",
+      "M.Com, FCA                                                    ",
     initialContent:
       "He is a Fellow Member of the Institute of Chartered Accountants of India since 2011. He has adequate experience in the fields of assurance, direct tax and corporate advisory services.",
     image: myPic,
