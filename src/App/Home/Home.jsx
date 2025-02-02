@@ -38,7 +38,7 @@ const Home = (props) => {
           </Row>
         </Container>
       </section>
-      <Footer showAdminDashboard={false} />
+      <Footer isMobileDevice={props.isMobileDevice} showAdminDashboard={false} />
     </>
   );
   // return (

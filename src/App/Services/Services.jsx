@@ -349,7 +349,10 @@ const Services = (serviceName) => {
           </Row>
         </Container>
       </section>
-      <Footer showAdminDashboard={false} />
+      <Footer
+        isMobileDevice={serviceName.isMobileDevice}
+        showAdminDashboard={false}
+      />
     </>
   );
 };

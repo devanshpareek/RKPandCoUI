@@ -150,7 +150,12 @@ export const Footer = (props) => {
                 <FooterItem>
                   Email: rkpareek.ca@gmail.com, info@rkpareek.com
                 </FooterItem>
-                <FooterItem>
+                <FooterItem
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                >
                   <iframe
                     className="map-location"
                     src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3559.460490707241!2d75.74419957543755!3d26.857106976680456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjbCsDUxJzI1LjYiTiA3NcKwNDQnNDguNCJF!5e0!3m2!1sen!2sin!4v1738484462068!5m2!1sen!2sin"
